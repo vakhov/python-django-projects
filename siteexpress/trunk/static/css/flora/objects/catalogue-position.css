@@ -1,0 +1,76 @@
+/* Position */
+
+#position .artic {
+	margin: 0 0 10px 0;
+	color: #666;
+	font-size: 0.85em;
+	font-style: italic;
+}
+
+#position #p_price {
+	float: left;
+	margin: 10px 40px 10px 0;
+	padding: 10px 10px 0 0;
+	color: #666;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+#position #p_price span  {
+	float: left;
+	font-size: 2em;
+	padding: 5px 10px 5px 0;
+	color: #000;
+}
+
+#position .one {
+	float: left;
+	padding: 5px 10px 5px 0;
+}
+
+#position .two {
+	float: left;
+	padding: 5px 0 5px 10px;
+	border-width: 0 0 0 1px;
+	border-style: dashed;
+	border-color: #ccc;
+}
+
+#c_files {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#c_files li {
+	margin: 0 0 10px 0;
+	padding: 0 0 0 20px;
+	line-height: 20px;
+	background: url(/images/file.gif) 0 50% no-repeat;
+}
+
+#c_files li small {
+	margin-left: 5px;
+	color: #666;
+}
+
+#c_photo .img {
+	float: left;
+    width: 150px;
+    // display: inline;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#c_photo .img a { 
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 150px;
+    width: 150px;
+}
+
+#position .desc {
+	margin-bottom: 2em;
+}

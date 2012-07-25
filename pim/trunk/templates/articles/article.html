@@ -1,0 +1,19 @@
+{% extends "articles/article_layout.html" %}
+
+{% block article_content %}
+
+    <h1>{{ article.caption }}</h1>
+	<div class="desc">
+	    <p>
+	        {{ article.shortdesc|safe }}
+	    </p>
+	</div>
+
+    {% load zones %}
+    {% render_zone article.zone %}
+
+	<p>
+		<a class="back" href="/articles/">Вернуться к списку статей</a>
+	</p>
+
+{% endblock %}

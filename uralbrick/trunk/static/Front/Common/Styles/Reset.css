@@ -1,0 +1,111 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Reset
+ */
+
+/** @section Body */
+body {
+	background: #000 url(about:blank) fixed;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	margin: 0;
+}
+
+/** @section Blocks */
+dd, div, dl, dt, form, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+}
+
+/** @section Lists */
+ol, ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: list-item;
+	margin: 0;
+	padding: 0;
+}
+
+/** @section Tables */
+table {
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+}
+
+tbody, thead, tfoot {
+	vertical-align: baseline;
+}
+
+td {
+	border: 0;
+	padding: 0;
+}
+
+th {
+	border: 0;
+	font-weight: normal;
+	padding: 0;
+	text-align: left;
+}
+
+/** @section Inline */
+
+sub {
+	bottom: -0.4em;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	position: relative;
+	top: -0.4em;
+	vertical-align: baseline;
+}
+
+small {
+	font-size: 100%;
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+	margin: 0;
+}
+
+/** @section Inputs */
+button, input, select, textarea {
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+    resize: none;
+}
+
+input::-moz-focus-inner {
+	border: none;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+a:active, a:focus, img {
+    outline: none;
+}

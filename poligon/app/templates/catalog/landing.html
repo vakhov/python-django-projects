@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% load zones %}
+
+{% block site %}
+
+    <div class="content">
+        <div class="siteFrame context_vis">
+            <div class="siteFrame_100 siteFrame_margin_0">
+                <div class="landingPage"
+                    style="background: url('/front/catalogue/images/landing.jpg') 0 30px no-repeat;">
+                    <div class="landingPage_content pathContainer">
+                        
+                        <!-- zone 1 -->
+                        
+                        <div class="landingButton">
+                            <div class="buy_now"><a href="#">Купить сейчас</a></div>
+                            <div class="def">или</div>
+                            <div class="learn_more"><a href="#">Узнать больше</a></div>
+                        </div>
+
+                        <!-- zone 2 -->
+
+                        <ul class="path">
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/catalog/">Товары</a></li>
+                            {% if not current_widget %}
+                                <li class="cur">{{ section.name }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+            <!-- zone 3 -->
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

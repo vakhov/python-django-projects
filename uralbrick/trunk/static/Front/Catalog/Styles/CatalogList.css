@@ -1,0 +1,252 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage CatalogList
+ */
+
+.catalogList_item {
+    margin-bottom: 45px;
+}
+
+.catalogList_item .photo {
+    margin-bottom: 15px;
+}
+
+.catalogList_item .photo a {
+    display: block;
+    position: relative;
+    border-bottom-width: 0;
+}
+
+.catalogList_item .photo img {
+    display: block;
+}
+
+.catalogList_item .photo ins {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 257px;
+    height: 99px;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.catalogList_item__hover .photo ins {
+    display: block;
+}
+
+.catalogList_item dt {
+    margin-bottom: 10px;
+    font-size: 1.429em;
+    font-style: italic;
+}
+
+.catalogList_item dt a {
+    border-bottom-width: 2px;
+}
+
+.catalogList_item__hover dt a {
+    color: #f30;
+    border-color: #f30;
+}
+
+.catalogList_item .desc {
+    font-size: 0.875em;
+    line-height: 1.429em;
+}
+
+/** @section Like */
+
+.like {
+    height: 22px;
+    line-height: 22px;
+}
+
+.like span {
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.like img {
+    display: block;
+    float: left;
+}
+
+.like_title {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.286em;
+}
+
+/** @section CatalogItem */
+
+.catalogItem {
+    padding: 25px 0;
+}
+
+.catalogItem .photo {
+    margin-bottom: 15px;
+    width: 257px;
+    border: 3px solid #fff;
+}
+
+.catalogItem .photo {
+    
+}
+
+.catalogItem .photo img {
+    display: block;
+}
+
+.catalogItem dt {
+    margin-bottom: 11px;
+    line-height: 1.571em;
+    font-weight: bold;
+}
+
+.catalogItem__hover dt a {
+    color: #f30;
+    border-color: #f30;
+}
+
+.catalogItem .price {
+    margin-bottom: 9px;
+    font-weight: bold;
+}
+
+.catalogItem span {
+    padding: 3px 10px;
+    background-color: #000;
+    color: #fff;
+}
+
+.catalogItem .price span em {
+    position: relative;
+    font-style: normal;
+    zoom: 1;
+}
+
+.catalogItem .price span em i {
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: 10px;
+    width: 8px;
+    height: 1px;
+    font-size: 1px;
+    border-top: 1px solid #fff;
+}
+
+.ie .catalogItem .price span em i {
+    top: 9px;
+}
+
+.catalogItem .desc {
+    line-height: 1.5em;
+    font-size: 0.875em;
+}
+
+/** @section ShowMore */
+
+.showMore {
+    height: 49px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #fff;
+}
+
+.showMore a {
+    display: block;
+    height: 49px;
+    line-height: 47px;
+    text-align: center;
+    border-bottom-width: 0;
+}
+
+.showMore a:hover {
+    background: url('../Images/ShowMore.png');
+}
+
+.showMore a span {
+    padding-right: 12px;
+    color: #000;
+    border-color: #000;
+    background: url('../Images/ShowMoreBg.png') right 3px no-repeat;
+}
+
+.showMore a:hover span {
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+/** @section Small */
+
+.catalogItem__small {
+    float: left;
+    padding: 0 26px 50px 2px;
+    width: 150px;
+}
+
+.catalogItem__small .photo {
+    position: relative;
+    margin-bottom: 8px;
+    padding: 2px;
+    width: 150px;
+    height: 150px;
+}
+
+.catalogItem__small .photo a {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 0;
+}
+
+.catalogItem__small_hover .photo {
+    left: -2px;
+    bottom: 0;
+}
+
+.catalogItem__small_hover .photo img {
+    display: block;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.catalogItem__small dt {
+    margin-bottom: 8px;
+    padding-bottom: 2px;
+    min-height: 36px;
+    line-height: 18px;
+    font-size: 0.875em;
+}
+
+.ie-lt7 .catalogItem__small dt {
+    height: 36px;
+}
+
+.catalogItem__small_hover dt a {
+    color: #f30;
+    border-color: #f30;
+}
+
+.catalogItem__small .price {
+    float: left;
+    margin-bottom: 8px;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 0.875em;
+    color: #fff;
+    background: url('../Images/Price.png');
+}
+
+.catalogItem__small_hover .price {
+    background-image: none;
+}
+
+.catalogItem__small .art {
+    clear: both;
+    font-size: 0.875em;
+}

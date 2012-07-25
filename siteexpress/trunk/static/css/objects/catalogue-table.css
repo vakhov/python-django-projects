@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+#catalog table td {
+	padding: 10px;
+}
+
+#catalog th {
+	border-top: none !important;
+}
+#catalog th:first-child, 
+#catalog td:first-child  {
+	border-left: none !important;
+}
+#catalog th:last-child,
+#catalog td:last-child {
+	border-right: none !important;
+}
+#catalog tr:last-child td {
+	border-bottom: none !important;
+}

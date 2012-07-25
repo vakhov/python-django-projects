@@ -1,0 +1,291 @@
+@CHARSET "UTF-8";
+
+.grid td {
+	vertical-align: top;
+	margin: 0; padding: 0 10px;
+}
+
+.grid {
+	margin-bottom: 0.5em;
+}
+
+body, html {
+	padding: 0; margin: 0;
+	font-family: Georgia, "Palatino Linotype", serif;
+	font-size: 95%;
+}
+
+h1, h2, h3 {
+	font-style: italic;
+	color: #093;
+}
+
+h1 {
+	font-size: 180%;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+#header {
+	background: url(/static/images/i.jpg) 0 50% no-repeat;
+}
+
+.container {
+	position: relative;
+}
+
+.nolink {
+	text-decoration: none;
+}
+
+.left * {
+	zoom: 1;
+}
+
+#logo {
+	height: 200px;
+	width: 310px;
+	background: url(/static/images/logo.png) left top no-repeat;
+}
+#ie6 #logo {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/images/logo.png');
+}
+#logo a {
+	position: relative;
+	display: block;
+	height: 200px;
+	width: 310px;
+}
+
+.header_box, .header_box_bg {
+	position: absolute;
+}
+
+#menu {
+	font-size: 1.05em;
+}
+
+#text p, #text ul, #text ol, #text table {
+	clear: both;
+}
+
+#footer {
+	padding: 0 0 2em 0;
+}
+#footer p {
+	font-size: 0.85em;
+	margin-bottom: 0.7em;
+}
+#company {
+	margin-top: 2.5em;
+}
+#company p {
+	padding: 0 2.5em;
+}
+#wss {
+	margin-top: 1.3em;
+	padding: 1.2em 0 1em 80px;
+	background: url(/static/images/se.png) left top no-repeat;
+}
+#ie6 #wss {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/se.png');
+	zoom: 1;
+	
+}
+#ie6 #wss * {
+	position: relative;
+}
+#wss .docs {
+	margin: 1.5em 0 !important;
+}
+
+#files *, #icq * {
+	zoom: 1;
+}
+
+#navigation ul {
+	list-style-type: none;
+	margin: 0; padding: 0;
+}
+#navigation li {
+	float: right;
+	margin: 1.1em 1.5em 0.5em 0;
+}
+#ie6 #navigation li {
+	display: inline;
+}
+#navigation a {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+#tohome {
+	background: url(/static/images/home.gif) top left no-repeat;
+}
+#writeletter {
+	background: url(/static/images/mail.gif) top left no-repeat;
+}
+
+#phone {
+	font-size: 1.7em;
+	margin-right: 1em;
+}
+#ie7 #phone, #ie6 #phone {
+	height: 1.2em !important;
+	overflow: hidden;
+}
+#phonecode {
+	display: none;
+	font-size: 0.65em;
+	padding-right: 0.5em;
+}
+
+#basket {
+	clear: both;
+	margin: 1.7em 0 1.7em; 
+	padding-left: 60px;
+	background: url(/static/images/cart.png) top left no-repeat;
+}
+#ie6 #basket {
+	zoom: 1;
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/cart.png');
+}
+#ie6 #basket * {
+	position: relative;
+}
+#basket a {
+	font-size: 1.5em;
+}
+
+#files ul {
+	list-style-type: none;
+	margin: 0 0 2em 0;
+}
+#files li {
+	margin-bottom: 0.3em;
+	padding-left: 2em;
+	background: url(/static/images/file.gif) 0 0.3em no-repeat;
+}
+#files a {
+	font-size: 1.2em;
+}
+#files small {
+	display: block;
+	font-size: 0.85em;
+}
+
+#icq ul {
+	margin: 0 0 2em 0;
+	list-style-type: none;
+}
+#icq li {
+	padding-left: 2em;
+	margin-bottom: 0.3em;
+	background-position: 0 0.3em;
+	background-repeat: no-repeat;
+}
+#icq a {
+	display: block;
+	font-size: 1.2em;
+}
+#icq span {
+	display: block;
+	font-size: 0.9em;
+}
+
+#votequestion {
+	font-size: 1.1em;
+	margin-bottom: 1em;
+}
+#voteform, #voteresults ul {
+	list-style-type: none;
+	margin: 0 0 2em 0;
+}
+#voteform li {
+	position: relative;
+	padding-left: 2em;
+	margin-bottom: 0.3em;
+	background: url(/static/images/arrow.gif) 0 0.6em no-repeat;
+}
+#voteresults li {
+	margin-bottom: 0.5em;
+}
+#voteresults p {
+	margin-bottom: 0;
+}
+#voteresults .indicator {
+	text-align: center;
+	line-height: 1em;
+}
+#voteresults small {
+	font-size: 0.8em;
+}
+.votecounter {
+	margin-bottom: 2em !important;
+}
+#votecounter {
+	padding-left: 0.3em;
+}
+
+.pagination {
+	font-size: 1.2em;
+	display: none;
+}
+.pagination a, .pagination span {
+	padding: 2px 5px;
+}
+
+.pagination span {
+	color: #fff;
+	background-color: #a50;
+}
+ul#thumbs li {
+	float: left;
+	margin: 0; padding: 0;
+	list-style-type: none !important;
+}
+
+ul#thumbs a{
+	display:block;
+	float:left;
+	width:70px;
+	height:70px;
+	line-height:70px;
+	overflow:hidden;
+	position:relative;
+	//display: inline;
+	z-index:1;	
+	margin: 5px;
+}
+
+ul#thumbs a img{
+	float:left;
+	position:absolute;
+	top:-10px;
+	left:-30px;	
+}
+ul#thumbs a:hover{
+	overflow:visible;
+	z-index:100;
+}
+
+.adder_link {
+	display: inline-block;
+	padding: 5px 10px 5px 25px;
+	margin: 3px;
+	background: url(/static/images/aphaline/legacy/add.png) 0 50% no-repeat;
+	background-position: 3px;
+	border: 1px solid #ccc;
+	}
+
+.link {
+	display: inline-block;
+	padding: 5px 10px;
+	background-position: 3px;
+	border: 1px solid #ccc;
+	}

@@ -1,0 +1,5 @@
+Aphaline.Structure = {
+    
+    var dom = '';
+
+}

@@ -1,0 +1,22 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+{% load zones %}
+
+	{% include "flora/common/index_link.html" %}
+	
+    <div id="news_position">
+        <h1>{{ news.caption|safe }}</h1>
+        <div class="desc">
+            <p>
+                {{ news.text|safe }}
+            </p>
+        </div>
+        
+	    {% render_zone news.zone %}
+        <br />
+        <p>
+            <a class="back" href="/article/">Вернуться к списку статей</a>
+        </p>
+    </div>
+
+{% endblock %}

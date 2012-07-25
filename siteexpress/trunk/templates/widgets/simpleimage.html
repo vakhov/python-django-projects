@@ -1,0 +1,13 @@
+{% if current_widget.image %}
+<div class="just_image border_bottom">
+    <div class="img" style="text-align:center;">
+    {% if current_widget.link %}
+    <a href="{{ current_widget.link }}">
+    {% endif %}
+    	<img src="{{ MEDIA_URL }}{{ current_widget.image }}" alt="{{ current_widget.alt }}" title="{{ current_widget.title }}"/>
+	{% if current_widget.link %}
+    </a>
+    {% endif %}
+	</div>
+</div>
+{% endif %}

@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+#specials ul {
+	list-style-type: none;
+	margin: 0.5em 0 0.5em 0;
+}
+#specials li {
+	margin: 0; padding: 0;
+	text-align: center;
+	width: 100%;
+}
+#specials img {
+	padding: 0;
+}
+#specials li img {
+	border-width: 1px;
+	border-style: solid;
+}
+#specials a {
+	display: block;
+	margin: 0.5em;
+	padding: 0.5em;
+	border-width: 0 0 1px 0;
+	cursor: pointer;
+}
+#specials span {
+	display: block;
+}
+#specials .header {
+	font-size: 1.2em;
+}
+#specials .shortdesc {
+	clear: both;
+	font-size: 0.9em;
+}
+#specials .price {
+	text-align: right;
+	font-size: 1.4em;
+	margin-bottom: 0.3em;
+}
+#specials .price {
+	font-weight: bold;
+}
+

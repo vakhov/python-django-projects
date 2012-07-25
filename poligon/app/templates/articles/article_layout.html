@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Статьи{% if article %} — {{ article.caption }}{% endif %}{% endblock %}
+
+{% block site %}
+
+    <div class="siteFrame context_vis">
+        <div class="siteFrame_75 siteFrame_margin_25 pathContainer">
+            {% block article_content %}{% endblock %}
+        </div>
+        <div class="siteFrame_25 siteFrame_margin_0 siteFrame_headerPaddingTop">
+            {% include "articles/left_menu.html" %}
+        </div>
+    </div>
+
+{% endblock %}

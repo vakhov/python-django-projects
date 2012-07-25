@@ -1,0 +1,127 @@
+﻿.index_gallery {
+    position: relative;
+    height: 200px;
+    visibility: hidden;
+}
+.index_gallery_item {
+    position: relative;
+    width: 750px;
+    height: 100%;
+}
+
+/* Title */
+
+.index_gallery_item .title {
+    display: inline-block;
+    padding: 10px 25px 45px;
+    font-size: 3.572em;
+    font-style: italic;
+    background: url('../Images/Header.png');
+}
+.index_gallery_item .title a {
+    border: 0;
+    color: #fff;
+}
+.colored_red .index_gallery_item .title a:hover { color: #E3282E; }
+.colored_yellow .index_gallery_item .title a:hover { color: #FBD82C; }
+.colored_green .index_gallery_item .title a:hover { color: #8BD723; }
+.colored_blue .index_gallery_item .title a:hover { color: #319DC5; }
+.colored_purple .index_gallery_item .title a:hover { color: #C61ED5; }
+
+/* Text */
+
+.index_gallery_item .text {
+    position: relative;
+    left: 25px;
+    top: -25px;
+    display: inline-block;
+    padding: 5px 10px 10px;
+    width: 570px;
+    line-height: 1.715em;
+    color: #fff;
+}
+
+.colored_yellow .index_gallery_item .text {
+    color: #000;
+}
+
+.index_gallery_item .text a:hover {
+    color: #ccc;
+    border-bottom-color: #ccc;
+}
+
+.colored_yellow .index_gallery_item .text a:hover,
+.colored_green .index_gallery_item .text a:hover {
+    color: #666;
+    border-bottom-color: #666;
+}
+
+/* jcarousel styles */
+
+.index_gallery .jcarousel-container-horizontal {
+    padding: 0 120px;
+    width: 750px;
+    height: 100%;
+}
+.index_gallery .jcarousel-clip {
+    overflow: hidden;
+    height: 100%;
+    width: 750px;
+}
+.index_gallery .jcarousel-list {
+    top: 100% !important;
+    margin-top: -200px !important;
+}
+.index_gallery .jcarousel-prev,
+.index_gallery .jcarousel-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    padding: 17px 0 0 28px;
+    width: 62px;
+    height: 73px;
+    background: url('../Images/Gallery.png') 0 0 no-repeat;
+    cursor: pointer;
+}
+.index_gallery .jcarousel-prev-disabled,
+.index_gallery .jcarousel-next-disabled {
+    display: none !important;
+}
+.index_gallery .jcarousel-prev {
+    left: 0;
+}
+.index_gallery .jcarousel-next {
+    right: 0;
+    padding-left: 32px;
+    width: 58px;
+}
+
+.colored_red    .index_gallery .jcarousel-prev:hover,
+.colored_red    .index_gallery .jcarousel-next:hover { background-position: 0 -90px; }
+
+.colored_yellow .index_gallery .jcarousel-prev:hover,
+.colored_yellow .index_gallery .jcarousel-next:hover { background-position: 0 -180px; }
+
+.colored_green  .index_gallery .jcarousel-prev:hover,
+.colored_green  .index_gallery .jcarousel-next:hover { background-position: 0 -270px; }
+
+.colored_blue   .index_gallery .jcarousel-prev:hover,
+.colored_blue   .index_gallery .jcarousel-next:hover { background-position: 0 -360px; }
+
+.colored_purple .index_gallery .jcarousel-prev:hover,
+.colored_purple .index_gallery .jcarousel-next:hover { background-position: 0 -450px; }
+
+.index_gallery .jcarousel-prev span,
+.index_gallery .jcarousel-next span {
+    display: block;
+    width: 29px;
+    height: 55px;
+    background: url('../Images/GalleryNavigation.png');
+    background-repeat: no-repeat;
+}
+.index_gallery .jcarousel-prev span {
+    background-position: -29px 0;
+}
+.index_gallery .jcarousel-next span {
+    background-position: 0 0;
+}

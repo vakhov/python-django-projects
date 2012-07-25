@@ -1,0 +1,18 @@
+{% extends "s1/layout.html" %}
+{% block site %}
+<div class="right append-1 prepend-1 span-22 last prepend-top">
+    <div id="news_position">
+        <h3 class="date">{{ news.date|date:"D\, d M Y" }}</h3>
+        <h1>{{ news.caption }}</h1>
+        <div class="short">{{ news.announce }}</div><br />
+        <div class="desc">
+            <p>
+                {{ news.text }}
+            </p>
+        </div><br />
+        <p>
+            <a class="back" href="/news/">Вернуться к списку новостей</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

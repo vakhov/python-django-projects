@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+
+/* Backgrounds */
+
+body {
+	background-color: #fff;
+	/* background: #e0e0e0 url(/images/body_bg.gif); */
+}
+
+#menu {
+	background: #21a63f;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
+#menu ul, #menu ul ul {
+}
+
+.container { 
+	background: #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+
+#text_bg  {
+	background: transparent;
+}
+
+.header_box_bg, #voteresults p {
+	background: #fff;
+}
+
+.header_box * {
+	color: #000 !important;
+}
+
+
+#voteresults li {
+	background: #f0f0f0;
+}
+
+#voteresults .indicator {
+	background-color: #0d81ff;
+}
+
+#specials a:hover {
+	background: #eee;
+}
+
+#news .date span {
+	background: #c74975;
+}
+
+tr.odd td {
+	background-color: #f0f0f0;
+}
+tr.even td {
+	background-color: #d0d0d0;
+}
+
+#catalog th {
+	background-color: #ccc;
+}
+#catalog tr.odd td {
+	background-color: #f0f0f0;
+}
+#catalog tr.even td {
+	background-color: #fff;
+}
+
+#footer {
+	margin-top: 50px;
+	background: url(/images/footer_bg.png) 100% 100% repeat-x;
+}
+
+/* Colors */
+
+.container {
+	color: #333;
+}
+
+#specials a {
+	color: #000;
+}
+
+a /* ссылка */
+{color: #444;}
+
+a:hover /* ссылка при наведении */
+{color: #444;}
+
+b, strong {
+	color: #000;
+}
+
+#menu a {
+	color: #fff;
+}
+
+#specials .price {
+	color: #777;
+}
+
+#news .date span {
+	color: #fff;
+}
+
+#voteresults small {
+	color: #fff;
+}
+
+/* Borders */
+
+
+#specials li img {
+	border: 0;
+}
+
+#catalog_body {
+	border-color: #ccc;
+}
+
+#specials a {
+	/* border-color: #ddd; */
+}
+
+#news .date {
+	border-color: #ccc;
+}
+
+#text td {
+	border-color: #666;
+}
+#text th {
+	border-color: #666;
+}
+
+/* End of "colors.css" */

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Регистрация</title>
+</head>
+<body>
+	{% if error_pwd or error_login %}
+		{{ error_pwd }}
+		{{ error_login }}
+	{% else %}
+	{{ form.error.login }}
+		<form action="" method="post">{% csrf_token %}
+			<label for="login">Логин:</label>
+			{{ form.login }}
+			<label for="pwd">Пароль:</label>
+			{{ form.password }}
+			<input type="submit" value="Войти">
+		</form>
+	{% endif %}
+</body>
+</html>

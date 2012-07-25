@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+<div class="content">
+    {% render_zone current_section.zone %}
+</div>
+{% endblock %}

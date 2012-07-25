@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<ul class="illustrations">
+    <li>
+        <img src="{{ STATIC_URL }}Front/Common/Images/Illustrations/1.jpg" alt="" />
+    </li>
+</ul>
+
+<div class="site widthFixed">
+    <div class="container container_minimal">
+        <ul class="path">
+            <li><a href="#" class="blackLink">Самая главная страница</a></li>
+            <li><a href="#" class="blackLink">Каталог товаров</a></li>
+            <li><a href="#" class="blackLink">Линолеум</a></li>
+            <li><a href="#" class="blackLink">Коммерческий</a></li>
+            <li class="path_current">Таркетт</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="catalogPosition context_novis">
+            <div class="catalogPosition_photo context_novis">
+                <ul class="small_photos">
+                    <li>
+                        <a href="{{ STATIC_URL }}Front/Catalog/Images/PositionImage2.jpg" class="cBox">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/PositionImage2_small.jpg" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ STATIC_URL }}Front/Catalog/Images/PositionImage3.jpg" class="cBox">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/PositionImage3_small.jpg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+                <a href="{{ STATIC_URL }}Front/Catalog/Images/PositionImage.jpg" class="photo cBox">
+                    <img src="{{ STATIC_URL }}Front/Catalog/Images/PositionImage.jpg" class="colored_border" alt="" />
+                    <ins class="zoom"></ins>
+                </a>
+            </div>
+            <div class="content">
+                <h1>{{ product.name }}</h1>
+            </div>
+            <ul class="catalogPosition_info">
+                <li>Артикул: <b>{{ product.articul }}</b></li>
+                {% if product.count_in_the_presence %}
+                	<li>В наличии: <b>{{ product.count_in_the_presence }} шт</b></li>
+                {% else %}
+                	<li>Нет в наличии</li>
+                {% endif %}
+                <li>Доставка: <b>{{ product.get_delivery_period_display }}</b></li>
+            </ul>
+            <div class="catalogPosition_links context_novis">
+                <div class="catalogPosition_links_item">
+                    <a href="#" class="catalogPosition_link__paramsShow inlineBlock">
+                        <span class="virtualLink">Характеристики</span>
+                    </a>
+                </div>
+                <div class="catalogPosition_links_item">
+                    <a href="#" class="catalogPosition_link__likeShow inlineBlock">
+                        <span class="virtualLink">Нравится 345 людям</span>
+                        <ins></ins>
+                    </a>
+                </div>
+            </div>
+            <div class="catalogPosition_like context_novis">
+                <div class="like">
+                    <span><img alt="" src="{{ STATIC_URL }}Front/Catalog/Images/vk.png"></span>
+                    <span><img alt="" src="{{ STATIC_URL }}Front/Catalog/Images/fb.png"></span>
+                    <span><img alt="" src="{{ STATIC_URL }}Front/Catalog/Images/tw.png"></span>
+                    <span><img alt="" src="{{ STATIC_URL }}Front/Catalog/Images/gp.png"></span>
+                </div>
+            </div>
+            <div class="catalogPosition_params">
+                <table>
+                    <tr>
+                        <th><span>Размер:</span></th>
+                        <td><span>40х40 мм</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Кол-во плиток в коробке:</span></th>
+                        <td><span>12 шт</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Поверхность:</span></th>
+                        <td><span>матовая</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Вес коробки:</span></th>
+                        <td><span>23 кг</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="catalogPosition_buy">
+                <span class="catalogPosition_price">{{ product.discounted }} руб. / {{ product.get_unit|safe }}</span>
+                {% if product.count_in_the_presence %}
+                	<div class="catalogPosition_buyButton colored_bgColor"><a href="#">Купить!</a></div>
+                {% endif %}
+            </div>
+            {% if product.desc_short %}
+	            <div class="catalogPosition_desc content">
+	                {{ product.desc_full }}
+	            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

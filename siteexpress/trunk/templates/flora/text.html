@@ -1,0 +1,8 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+    {% include "flora/common/index_link.html" %}
+    <div id="text" class="flexcroll">
+        {% load zones %}
+        {% render_zone current_section.zone %}
+    </div>
+{% endblock %}

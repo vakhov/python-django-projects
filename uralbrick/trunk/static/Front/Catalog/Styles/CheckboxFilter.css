@@ -1,0 +1,60 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage CheckboxFilter
+ */
+
+.checkbox_filter li {
+    float: left;
+    margin-right: 5%;
+    width: 28%;
+}
+
+.checkbox_filter li a {
+    position: relative;
+    border-bottom: 0;
+    color: #fff !important;
+}
+
+.colored_yellow .checkbox_filter li a.checked {
+    color: #000 !important;
+}
+
+.checkbox_filter li a span {
+    position: relative;
+    padding: 5px 9px 5px 25px;
+    background: url('../Images/Checkbox.png') -24px 7px no-repeat;
+}
+
+.checkbox_filter li a.checked span {
+    background-position: 6px -23px;
+}
+
+.checkbox_filter li a ins {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.checkbox_filter li a:hover ins {
+    display: block;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    -ms-opacity: 0.5;
+    -o-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.checkbox_filter li a.checked ins {
+    display: block;
+}
+
+.checkbox_filter li a.checked:hover ins {
+    -moz-opacity: 1 !important;
+    -webkit-opacity: 1 !important;
+    -ms-opacity: 1 !important;
+    -o-opacity: 1 !important;
+    opacity: 1 !important;
+}

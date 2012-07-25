@@ -1,0 +1,58 @@
+{% extends "s1/layout.html" %}
+{% block site %}
+<div class="right append-1 prepend-1 span-22 last prepend-top">
+  <p style="margin-left: -0.7em;">
+  &laquo;&nbsp;<a href="/">На главную страницу</a>
+  </p>
+  {% if not ok %}
+  <div id="qa">
+    <h1>Вопрос-ответ</h1>
+    {% if questanswer %}
+      {% for qa in questanswer %}
+        <div class="pos">
+          <p class="autor">{{ qa.author }}<em> ({{ qa.publication_date|date:"D\, d M Y" }})</em></p>
+          <p class="mes">{{ qa.question }}</p>
+          {% if qa.moderator and qa.answer %}
+            <p class="a_men">{{ qa.moderator }}</p>
+            <p class="answr">{{ qa.answer }}</p>
+          {% else %}
+            <p class="answr"></p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div id="q_form">
+      <form action="#" method="post">{% csrf_token %}
+      <table class="null">
+        <tr>
+          <td>Автор:</td>
+          <td>
+            <input type="text" name="q_autor" value="Гость" id="q_autor" value="{{ q_autor }}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Сообщение:</td>
+          <td>
+            <textarea name="q_mes" id="q_mes">{{ q_mes }}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" name="q_submit" value="Отправить" id="q_submit" />
+          </td>
+        </tr>
+      </table>
+      </form>
+      </div>
+{% else %}
+      <div id="q_thankyou" style="margin: 3em 0;">
+      <h2>Спасибо за Ваш вопрос!</h2>
+      <p>Он будет размещен в списке одновременно с ответом.</p>
+      <p>&laquo;&nbsp;<a href="/qa/">Назад</a></p>
+      </div>
+{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

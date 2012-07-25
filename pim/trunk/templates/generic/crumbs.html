@@ -1,0 +1,10 @@
+<p class="crumbs">
+    <a href="/">Главная</a> &raquo;
+    {% for crumb in crumbs %}
+        {% if not forloop.last %}
+            <a href="{{ crumb.path }}">{{ crumb.caption }}</a> &raquo;
+        {% else %}
+            {{ crumb.caption }}
+        {% endif %}
+    {% endfor %}
+</p>

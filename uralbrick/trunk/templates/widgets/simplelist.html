@@ -1,0 +1,13 @@
+{% if current_widget.list_type == 1 %}
+<ul>
+    {% for item in current_widget.get_items %}
+    <li>{{ item|safe }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<ol>
+    {% for item in current_widget.get_items %}
+    <li>{{ item|safe }}</li>
+    {% endfor %}
+</ol>
+{% endif %}

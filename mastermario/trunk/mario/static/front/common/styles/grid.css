@@ -1,0 +1,150 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Grid
+ */
+
+.siteFrame {
+    margin-bottom: 20px;
+    width: 41.65%;
+	position: relative;
+}
+
+.pathContainer {
+    position: relative;
+    padding-top: 21px;
+}
+
+.siteFrame__bottom_0 {
+    margin-bottom: 0;
+}
+
+.siteFrame__bottom_10 {
+    margin-bottom: 10px;
+}
+
+.siteFrame__bottom_30 {
+    margin-bottom: 30px;
+}
+
+.siteFrame__bottom_40 {
+    margin-bottom: 40px;
+}
+
+.siteFrame_headerPaddingTop {
+    padding-top: 30px;
+}
+
+/** @section Spans */
+.siteFrame_25, .siteFrame_33,
+.siteFrame_50, .siteFrame_66,
+.siteFrame_75, .siteFrame_100 {
+	display: inline;
+	float: left;
+	position: relative;
+}
+
+.siteFrame_25 {
+	width: 41.04%;
+	margin-right: -41.04%;
+}
+
+.siteFrame_33 {
+	width: 61.032%;
+	margin-right: -61.032%;
+}
+
+.siteFrame_50 {
+	width: 101.04%;
+	margin-right: -101.04%;
+}
+
+.siteFrame_66 {
+	width: 141.024%;
+	margin-right: -141.024%;
+}
+
+.siteFrame_75 {
+	width: 161.04%;
+	margin-right: -161.04%;
+}
+
+.siteFrame_100 {
+	width: 221.04%;
+	margin-right: -221.04%;
+}
+
+/** @section Cols */
+.siteFrame_margin_0 {
+	left: 0;
+}
+
+.siteFrame_margin_25 {
+	left: 60%;
+}
+
+.siteFrame_margin_33 {
+	left: 79.992%;
+}
+
+.siteFrame_margin_50 {
+	left: 120%;
+}
+
+.siteFrame_margin_66 {
+	left: 159.984%;
+}
+
+.siteFrame_margin_75 {
+	left: 180%;
+}
+
+/* in 75 (33+33+33, 66+33, 33+66, 50+50) */
+
+.siteFrame_75 .siteFrame_50 {
+	width: 105.73%;
+	margin-right: -105.73%;
+}
+
+.siteFrame_75 .siteFrame_33 {
+	width: 61.2%;
+	margin-right: -61.2%;
+}
+
+.siteFrame_75 .siteFrame_66 {
+	width: 150.7%;
+	margin-right: -150.7%;
+}
+
+.siteFrame_75 .siteFrame_margin_50 {
+	left: 134.3%;
+}
+
+.siteFrame_75 .siteFrame_margin_33 {
+	left: 89.4%;
+}
+
+.siteFrame_75 .siteFrame_margin_66 {
+	left: 178.9%;
+}
+
+/* in 66 (50+50) */
+
+.siteFrame_66 .siteFrame_50 {
+	width: 103.88%;
+	margin-right: -103.88%;
+}
+
+.siteFrame_66 .siteFrame_margin_50 {
+	left: 136.2%;
+}
+
+/* in 50 (50+50) */
+
+.siteFrame_50 .siteFrame_50 {
+	width: 97.51%;
+	margin-right: -97.51%;
+}
+
+.siteFrame_50 .siteFrame_margin_50 {
+	left: 142.5%;
+}

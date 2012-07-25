@@ -1,0 +1,8 @@
+<ul class="{% ifequal current_widget.list_type 1 %}no_marker{% endifequal %}
+{% ifequal current_widget.list_type 2 %}number_marker{% endifequal %}
+{% ifequal current_widget.list_type 3 %}simple_marker{% endifequal %}
+{% ifequal current_widget.list_type 4 %}orange_marker{% endifequal %}">
+    {% for item in current_widget.get_items %}
+    <li>{{ item|safe }}</li>
+    {% endfor %}
+</ul>

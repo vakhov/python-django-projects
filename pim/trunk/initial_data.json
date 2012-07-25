@@ -1,0 +1,146 @@
+[
+  {
+    "model": "structure.sectiontype",
+    "pk": 3,
+    "fields": {
+      "caption": "Catalog page",
+      "slug": "catalog",
+      "inherit_type": 3
+    }
+  },
+  {
+    "model": "structure.sectiontype",
+    "pk": 2,
+    "fields": {
+      "caption": "Text page",
+      "slug": "text",
+      "inherit_type": 2
+    }
+  },
+  {
+    "model": "structure.sectiontype",
+    "pk": 1,
+    "fields": {
+      "caption": "Index page",
+      "slug": "index",
+      "inherit_type": 2
+    }
+  },
+  {
+    "model": "widgets.zone",
+    "pk": 1,
+    "fields": {}
+  },  
+  {
+    "model": "widgets.zone",
+    "pk": 2,
+    "fields": {}
+  },  
+  {
+    "model": "widgets.zone",
+    "pk": 10,
+    "fields": {}
+  },  
+  {
+    "model": "widgets.zone",
+    "pk": 11,
+    "fields": {}
+  },  
+  {
+    "model": "widgets.zone",
+    "pk": 12,
+    "fields": {}
+  },  
+  {
+    "model": "widgets.zone",
+    "pk": 555,
+    "fields": {}
+  },  
+  {
+    "model": "structure.section",
+    "pk": 1,
+    "fields": {
+      "caption": "PIM",
+      "path": "/",
+      "type": 1,
+      "zone": 1,
+      "order": 1
+    }
+  },
+  {
+    "model": "structure.section",
+    "pk": 2,
+    "fields": {
+      "caption": "Каталог",
+      "parent": 1,
+      "path": "/catalog/",
+      "type": 3,
+      "zone": 2,
+      "order": 1
+    }
+  },
+  {
+    "model": "structure.section",
+    "pk": 10,
+    "fields": {
+      "caption": "Обувь",
+      "parent": 2,
+      "path": "/catalog/shoes/",
+      "type": 3,
+      "zone": 10,
+      "order": 1
+    }
+  },
+  {
+    "model": "structure.section",
+    "pk": 11,
+    "fields": {
+      "caption": "Одежда",
+      "parent": 2,
+      "path": "/catalog/clothes/",
+      "type": 3,
+      "zone": 11,
+      "order": 2
+    }
+  },
+  {
+    "model": "structure.section",
+    "pk": 12,
+    "fields": {
+      "caption": "Аксессуары",
+      "parent": 2,
+      "path": "/catalog/accessories/",
+      "type": 3,
+      "zone": 12,
+      "order": 3
+    }
+  },
+  {
+    "model": "catalog.catalog",
+    "pk": 10,
+    "fields": {
+        "section": 10
+    }
+  },
+  {
+    "model": "catalog.catalog",
+    "pk": 11,
+    "fields": {
+        "section": 11
+    }
+  },
+  {
+    "model": "catalog.catalog",
+    "pk": 12,
+    "fields": {
+        "section": 12
+    }
+  },
+  {
+    "model": "common.footer",
+    "pk": 1,
+    "fields": {
+        "zone": 555
+    }
+  }  
+]

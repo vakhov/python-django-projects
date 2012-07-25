@@ -1,0 +1,267 @@
+{% load vars %}
+<html>
+<head>
+    <title>
+    {% if not metatag.title %}
+	{% block title %}PIM{% endblock %}
+    {% else %}
+        {{ metatag.title }}
+    {% endif %}
+	</title>
+	
+	{# Metatag decription and keywords #}
+	{% if metatag.description %}
+		<meta name="description" content="{{ metatag.description }}"/>
+	{% endif %}
+	{% if metatag.keywords %}
+		<meta name="keywords" content="{{ metatag.keywords }}"/>
+	{% endif %}
+
+    <meta name='yandex-verification' content='790e182da6400c6f' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/typography.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/catalog.css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.js"></script>
+
+    {% if catalog_position_images %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/lb/jquery.lightbox.css">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.lightbox.js"></script>
+	{% endif %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/basket.js"></script>
+	
+	{% include 'catalog/social/social_head.html' %}
+
+</head>
+<body id="content">
+<div id="catalog_item" style="margin:0 10% !important;width:80%;">
+
+{# Name, articul and price #}
+<table cellspacing="0" class="catalog_item_caption_table">
+    <tr>
+        <td class="catalog_item_name"><h1>{{ catalog_position.name }}</h1></td>
+        
+        <td class="catalog_item_articul">
+            {% if catalog_position.article %}
+            <p>Арт. {{ catalog_position.article }}</p>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td class="catalog_item_price">
+            <p>
+                {% if catalog_position_pricing %}От{% endif %}
+                {% if catalog_position.discount > 0 %}
+                    <span style="text-decoration:line-through;color:red;">{{ catalog_position.price }} рублей</span><br />
+                    {{ catalog_position.discounted }} р.
+                {% else %}
+                    {{ catalog_position.price }} р.
+                {% endif %}
+            </p>
+        </td>
+        {% if size_is_exist or not catalog_position_pricing %}
+        <td class="catalog_item_order">
+            <p id="ordering"
+            {% if not size_is_exist %}
+                {% assign size_is_exist 0 %}
+            {% endif %}
+            {% if not order_count %}
+            	onclick="javascript:basket_edit_add({{ catalog_position.id }},
+            	{% if size_is_exist == 0 %}
+                 {{ size_is_exist }}
+             {% else %}
+                 $('#selected_size').val()
+             {% endif %}
+             , 1)">Заказать
+            {% else %}
+            	onclick="javascript:parent.$.fancybox.close();parent.location.href = '/basket/';">Перейти в корзину
+            {% endif %}
+            </p>
+        </td>
+        {% endif %}
+    </tr>
+</table>
+
+{# Layout... #}
+<table cellpadding="0" border="0" class="catalog_item_table">
+    <tr>
+        <td class="catalog_item_image" id="gallery">
+            {# Image(s) #}
+            
+            <a href="{{ catalog_position_images.0.picture.url }}" id="a_big_img">
+                <img id="big_img" 
+                     class="catalog_item_big_image" 
+                     src="{{ catalog_position_images.0.picture.url_300x400 }}" 
+                     alt="{{ catalog_position.name }}" 
+                     title="{{ catalog_position.name }}" 
+                />
+            </a>
+            
+            {% if catalog_position_images|length > 1 %}
+
+            <div class="catalog_position_image_list">
+            {% for img in catalog_position_images %}
+                <a rel="lightbox-tour" href="{{ img.picture.url }}" class="catalog_item_small_image">
+                    <img src="{{ img.picture.url_50x50 }}" alt="{{ catalog_position.name }}" title="{{ catalog_position.name }}" />
+                </a>
+            {% endfor %}
+            </div> 
+
+            <script type="text/javascript">
+                $('#a_big_img').click(function() {
+                    $('.catalog_item_small_image').first().click();
+                    return false;
+                });
+                var current_pic_index = 0;
+                var big_arr = [];
+                $('.catalog_item_small_image img').each(function() {
+                    big_arr.push(
+                        $(this).attr('src').replace('50x50', '300x400')
+                    );
+                });
+                
+                
+                for (var i = 0; i < big_arr.length; i++) {
+                    preload = new Image();
+                    preload.src = big_arr[i];
+                }
+
+                var refresh_pic = function() {
+                    current_pic_index++;
+                    if (current_pic_index == big_arr.length) current_pic_index = 0;
+                    $('#big_img').animate({opacity: 0.0},1000);
+                    $('#big_img').queue(function(next) {
+                        $(this).attr('src', big_arr[current_pic_index]);
+                        next();
+                    });
+                    $('#big_img').animate({opacity: 1.0},1000);
+                }
+                var new_pic_interval = setInterval(refresh_pic, 6000);
+                $('#gallery a').click(function() {
+                    clearInterval(new_pic_interval);
+                });
+            </script> 
+            {% endif %}
+            
+            <script type="text/javascript">
+                $("#gallery a").lightbox();
+            </script>
+        </td>
+        
+        <td class="catalog_item_description">
+            {# Description (right column) #}
+            
+            <div>
+                {% load zones %}
+                {% render_zone catalog_position.upper_zone %}
+            </div>
+
+            {% if catalog_position_pricing %}
+            <div class="catalog_item_sizes">
+                 <h1>Размеры и цены</h1>
+
+                 <div id="size">
+                     <select id="selected_size" name="size">
+                         {% if catalog_position.is_exist %}
+                             {% for pr in catalog_position_pricing %}
+                                 {% if pr.is_exist %}
+                                     <option value="{{ pr.size.id }}">{{ pr.size.st }} (в наличии)</option>
+                                 {% else %}
+                                     <option disabled value="{{ pr.size.id }}">{{ pr.size.st }} (нет в наличии)</option>
+                                 {% endif %}
+                             {% endfor %}
+                         {% else %}
+                             <option selected value="null">Нет в наличии</option>
+                         {% endif %}
+                     </select>
+                 </div>
+                 <div>
+                     <a href="#"><span>Определить свой размер</span></a>
+                 </div>
+                 <div class="clear"></div>
+
+             </div>
+            {% endif %}
+            
+            {% if properties %}
+            <div class="catalog_item_properties box">
+                <h1>Характеристики <span id="slide">↓</span></h1>
+                <table cellpadding="0" cellspacing="0" class="chars_table">
+                     {% for key, value in properties.iteritems %}
+                     <tr>
+                         <th><span>{{ key }}{% if value.obj %} <img src="{{ STATIC_URL }}img/question_mark.png" title="{{ value.obj }}" alt="{{ value.obj }}" style="cursor:help;">{% endif %}</span></th>
+                         <td><span>{{ value.val }}{% if value.val_desc %} <img src="{{ STATIC_URL }}img/question_mark.png" title="{{ value.val_desc }}" alt="{{ value.obj }}" style="cursor:help;">{% endif %}</span></td>
+                     </tr>
+                     {% endfor %}
+                 </table>
+            </div>
+            <script type="text/javascript">
+                $('.chars_table').css('display', 'none');
+                $('#slide').click(function() {
+                    $(this).parent().next().slideToggle();
+                    $(this).html(($(this).html() =='↓') ? '↑':'↓');
+                });
+            </script>
+            {% endif %}
+        </td>
+    </tr>
+    
+    {% if catalog_position_wtp %}
+    <tr>
+        <td colspan="2">
+            <br />
+            <h1>С этим товаром также покупают:</h1>
+            {% for position in catalog_position_wtp %}
+                <a  href="{{ position.section.path }}{{ position.slug }}"
+                    class="catalog_list_position{% if not position.is_exist %} unexist{% endif %}">
+                    <div class="catalog_list_image" style="background: url({{ position.picture_set.all.0.picture.url_130x130 }}) 50% 100% no-repeat">
+                        {% if position.is_special %}<p>Акция</p>{% endif %}
+                        {% if position.is_free_delivery %}<p>Бесплатная доставка</p>{% endif %}
+                    </div>
+                    <div class="catalog_list_name">
+                        {{ position.name }}
+                    </div>
+                    <div class="catalog_list_price">
+                        {% if position.discount > 0 %}
+                            <span style="text-decoration:line-through;color:red;">{{ position.price }} P</span>
+                            {{ position.discounted }} Р
+                        {% else %}
+                            {{ position.price }} Р
+                        {% endif %}
+                    </div>        
+                </a>
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+    
+    <tr>
+        <td colspan="2">
+            <div>
+                {% load zones %}
+                {% render_zone catalog_position.zone %}
+            </div>
+        </td>
+    </tr>
+    
+</table>
+
+{% include 'catalog/social/social.html' %}
+
+</div>
+    <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter859209 = new Ya.Metrika({id:859209, clickmap:true, accurateTrackBounce:true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/859209" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+<script type="text/javascript">
+$('table a[class=catalog_list_position]').each(function(){
+	$(this).click(function() {
+		window.open($(this).attr('href'));
+		return false;
+	});
+});
+</script>
+</body>
+</html>

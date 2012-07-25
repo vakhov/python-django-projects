@@ -1,0 +1,55 @@
+<div class="header">
+    <div class="header_panel colored_gradient">
+        <div class="header_content widthFixed">
+            <div class="header_logo">
+                <a href="#"><img src="{{ STATIC_URL }}Front/Header/Images/Logo.png" alt="" /></a>
+            </div>
+            <ul class="mainMenu">
+            {% for item in structure.1.nodes.values %}
+                <li><a href="{{ item.path }}" class="colored_link">{{ item.caption }}</a></li>
+            {% endfor %}
+                <li class="selected">
+                    <span class="left"></span>
+                    <span class="center">О компании</span>
+                    <span class="right"></span>
+                </li>
+            </ul>
+            <div class="header_phone">
+                <span class="header_phone_text">
+                    <small>(343)</small>{{ phone }}
+                </span>
+                <a href="#" class="noBorder header_phone_call colored_hover">
+                    <span class="virtualLink">хочу бесплатный звонок</span>
+                </a>
+            </div>
+            <ul class="colored_menu">
+                <li class="red">
+                    <a href="#" rel="colored_red"><img src="/Front/Common/Images/Blank.gif" alt="" /></a>
+                </li>
+                <li class="yellow">
+                    <a href="#" rel="colored_yellow"><img src="/Front/Common/Images/Blank.gif" alt="" /></a>
+                </li>
+                <li class="green">
+                    <a href="#" rel="colored_green"><img src="/Front/Common/Images/Blank.gif" alt="" /></a>
+                </li>
+                <li class="blue">
+                    <a href="#" rel="colored_blue"><img src="/Front/Common/Images/Blank.gif" alt="" /></a>
+                </li>
+                <li class="purple">
+                    <a href="#" rel="colored_purple"><img src="/Front/Common/Images/Blank.gif" alt="" /></a>
+                </li>
+            </ul>
+            <ul class="header_serviceMenu">
+                <li class="holder">
+                    <a href="#" class="dashedBorder">закрепить строку</a>
+                    <span class="icon"></span>
+                </li>
+                <li class="map">
+                    <a href="#" class="dashedBorder">карта сайта</a>
+                    <span class="icon colored_bgColor"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="header_shadow"></div>
+    </div>
+</div>

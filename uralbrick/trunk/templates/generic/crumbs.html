@@ -1,0 +1,16 @@
+<div class="container container_minimal">
+        <ul class="path">
+        	<li><a href="/" class="blackLink">Главная</a></li>
+        	{% for crumb in crumbs %}
+        		{% if crumb.path != 'pos' %}
+        			{% if forloop.revcounter != 1 %}
+        				<li><a href="{{ crumb.path }}" class="blackLink">{{ crumb.caption }}</a></li>
+        			{% else %}
+        				<li class="path_current">{{ crumb.caption }}</li>
+        			{% endif %}
+        		{% else %}
+        			<li class="path_current">{{ crumb.caption }}</li>
+        		{% endif %}
+        	{% endfor %}
+        </ul>
+    </div>

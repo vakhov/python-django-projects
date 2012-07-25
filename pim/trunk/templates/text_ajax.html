@@ -1,0 +1,63 @@
+{% load zones %}
+{% load vars %}
+
+<html>
+<head>
+    <title>
+    {% if not metatag.title %}
+		{% block title %}{{ current_section.caption }}{% endblock %}
+    {% else %}
+        {{ metatag.title }}
+    {% endif %}
+	</title>
+	
+	{# Metatag decription and keywords #}
+	{% if metatag.description %}
+		<meta name="description" content="{{ metatag.description }}"/>
+	{% endif %}
+	{% if metatag.keywords %}
+		<meta name="keywords" content="{{ metatag.keywords }}"/>
+	{% endif %}
+
+    <meta name='yandex-verification' content='790e182da6400c6f' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/typography.css"/>
+
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="content">
+            {% assign parent current_section.parent %}
+        
+		    {% if parent.path == '/' %}
+		        {% assign items current_section.children.all %}
+		    {% else %}
+		        {% assign items parent.children.all %}
+		    {% endif %}
+		    
+		    {% if items %}
+		        <ul id="text_submenu">
+		            {% for item in items %}
+		                {% if item != current_section %}
+		                <li><a href="{{ item.path }}">{{ item.caption }}</a></li>
+		                {% else %}
+		                <li>{{ item.caption }}</li>
+		                {% endif %}
+		            {% endfor %}
+		        </ul>
+		    {% endif %}
+		
+		    {% render_zone current_section.zone %}
+        </div>
+
+    </div>
+    <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter859209 = new Ya.Metrika({id:859209, clickmap:true, accurateTrackBounce:true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/859209" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+
+</body>
+</html>

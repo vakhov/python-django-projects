@@ -1,0 +1,8 @@
+{% for item in catalog_tree.values %}
+  {% if item.path in current_section.path %}
+	<dt><span><a href="{{ item.path }}">{{ item.caption }}</a></span></dt>
+	{# <dd>{% include "catalog/form.html" %}</dd> #}
+  {% else %}
+	<dt><a href="{{ item.path }}"><span>{{ item.caption }}</span></a></dt>
+  {% endif %}
+{% endfor %}

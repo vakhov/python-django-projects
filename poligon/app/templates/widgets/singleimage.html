@@ -1,0 +1,14 @@
+{% if current_widget.image %}
+<div class="image">
+    <img src="{{ MEDIA_URL }}{{ current_widget.image }}"
+    
+    {% if current_widget.alt %}
+    	alt="{{ current_widget.alt }}"
+    {% endif %}
+    
+    {% if current_widget.title %}
+	    title="{{ current_widget.title }}"
+	{% endif %}
+	/>
+</div>
+{% endif %}

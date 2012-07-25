@@ -1,0 +1,22 @@
+{% extends "s3/layout.html" %}
+{% block site %}
+<div class="right prepend-top span-16 last">
+    <p style="margin-left: -0.7em;">&laquo;&nbsp;<a href="/">На главную страницу</a></p>
+    <div id="revers">
+  <h1>Заявка с сайта</h1>
+  <form action="#" method="post" id="r_form">
+    <table class="null">
+      <tr><td class="text">ФИО или наименование организации:</td><td><input type="text" name="r_autor" id="r_autor" /></td></tr>
+      <tr><td class="text">Контактная информация:</td><td><textarea name="r_cont" id="r_cont"></textarea></td></tr>
+      <tr><td class="text">Сообщение:</td><td><textarea name="r_mes" id="r_mes"></textarea></td></tr>
+      <tr><td></td><td><input type="button" name="r_submit" value="Отправить" id="r_submit" /></td></tr>
+    </table>
+  </form>
+  <div id="r_thankyou" style="display: none">
+    <h2>Спасибо за Ваше сообщение!</h2>
+  </div>
+  <script type="text/javascript" src="/js/user.form.js"></script> 
+</div>
+  </div>
+  </div>
+{% endblock %}

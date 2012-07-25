@@ -1,0 +1,115 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ie-lt7 ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 8]>
+<html class="nojs ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 9]>
+<html class="nojs ie-lt9 ie">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="nojs">
+<!--><![endif]-->
+
+<head>
+    <title>
+    {% if not metatag.title %}
+        {% block title %}{{ flatpages.header }}{% endblock %}
+    {% else %}
+        {{ metatag.title }}
+    {% endif %}
+    </title>
+    
+    <meta name="description" content="{% if metatag %}{{ metatag.description }}{% endif %}"/>
+    <meta name="keywords" content="{% if metatag %}{{ metatag.keywords }}{% endif %}"/>
+    <meta name="robots" content="all"/>
+    <meta name="copyright" content="mastermario.ru"/>
+
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    
+    <!--[if IE]>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><![endif]-->
+
+    <script type="text/javascript">
+        document.documentElement.className = document.documentElement.className.replace('nojs', 'js');
+    </script>
+    
+    <link rel="stylesheet" href="{{ STATIC_URL }}front/includes.css" type="text/css" />
+
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/base.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/jquery_cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/jquery_easing.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/jquery_lightbox.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/jquery_disable_text_select.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/vendors/scrollable.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/ie/ie_finder.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/ie/ie_style_sheet.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/ie/ie_png_ail.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/render_visual.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/render_helper.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/links.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/functions.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}front/common/scripts/run.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/hashing.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/junior.js"></script>
+
+    {% if user.is_staff %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+    <script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js"></script>
+    {% endif %}
+
+</head>
+<body>
+
+<div class="bgFixed">
+    <div class="bgFixed_relative">
+        <div class="dynamicWidth"></div>
+    </div>
+</div>
+
+<div class="resizeWrapper dynamicWidth">
+    {% block site %}
+    {% endblock %}
+</div>
+
+{% include 'header.html' %}
+
+<!-- <ul>
+	{% for item in structure.1.nodes.values %}
+		<li><a href="{{ item.path }}">{{ item.caption }}</a>
+			{% if item.nodes %}
+				<ul>
+					{% for subitem in item.nodes.values %}
+						<li><a href="{{ subitem.path }}">{{ subitem.caption }}</a>
+							{% if subitem.nodes %}
+								<ul>
+									{% for subsubitem in subitem.nodes.values %}
+										<li><a href="{{ subsubitem.path }}">{{ subsubitem.caption }}</a>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul> -->
+
+{% include 'footer.html' %}
+
+</body>
+</html>

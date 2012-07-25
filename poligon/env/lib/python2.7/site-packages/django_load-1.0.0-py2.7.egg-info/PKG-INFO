@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: django-load
+Version: 1.0.0
+Summary: Module loader for Ajango apps.
+Home-page: http://github.com/ojii/django-load
+Author: Jonas Obrist
+Author-email: jonas.obrist@divio.ch
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

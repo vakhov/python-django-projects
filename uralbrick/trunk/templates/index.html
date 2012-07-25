@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<body class="footer_gallery_enabled index_gallery_enabled">
+
+<ul class="illustrations">
+    {% for c in catalogs %}
+    <li id="illustration_{{ forloop.counter }}">
+        <img presrc="{{ MEDIA_URL }}{{ c.big_sharp_picture.name }}" alt="" />
+        <ins></ins>
+    </li>
+    {% endfor %}
+ </ul>
+
+<div class="site widthFixed">
+    <div class="index_gallery">
+        <ul class="index_gallery_list">
+            {% for c in catalogs %}
+            <li class="index_gallery_item {% if forloop.counter == 1 %}index_gallery_item__selected{% endif %}" rel="illustration_{{ forloop.counter }}">
+                <span class="title">
+                    <a href="/production/{{ c.slug }}/">{{ forloop.counter }} {{ c.name_long }}</a>
+                </span>
+                <span class="text colored_bgColor">
+                    {{ c.description }}
+                    <br/>
+                    <a href="/production/{{ c.slug }}/" class="blackLink">{{ c.link_text }}</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer_gallery %}
+<div class="footer_gallery">
+    <div class="footer_gallery_container widthFixed">
+        <ul class="footer_gallery_list">
+            {% for c in catalogs %}
+            <li class="footer_gallery_item {% if forloop.counter == 1 %} footer_gallery_item__selected {% endif %}">
+                <span class="footer_gallery_item_photo">
+                    {% if c.small_thumb.name %}
+                    <img src="{{ MEDIA_URL }}{{ c.small_thumb.name }}" alt="" />
+                    {% endif %}
+                </span>
+                <span class="footer_gallery_item_border"><ins></ins></span>
+                <span class="footer_gallery_item_fade"></span>
+                <a href="/production/{{ c.slug }}" class="footer_gallery_item_link"></a>
+                <span class="footer_gallery_item_title">{{ forloop.counter }} {{ c.name_short }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

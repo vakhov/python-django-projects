@@ -1,0 +1,54 @@
+{% extends "flora/layout.html" %} 
+
+{% load zones %}
+
+{% block left_column %}
+	{% if user.is_staff %}
+    <p>
+    	<a class="adder_link" href="#" aph-adder="yes" aph-model="Tag" aph-predefined="">Добавить тэг</a>
+    </p>
+    {% endif %}
+    {% if tags %}
+    <span class="marks">
+        <h1>Тэги:</h1>
+        <ul>
+            {% for tag in tags %}
+            	<li><a href="/tag/{{ tag.name }}/">{{ tag.tag }}</a></li>
+            {% endfor %}
+           </ul>
+    </span>
+    {% endif %}
+	<!-- News -->    
+    <h3>Новости</h3>
+    <div id="news" aph-block-type="g" aph-redirect-url="/news/">
+        <ul>
+            {% for news_item in news %}
+            <li>
+                <div class="date">
+                    <span class="plash">{{ news_item.date|date:"d.m.Y" }}</span>
+                </div>
+                <div class="header">
+                    {% if news_item.slug %} 
+                        <a href="/news/{{ news_item.slug }}/">{{ news_item.caption|safe }}</a> 
+                    {% else %} 
+                        <a href="/news/item-{{ news_item.id }}/">{{ news_item.caption|safe }}</a> 
+                    {% endif %}
+                </div>
+                <div class="shortdesc">{{ news_item.announce|safe }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+        
+	{% render_zone current_section.left_zone %}
+	
+{% endblock %}
+
+{% block site %}
+   		
+<!-- Content -->
+<div id="text">
+    {% render_zone current_section.zone %}
+</div>
+    
+{% endblock %}

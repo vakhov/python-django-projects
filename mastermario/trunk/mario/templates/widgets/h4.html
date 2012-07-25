@@ -1,0 +1,20 @@
+{% load vars%}
+{% create_array get_class %}
+
+{% if current_widget.is_bold %}{% add_to_array get_class "bold" %}{% endif %}
+{% if current_widget.is_italic %}{% add_to_array get_class "italic" %}{% endif %}
+{% ifequal current_widget.border 2 %}{% add_to_array get_class "h__blue" %}{% endifequal %}
+{% ifequal current_widget.border 3 %}{% add_to_array get_class "h__black" %}{% endifequal %}
+{% ifequal current_widget.border 4 %}{% add_to_array get_class "h__light_blue" %}{% endifequal %}
+{% ifequal current_widget.border 5 %}{% add_to_array get_class "h__green" %}{% endifequal %}
+{% if current_widget %}{% add_to_array get_class "dashedBorder" %}{% endif %}
+
+{% if current_widget.is_span %}
+<span
+    {% include "widgets/h.html" %}
+</span>
+{% else %}
+<h4
+    {% include "widgets/h.html" %}
+</h4>
+{% endif %}

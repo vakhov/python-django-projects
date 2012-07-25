@@ -1,0 +1,27 @@
+{% if current_widget.title %} 
+   <div id="specials">
+      	<ul class="clearfix">
+            <li>
+             {% if current_widget.link %} 
+             <a href="{{ current_widget.link }}"> 
+             {% endif %}
+	             {% if current_widget.image %} 
+	                 <span class="image"> 
+	                     <img 
+	                     src="{{ MEDIA_ROOT }}{{ current_widget.get_thumb }}" 
+	                     alt="Горячее предложение" />
+	                 </span> 
+	             {% endif %}
+	             {% if current_widget.title %} 
+	                 <span class="header">{{ current_widget.title|safe }}</span>
+	             {% endif %} 
+	             {% if current_widget.desc %} 
+	                 <span class="shortdesc">{{ current_widget.desc|safe }}</span>
+	             {% endif %} 
+			{% if current_widget.link %}
+			</a> 
+			{% endif %}
+		</li>
+	</ul>
+   </div>
+{% endif %}

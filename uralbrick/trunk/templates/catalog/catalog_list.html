@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<body>
+
+<ul class="illustrations">
+    <li>
+        <img src="{{ STATIC_URL }}Front/Common/Images/Illustrations/1.jpg" alt="" />
+    </li>
+</ul>
+
+<div class="site widthFixed">
+    <div class="container container_minimal">
+        <ul class="path">
+            <li><a href="#" class="blackLink">Самая главная страница</a></li>
+            <li class="path_current">Каталог товаров</li>
+        </ul>
+    </div>
+    <div class="container content">
+        <h1>Большой каталог<br/>стройматериалов от А до Я</h1>
+        <p>Выбирать материалы для строительства и ремонта стало теперь проще!
+Вы можете выбрать материалы по алфавиту, либо по этапам строительсва, что очень удобно!</p>
+        <div class="alphabet_filter symbol_list context_novis">
+            <span><a href="#" class="colored_bgColor colored_link">А</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Б</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">В</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Г</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Д</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Е</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ж</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">З</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">И</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">К</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Л</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">М</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Н</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">О</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">П</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Р</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">С</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Т</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">У</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ф</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Х</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ц</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ч</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ш</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Щ</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Э</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Ю</a></span>
+            <span><a href="#" class="colored_bgColor colored_link">Я</a></span>
+        </div>
+    </div>
+    <div class="container container__black alphabet_result_container">
+        <div class="alphabet_result context_novis">
+            <div class="alphabet_result_letter colored_bgColor">Д</div>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>вери межкомнатные</a></span>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>вери межкомнатные</a></span>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>вери межкомнатные</a></span>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>верные ручки</a></span>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>верные ручки</a></span>
+            <span class="alphabet_result_item"><a href="#" class="whiteLink"><span class="colored_bgColor">Д</span>верные ручки</a></span>
+        </div>
+    </div>
+    <div class="container content">
+        <h2>Материалы для капитального строительства</h2>
+        <div class="grid context_vis">
+            <div class="grid__width_33">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="grid context_vis">
+            <div class="grid__width_33">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+        </div>
+        <h2>Материалы для капитального строительства</h2>
+        <div class="grid context_vis">
+            <div class="grid__width_33">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+            <div class="grid__width_33 grid__margin">
+                <dl class="catalogList_item">
+                    <dd class="photo">
+                        <a href="#">
+                            <img src="{{ STATIC_URL }}Front/Catalog/Images/example.jpg" alt="" />
+                            <ins class="colored_border"></ins>
+                        </a>
+                    </dd>
+                    <dt><a href="#">Кирпич в ассортименте</a></dt>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                    <dd class="desc">Необходим для фундаментов, капитальных стен, перегородок, отмостков, а также для печей и каминов.</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

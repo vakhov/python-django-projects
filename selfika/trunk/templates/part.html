@@ -1,0 +1,9 @@
+{% extends "document_layout.html" %}
+
+{% block document %}
+<h1>{{ part.caption }}</h1>
+
+{% load zones %}
+{% render_zone part.zone %}
+
+{% endblock %}

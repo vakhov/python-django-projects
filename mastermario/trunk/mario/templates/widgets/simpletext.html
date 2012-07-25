@@ -1,0 +1,27 @@
+{% load vars %}
+{% create_array classes %}
+
+{% if current_widget.is_bold %}{% add_to_array classes "bold" %}{% endif %}
+{% if current_widget.is_italic %}{% add_to_array classes "italic" %}{% endif %}
+{% if current_widget.is_capital %}
+    {% add_to_array classes "capital" %}
+    {% add_to_array classes "capital__red" %}
+{% endif %}
+{% if current_widget.text_type == 2 %}
+	{% add_to_array classes "note" %}
+{% endif %}
+{% if current_widget.text_type == 3 %}
+	{% add_to_array classes "tip" %}
+{% endif %}
+{% if current_widget.text_type == 4 %}
+	{% add_to_array classes "quote" %}
+{% endif %}
+{% if current_widget.is_alert %}{% add_to_array classes "mark" %}{% endif %}
+
+<p 
+    {% if classes %}class="{{ classes|join:" " }}"{% endif%}
+    {% if current_widget.font_color or current_widget.bg_color %}
+        style="{% if current_widget.font_color %}color:#{{ current_widget.font_color }};{%endif%}{% if current_widget.bg_color %}background-color:#{{ current_widget.bg_color }};{%endif%}"
+    {% endif %}
+>{% if current_widget.is_alert %}<span class="mark">{{ current_widget.alert_text }}</span>{% endif %}{{ current_widget.text|safe }}
+</p>

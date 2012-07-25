@@ -1,0 +1,22 @@
+{% for position in product %}
+	<a  href="{{ position.section.path }}{{ position.slug }}" class="catalog_list_position{% if not position.is_exist %} unexist{% endif %}">
+		<div class="catalog_list_image" style="background: url({{ position.picture.url_130x130 }}) 50% 100% no-repeat">
+            <button class="submitPopUp" >Быстрый просмотр</button>
+			{% if position.is_special %}<p>Акция</p>{% endif %}
+		</div>
+		<div class="catalog_list_name" {% if not position.is_enabled %}style="text-decoration:line-through"{% endif %}>
+			{{ position.name }}
+		</div>
+		<div class="catalog_list_price">
+			{% if position.discount > 0 %}
+				<span style="text-decoration:line-through;color:red;">{{ position.price }} P</span>
+				{{ position.discounted }} Р
+			{% else %}
+				{{ position.price }} Р
+			{% endif %}
+		</div>
+		{% if position.is_free_delivery %}
+			<div class="is_free_delivery">Бесплатная доставка</div>
+		{% endif %}
+	</a>
+{% endfor %}

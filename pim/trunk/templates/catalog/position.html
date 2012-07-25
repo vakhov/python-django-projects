@@ -1,0 +1,352 @@
+{% extends "catalog/layout.html" %}
+{% load vars %}
+
+{% block title %}{% if catalog_position.title %}{{ catalog_position.title }}{% else %}{{ catalog_position.name }}{% endif %}{% endblock %}
+
+<!-- block head 
+	 include 'catalog/social/social_head.html' 
+ endblock -->
+
+{% block catalog_content %}
+    <div id="catalog_item">
+        
+        {% include "generic/crumbs.html" %}
+        {# Name, articul and price #}
+        <table cellspacing="0" class="catalog_item_caption_table">
+            <tr>
+                <td class="catalog_item_name"><h1>{{ catalog_position.name }}</h1></td>
+                
+                <td class="catalog_item_articul">
+                    {% if catalog_position.article %}
+                    <p>Арт. {{ catalog_position.article }}</p>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="catalog_item_price">
+                    <p>
+                        {% if catalog_position_pricing %}От{% endif %}
+                        {% if catalog_position.discount > 0 %}
+                            <span style="text-decoration:line-through;color:red;">{{ catalog_position.price }} рублей</span><br />
+                            {{ catalog_position.discounted }} р.
+                        {% else %}
+                            {{ catalog_position.price }} р.
+                        {% endif %}
+                    </p>
+                </td>
+                {% if size_is_exist or not catalog_position_pricing %}
+	                <td class="catalog_item_order">
+	                    <p id="ordering"
+	                    {% if not size_is_exist %}
+	                        {% assign size_is_exist 0 %}
+	                    {% endif %}
+	                    {% if not order_count %}
+	                    	onclick="javascript:basket_edit_add({{ catalog_position.id }},
+	                    	{% if size_is_exist == 0 %}
+		                        {{ size_is_exist }}
+		                    {% else %}
+		                        $('#selected_size').val()
+		                    {% endif %}
+		                    , 1)">Заказать
+	                    {% else %}
+	                    	onclick="javascript:location.href = '/basket/'">Перейти в корзину
+	                    {% endif %}
+	                    </p>
+	                </td>
+                {% endif %}
+            </tr>
+        </table>
+        {# Layout... #}
+        <table cellpadding="0" border="0" class="catalog_item_table">
+            <tr>
+                <td class="catalog_item_image" id="gallery">
+                    {# Image(s) #}
+                    
+                    <a href="{{ catalog_position_images.0.picture.url }}" id="a_big_img">
+                        <img id="big_img" 
+                             class="catalog_item_big_image" 
+                             src="{{ catalog_position_images.0.picture.url_300x400 }}" 
+                             alt="{{ catalog_position.name }}" 
+                             title="{{ catalog_position.name }}" 
+                        />
+                    </a>
+                    
+                    {% if catalog_position_images|length > 1 %}
+
+                    <div class="catalog_position_image_list">
+                    {% for img in catalog_position_images %}
+                        <a rel="lightbox-tour" href="{{ img.picture.url }}" class="catalog_item_small_image">
+                            <img src="{{ img.picture.url_50x50 }}" alt="{{ catalog_position.name }}" title="{{ catalog_position.name }}" />
+                        </a>
+                    {% endfor %}
+                    </div> 
+
+	                <script type="text/javascript">
+                		$('#a_big_img').click(function() {
+                			$('.catalog_item_small_image').first().click();
+                			return false;
+                		});
+                		var current_pic_index = 0;
+                		var big_arr = [];
+                		$('.catalog_item_small_image img').each(function() {
+                			big_arr.push(
+                				$(this).attr('src').replace('50x50', '300x400')
+                			);
+                		});
+                        
+                        
+                        for (var i = 0; i < big_arr.length; i++) {
+                            preload = new Image();
+                            preload.src = big_arr[i];
+                        }
+
+                		var refresh_pic = function() {
+                			current_pic_index++;
+                			if (current_pic_index == big_arr.length) current_pic_index = 0;
+                			$('#big_img').animate({opacity: 0.0},1000);
+                			$('#big_img').queue(function(next) {
+                				$(this).attr('src', big_arr[current_pic_index]);
+                				next();
+                			});
+                			$('#big_img').animate({opacity: 1.0},1000);
+                		}
+                		var new_pic_interval = setInterval(refresh_pic, 6000);
+                		$('#gallery a').click(function() {
+                			clearInterval(new_pic_interval);
+                		});
+	                </script> 
+                    {% endif %}
+                    
+	                <script type="text/javascript">
+                		$("#gallery a").lightbox();
+	                </script>
+                </td>
+                
+                <td class="catalog_item_description">
+                    {# Description (right column) #}
+                    
+                    <div>
+                        {% load zones %}
+                        {% render_zone catalog_position.upper_zone %}
+                    </div>
+
+                    {% if catalog_position_pricing %}
+                    <div class="catalog_item_sizes">
+                        <h1>Размеры и цены</h1>
+
+                        <div id="size">
+                            <select id="selected_size" name="size">
+                                {% if catalog_position.is_exist %}
+                                    {% for pr in catalog_position_pricing %}
+                                        {% if pr.is_exist %}
+                                            <option value="{{ pr.size.id }}">{{ pr.size.st }} (в наличии)</option>
+                                        {% else %}
+                                            <option disabled value="{{ pr.size.id }}">{{ pr.size.st }} (нет в наличии)</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <option selected value="null">Нет в наличии</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div>
+                            <a href="#"><span>Определить свой размер</span></a>
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+                    {% endif %}
+                    
+                    {% if properties and not aphaline_edit_mode %}
+	                    <div class="catalog_item_properties box">
+	                        <h1>Характеристики <span id="slide">↓</span></h1>
+	                        <table cellpadding="0" cellspacing="0" class="chars_table">
+	                            {% for key, value in properties.iteritems %}
+	                            <tr>
+	                                <th><span>{{ key }}{% if value.obj %} <img src="{{ STATIC_URL }}img/question_mark.png" title="{{ value.obj }}" alt="{{ value.obj }}" style="cursor:help;">{% endif %}</span></th>
+	                                <td><span>{{ value.val }}{% if value.val_desc %} <img src="{{ STATIC_URL }}img/question_mark.png" title="{{ value.val_desc }}" alt="{{ value.obj }}" style="cursor:help;">{% endif %}</span></td>
+	                            </tr>
+	                            {% endfor %}
+	                        </table>
+	                    </div>
+	                    <script type="text/javascript">
+	                    	$('.chars_table').css('display', 'none');
+	                    	$('#slide').click(function() {
+	                    		$(this).parent().next().slideToggle();
+	                    		$(this).html(($(this).html() =='↓') ? '↑':'↓');
+	                    	});
+	
+	                        $('body').animate( { scrollTop: $('.crumbs').offset().top - 15 }, 400 );
+	                    </script>
+	                {% else %}
+	                	{% if properties and aphaline_edit_mode %}
+		                	<div class="catalog_item_properties box">
+		                        <h1>Редактирование характеристик.</h1>
+		                        <table cellpadding="0" cellspacing="0" class="chars_table">
+		                            {% for propertie in catalog_properties %}
+			                            <tr>
+			                                <th><span>{{ propertie }}</span></th>
+			                                <td>
+			                                	<select>
+			                                		{% for p in propertie.choice_set.values_list %}
+			                                			<option choise="{{ p.0 }}" property="{{ propertie.id }}" position="{{ catalog_position.id }}"
+			                                			{% for key, value in properties.iteritems %}
+			                                				{% if key == propertie.name and value == p.2 %}
+			                                				selected="selected"
+			                                				{% endif %}
+			                                			{% endfor %}
+			                                			>{{ p.2 }}</option>
+			                                		{% endfor %}
+			                                	</select>
+			                                </td>
+			                            </tr>
+		                            {% endfor %}
+		                        </table>
+		                        <script type="text/javascript">
+		                        $('td select').each(function(){
+		                            $(this).find('option').each(function(){
+		                                $(this).click(function(){
+		                                	$.ajax({
+		                                		async: true,
+		                                		type: 'POST',
+		                                		url: '/api/property/',
+		                                		data: {
+		                                			choise: $(this).attr('choise'),
+		                                			property: $(this).attr('property'),
+		                                			position: $(this).attr('position')
+		                                		}
+		                                	});
+		                                });
+		                            });
+		                        });
+		                        </script>
+		                    </div>
+		            	{% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% if catalog_position_wtp %}
+            <tr>
+                <td colspan="2">
+                    <br />
+                    <h1>С этим товаром также покупают:</h1>
+                    {% for position in catalog_position_wtp %}
+                        <a  href="{{ position.section.path }}{{ position.slug }}"
+                            class="catalog_list_position{% if not position.is_exist %} unexist{% endif %}">
+                            <div class="catalog_list_image" style="background: url({{ position.picture_set.all.0.picture.url_130x130 }}) 50% 100% no-repeat">
+                                {% if position.is_special %}<p>Акция</p>{% endif %}
+                                {% if position.is_free_delivery %}<p>Бесплатная доставка</p>{% endif %}
+                            </div>
+                            <div class="catalog_list_name">
+                                {{ position.name }}
+                            </div>
+                            <div class="catalog_list_price">
+                                {% if position.discount > 0 %}
+                                    <span style="text-decoration:line-through;color:red;">{{ position.price }} P</span>
+                                    {{ position.discounted }} Р
+                                {% else %}
+                                    {{ position.price }} Р
+                                {% endif %}
+                            </div>        
+                        </a>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endif %}
+            
+            <tr>
+                <td colspan="2">
+                    <div>
+                        {% load zones %}
+                        {% render_zone catalog_position.zone %}
+                    </div>
+                </td>
+            </tr>
+            
+        </table>
+        {% if not ok %}
+        <div id="qa">
+
+		    {% if unanswered and user.is_staff %}
+		    <h1>Неотвеченные</h1>
+		    {% for qa in unanswered %}
+		    <div class="pos" aph-block-type="de" aph-model="QuestAnswer" aph-id="{{ qa.id }}">
+		        <p class="autor">
+		            {{ qa.author|safe }}
+		            <em>({{qa.date_publication|date:"d.m.Y" }})</em>
+		        </p>
+		        <p class="mes">
+		            <span class="autor">Отзыв:</span> {{ qa.question|safe }}
+		        </p>
+		    </div>
+		    {% endfor %} 
+		    {% endif %}
+		
+		    <h1>Вопрос-ответ</h1>
+		    {% if questanswer %} {% for qa in questanswer %}
+		    <div class="pos" aph-block-type="de" aph-model="QuestAnswer" aph-id="{{ qa.id }}">
+		        <p class="autor">
+		            {{ qa.author|safe }}
+		            <em>({{ qa.date_publication|date:"d.m.Y" }})</em>
+		        </p>
+		        <p class="mes">{{ qa.question|safe }}</p>
+		        {% if qa.moderator and qa.answer %}
+		        <p class="a_men">{{ qa.moderator|safe }}</p>
+		        <p class="answr">{{ qa.answer|removetags:"p"|safe }}</p>
+		        {% else %}
+		        <p class="answr"></p>
+		        {% endif %}
+		    </div>
+		    {% endfor %} {% endif %} 
+		    
+		    {% include "generic/pagination.html" %}
+		
+		    <div id="q_form">
+		        <form action="#" method="post">
+		            {% csrf_token %}
+		            <table>
+		                <tr>
+		                    <td style="width: 150px;">Автор:</td>
+		                    <td style="width: 500px;">
+		                        <input type="text" name="q_autor" id="q_autor" 
+		                        value="{% if q_autor %}{{ q_autor }}{% else %}Гость{% endif %}" />
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td>Сообщение:</td>
+		                    <td>
+		                        <textarea name="q_mes" id="q_mes" 
+		                        style="width: 100%; height: 100px;">{{ q_mes }}</textarea>
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td></td>
+		                    <td><input type="submit" name="q_submit"
+		                        value="Отправить" id="q_submit" /></td>
+		                </tr>
+		            </table>
+		        </form>
+		    </div>
+		
+		    {% else %}
+		    <div id="q_thankyou" style="margin: 3em 0;">
+		        <h2>Спасибо за Ваш вопрос!</h2>
+		        <p>Он будет размещен в списке одновременно с ответом.</p>
+		        <p>
+		            &laquo;&nbsp;<a href="">Назад</a>
+		        </p>
+		    </div>
+		    {% endif %}
+		    
+		</div>
+        
+         <!--include 'catalog/social/social.html' --> 
+		
+       	{% if user.is_staff and aphaline_edit_mode %}
+			<p><a class="adder_link" href="/api/wtp/{{ catalog_position.id }}/" id="wtp" pk={{ catalog_position.id }}>С этим товаром так же покупают?</a></p>
+		{% endif %}
+    </div>
+{% endblock %}
+
+{% block catalog_section_zone %}
+{% endblock %}

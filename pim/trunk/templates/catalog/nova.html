@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+{% include "generic/crumbs.html" %}
+	{% if positions %}
+	<div>
+		{% for p in positions %}
+	    <a  class="catalog_list_position{% if not p.is_exist %} unexist{% endif %}"
+	        href="{{ p.section.path }}{{ p.slug }}"
+	    >
+	        <div class="catalog_list_image" style="background: url({{ p.picture.url_130x130 }}) 50% 100% no-repeat">
+	            {% if p.is_special %}<p>Акция</p>{% endif %}
+	        </div>
+	        <div class="catalog_list_name">
+	            {{ p.name }}
+	        </div>
+	        <div class="catalog_list_price">
+	            {% if p.discount > 0 %}
+	                <span style="text-decoration:line-through;color:red;">{{ p.price }} P</span>
+	                {{ p.discounted }} Р
+	            {% else %}
+	                {{ p.price }} Р
+	            {% endif %}
+	        </div>
+	        {% if position.is_free_delivery %}
+				<div class="is_free_delivery">Бесплатная доставка</div>
+			{% endif %}
+	    </a>
+	    {% endfor %}
+	</div>
+	{% else %}
+		<h1>Новинок нет</h1>
+	{% endif %}
+	
+	{% include "generic/pagination.html" %}
+	<br />
+	<div style="clear: both"></div>
+{% endblock %}

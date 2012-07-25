@@ -1,0 +1,65 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+
+    {% include "flora/common/index_link.html" %}
+    <p style="margin-left: -0.7em;">&laquo;&nbsp;<a href="../">Назад</a></p>
+
+	{% if catalog_all %}
+    <ul id="catalog_body" class="clearfix">
+
+        {% for c in catalog_all %}
+        <li id="{{ c.id }}" order="{{ c.order }}" style="border: 1px solid #ccc;">
+        
+            <div class="image">
+                <a href="{{ current_section.path }}item-{{ c.id }}/">
+
+                    <img src="wtf"  alt="{{ c.desc_short }}" />
+
+                </a>
+            </div>
+            
+            <div class="header">
+            	<a href="{{ current_section.path }}item-{{ c.id }}">{{ c.caption|safe }}</a>
+            </div>
+            
+            {% if c.price_rozn != 0 %}<div class="price">{{ c.price_rozn|safe }} руб.</div>{% endif %}
+            
+            {% if not c.is_exists %}
+                <div class="price" style="font-weight: bold;">НЕТ В НАЛИЧИИ</div>
+            {% endif %}
+            
+            <div class="description">{{ c.desc_short|safe }}</div>
+        </li>
+        {% endfor %}
+        <script type="text/javascript">
+        $(document).ready(function(){
+        	var id;
+        	var order;
+        	
+        	$("#catalog_body").sortable({
+        	  	opacity: 0.6,
+        	  	cursor: 'auto',
+        	  	revert: true,
+        	  	update: function(event, ui){
+        	  		id = $(ui.item).attr('id');
+        	  		if ($(ui.item).prev().attr('order')){
+        	  			order = $(ui.item).prev().attr('order');
+        	  		}else{
+        	  			order = 1;
+        	  		}
+        	  		$.ajax({
+    					async : false,
+    					type: 'GET',
+    					url: "/api/catalog/move/" + id + "/" + order + "/",
+    				});
+        	  	}
+        	  });
+        });
+        </script>
+   
+    	<li class="clear" style="height: 2em; border: none;"></li>
+    	
+    </ul>
+    {% endif %}
+    
+{% endblock %}

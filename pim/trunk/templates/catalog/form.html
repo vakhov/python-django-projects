@@ -1,0 +1,32 @@
+<div class="catalog_form">
+    <form action="" method="get">
+	    {% for property in catalog_properties %}
+	    <p class="property_item">
+		    <span class="property_name" title="{{ property.description }}">{{ property.name }}</span><br/>
+	        {% if property.type == 1 %}
+	        <span class="property_text_value"><input type="text" name="{{ property.slug }}" value="{{ property.filtered_value }}" /></span>
+	        {% endif %}
+	        {% if property.type == 2 %}
+	        <span class="property_numeric_value"><input type="text" name="{{ property.slug }}" value="{{ property.filtered_value }}" /></span>
+	        {% endif %}
+	        {% if property.type == 3 %}
+	        <span class="property_boolean_value"><select name="{{ property.slug }}">
+                <option value="0" {% if property.filtered_value = "0" %}selected="selected"{% endif %}>Не важно</option>
+                <option value="1" {% if property.filtered_value = "1" %}selected="selected"{% endif %}>Да</option>
+                <option value="-1" {% if property.filtered_value = "-1" %}selected="selected"{% endif %}>Нет</option>
+	        </select></span>
+	        {% endif %}
+	        {% if property.type == 4 %}
+	        <span class="property_multiple_value">
+	            {% for choice in property.choice_set.all %}
+	                <input type="checkbox" name="{{ property.slug }}" value="{{ choice.id }}" {% if choice.id in property.filtered_values %}checked="checked"{% endif %}/> {{ choice.value }}<br/>
+	            {% endfor %}
+	        </span>
+	        {% endif %}
+	    </p>
+	    {% endfor %}
+	    <p class="catalog_form_submit">
+	       <input type="submit" name="submit" value="Фильтровать" />
+	    </p>
+    </form>
+</div>

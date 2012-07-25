@@ -1,0 +1,58 @@
+
+{% load vars %}
+<div class="footer colored_bgColor">
+    <div class="footer_content widthFixed">
+        <div class="footer_socials">
+            <div class="footer_socials_text">
+                Узнайте нас
+            </div>
+            <div class="footer_socials_item">
+                <a href="#"><img src="{{ STATIC_URL }}Front/Footer/Images/vk.png" alt="" /></a>
+            </div>
+            <div class="footer_socials_item">
+                <a href="#"><img src="{{ STATIC_URL }}Front/Footer/Images/fb.png" alt="" /></a>
+            </div>
+            <div class="footer_socials_item">
+                <a href="#"><img src="{{ STATIC_URL }}Front/Footer/Images/ok.png" alt="" /></a>
+            </div>
+            <div class="footer_socials_item">
+                <a href="#"><img src="{{ STATIC_URL }}Front/Footer/Images/tw.png" alt="" /></a>
+            </div>
+        </div>
+        <ul class="footer_menu">
+        
+        	{% if user.is_staff and aphaline_edit_mode and not metatag %}
+	        	<li>
+	                <a href="#"
+		                aph-adder="yes" 
+					    aph-model="Metatag"
+					    aph-initial="name={{ current_section }}"
+		                class="colored_link adder_link">Добавить свойства</a>
+	            </li>
+			{% else %}
+				{% if user.is_staff and aphaline_edit_mode and metatag %}
+		            <li>
+						<a href="#"
+			                aph-block-type="de"
+					        aph-model="Metatag"
+					        aph-id="{{ metatag.id }}" 
+			                class="colored_link edit_link">Редактировать свойства</a>
+		            </li>
+		        {% endif %}
+	        {% endif %}
+	        
+            <li class="footer_menu_question">
+                <a href="#" class="colored_link noBorder">
+                    <span class="virtualLink">Задать вопрос</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="colored_link">Скачать документы</a>
+            </li>
+            <li>
+                <a href="#" class="colored_link">Почитать статьи</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer_shadow"></div>
+</div>

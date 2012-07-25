@@ -1,0 +1,81 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Footer
+ */
+
+/** @section Footer */
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer_corners {
+    position: relative;
+}
+
+.footer_padding {
+    padding: 0 21px 40px 8px;
+    background-color: #f89110;
+}
+
+.footer_relative {
+    position: relative;
+    padding-bottom: 11px;
+    background-color: #fff;
+}
+
+.footer_cornerLeft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 43px;
+    height: 42px;
+    background: url('../images/Left_bg.png') left top no-repeat;
+}
+
+.footer_cornerRight {
+    position: absolute;
+    margin-left: 100%;
+    left: -131px;
+    bottom: 0;
+    width: 131px;
+    height: 130px;
+    background: url('../images/Right_bg.png') left top no-repeat;
+}
+
+.footer_menu li {
+    padding-top: 8px;
+    padding-bottom: 2px;
+    font-size: 11px;
+}
+
+.footer_copyright {
+    font-size: 12px;
+}
+
+.footer_name {
+    font-size: 12px;
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.footer_name:hover {
+    color: #ef4426;
+    border-bottom: 1px solid #ef4426;
+}
+
+.footer_socials a, .footer_counter a {
+    border: 0;
+}
+
+.footer_socials img {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.footer_socials {
+    font-size: 11px;
+}

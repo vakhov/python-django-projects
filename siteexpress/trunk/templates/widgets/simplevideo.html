@@ -1,0 +1,20 @@
+{% if current_widget.video %}
+<div style="text-align:center;">
+ 	<a 
+		href="{{ MEDIA_URL }}{{ current_widget.video }}" 
+		style="display:block;width:400px;height:300px;margin: 0 auto;" 
+		id="player-{{ current_widget.id }}">
+	</a>
+	<script>
+		flowplayer("player-{{ current_widget.id }}", "{{ STATIC_URL }}player/flowplayer-3.2.7.swf", {
+		    clip: {
+				autoPlay: false,
+				autoBuffering: true,
+				onBegin: function() {
+					this.getControls().fadeIn(4000);
+				}
+		}}
+		);
+	</script>
+</div>
+{% endif %}

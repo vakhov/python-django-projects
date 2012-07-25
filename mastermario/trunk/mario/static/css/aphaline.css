@@ -1,0 +1,312 @@
+body {
+    padding-top: 40px;
+}
+
+.aph-widget-adder {
+    padding: 7px 0 7px 0;
+    /* visibility: hidden; */
+    cursor: pointer;
+}
+
+.aph-widget-adder div {
+    background: #f0f0f0;
+    height: 5px;
+}
+
+.aph-widget-adder.hover div {
+    background: #aea;
+}
+
+.aph-widget-adder.selected div {
+    background: #a00;
+}
+
+.aph-widget.selected .aph-widget-adder div {
+    background: #ccc;
+}
+.aph-widget.selected .aph-widget-adder.hover div {
+    background: #9c9;
+}
+
+.aph-widget-adder.invisible {
+    visibility: hidden !important;
+}
+.aph-widget-adder.movemode {
+    visibility: visible !important;
+}
+.aph-widget-adder.movemode div {
+    /*background: #ccd;*/
+}
+.aph-widget-adder.movemode.hover div {
+    background: #ccf;
+}
+
+.aph-zone {
+    border: 1px dotted #ccc !important;
+    border-collapse: collapse;
+}
+
+.aph-zone.hover > .aph-widget-adder {
+    visibility: visible;
+}
+
+.aph-widget {
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+.aph-widget.hover,
+.aph-widget.selected {
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.aph-widget.selected {
+    background: #f0f0f0;
+}
+
+#aph-widget-adder-window {
+    position: absolute;
+    width: 220px;
+    padding: 3px 2px 2px 3px;
+    margin: 0;
+    list-style-type: none;
+    background: #f0f0f0;
+    border: 3px solid #777;
+    font-size: 80%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#aph-widget-adder-window li {
+    vertical-align: middle;
+    padding: 3px 2px 2px 2px;
+    margin: 0 1px 1px 0;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    width: 105px;
+    float: left;
+}
+#aph-widget-adder-window li:last-child {
+    margin: 0;
+}
+#aph-widget-adder-window li.item {
+    background: #fff;
+}
+#aph-widget-adder-window li.item:hover {
+    background: #ddd;
+}
+#aph-widget-adder-window li.group {
+    background: #ccc;
+}
+#aph-widget-adder-window li.group:hover {
+    background: #bbb;
+}
+#aph-widget-adder-window li.back,
+#aph-widget-adder-window li.last_widget {
+    width: 214px;
+    margin-bottom: 2px;
+}
+#aph-widget-adder-window li.last_widget {
+    font-style: italic;
+}
+#aph-widget-adder-window li.back {
+    background: #999;
+    color: #fff;
+    font-size: 90%;
+    height: 20px;
+}
+#aph-widget-adder-window li.back:hover {
+    background: #666;
+}
+
+#aph-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #420 url(/static/images/aphaline/toolbar-bg.png);
+    z-index: 1000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+#aph-toolbar .wrapper {
+    height: 40px;
+    margin: 0 20px;
+    padding-left: 110px;
+    background: url(/static/images/aphaline/logo.png) 0 50% no-repeat;
+}
+
+#aph-toolbar .aph-toolbar-panel {
+    float: right;
+    border-left: 1px dotted #aaa;
+    display: none;
+}
+
+#aph-toolbar .aph-toolbar-panel:first-child {
+    border-right: 1px dotted #aaa;
+}
+
+#aph-toolbar .aph-toolbar-button {
+    float: left;
+    height: 16px;
+    padding: 12px 7px;
+    cursor: pointer;
+    display: none;
+}
+
+#aph-toolbar .aph-toolbar-button:first-child {
+    padding-left: 10px;
+}
+#aph-toolbar .aph-toolbar-button:last-child {
+    padding-right: 10px;
+}
+
+#aph-toolbar .aph-toolbar-button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#aph-toolbar .aph-toolbar-button.activated {
+	background: #ffe url(/static/images/aphaline/activated-bg.png) 0 0 repeat-x;
+}
+#aph-toolbar .aph-toolbar-button.activated .caption,
+#aph-toolbar .aph-toolbar-button.activated:hover .caption {
+    color: #000;
+}
+	
+#aph-toolbar .aph-toolbar-button .img {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 3px;
+}
+
+#aph-toolbar .aph-toolbar-button .caption {
+    float: left;
+    color: #ddd;
+    font-size: 80%;
+    line-height: 16px;
+    margin-right: 3px;
+}
+
+#aph-toolbar .aph-toolbar-button:hover .caption {
+    color: #fff;
+}
+#aph-toolbar .aph-toolbar-button.disabled:hover .caption {
+    color: #ddd;
+}
+
+#aph-shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.7;
+    display: none;
+    z-index: 1500;
+}
+
+#aph-editor {
+    position: fixed;
+    z-index: 1510;
+    width: 70%;
+    top: 10%;
+    left: 15%;
+    min-height: 100px;
+    background: #fff;
+    border: 3px solid #222;
+    display: none;
+}
+
+#aph-editor .aph-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#aph-editor .aph-header {
+    background: #ccc;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #bbb;
+}
+
+#aph-editor .aph-x {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 7px;
+    font-size: 15px;
+    line-height: 15px;
+    height: 15px;
+    background: #bbb;
+    cursor: pointer;
+}
+
+#aph-editor .aph-container {
+    padding: 10px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+#aph-editor .aph-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#aph-editor .aph-container th,
+#aph-editor .aph-container td {
+    padding: 3px 10px;
+    margin: 0;
+}
+
+#aph-editor .aph-container th {
+    font-weight: normal;
+    text-align: right;
+    width: 200px;
+    font-size: 13px;
+    line-height: 16px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #fff;
+}
+
+#aph-editor .aph-container td {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#aph-editor .aph-container textarea {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 200px;
+}
+
+#aph-editor .aph-container input[type=text] {
+    border: 1px solid #ccc;
+    padding: 3px;
+    width: 90%;
+}
+
+#aph-editor .aph-container input[type=submit], 
+#aph-editor .aph-container input[type=button] {
+    font-size: 120%;
+}
+
+.jstree {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.jstree-leaf {
+	padding-bottom: 4px !important;
+}
+
+.jstree-open ul {
+    padding-top: 4px !important;
+}

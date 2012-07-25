@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block site %}
+
+    <header>
+        Вход в систему
+    </header>
+    
+    <div class="padded">
+    
+        {% if form.errors %}
+        <p>Такого пользователя не существует или введен неверный пароль. Пожалуйста, попробуйте еще раз.</p>
+        {% endif %}
+    
+        <form method="post" action="/login/">
+        {% csrf_token %}
+        <table style="font-size: 120%; margin-bottom: 10px;">
+        <tr>
+            <td>Имя пользователя:</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>Пароль:</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+        <input type="submit" value="Войти" style="font-size: 120%;" />
+        <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
+    </div>
+{% endblock %}

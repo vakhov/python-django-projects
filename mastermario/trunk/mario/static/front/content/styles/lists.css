@@ -1,0 +1,157 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Lists
+ */
+
+ul.no_marker {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+ul.no_marker li {
+    margin-bottom: 8px;
+    line-height: 1.225em;
+}
+
+ul.simple_marker {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+ul.simple_marker li {
+    margin-bottom: 8px;
+    padding-left: 23px;
+    line-height: 1.225em;
+    background: url('../images/lists/simple.gif') left 8px no-repeat;
+}
+
+ul.orange_marker {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+ul.orange_marker li {
+    margin-bottom: 8px;
+    padding-left: 23px;
+    line-height: 1.225em;
+    background: url('../images/lists/orange.gif') 5px 6px no-repeat;
+}
+
+ul.icon_marker {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+ul.icon_marker li {
+    margin-bottom: 8px;
+    padding-left: 23px;
+    line-height: 1.225em;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+ul.number_marker {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+ul.number_marker li {
+    position: relative;
+    margin-bottom: 8px;
+    padding-left: 23px;
+    line-height: 1.225em;
+}
+
+ul.number_marker li ins {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    text-align: right;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.catalog_items_list dl {
+    margin-bottom: 30px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.catalog_items_list dl .photo {
+    position: relative;
+    float: left;
+    width: 83px;
+    height: 89px;
+}
+
+.catalog_items_list dl .photo img {
+    display: block;
+    border: 0 !important;
+}
+
+.catalog_items_list dl .photo a {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 83px;
+    height: 89px;
+    border: 0 !important;
+}
+
+.catalog_items_list dl .photo a img {
+    width: 83px;
+    height: 89px;
+    background: url('../images/lists/cil_img.png') left top no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "front/content/images/lists/cil_img.png", sizingMethod = "crop");
+}
+
+.catalog_items_list dl .photo a:hover img {
+    background: url('../images/lists/cil_img_h.png') left top no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "front/content/images/lists/cil_img_h.png", sizingMethod = "crop");
+}
+
+.cil_vertical dl .photo {
+    float: none;
+    margin-bottom: 9px;
+}
+
+.catalog_items_list dl .promo, .catalog_items_list dl dt, .catalog_items_list dl .desc {
+    margin-left: 95px;
+}
+
+.cil_vertical dl .promo, .cil_vertical dl dt, .cil_vertical dl .desc {
+    margin-left: 0;
+}
+
+.catalog_items_list dl .promo {
+    margin-bottom: 2px;
+    line-height: 13px;
+    font-size: 11px;
+}
+
+.catalog_items_list dl .promo span {
+    display: block;
+    padding: 0 3px 2px;
+    color: #fff;
+    background: #ef4426;
+}
+
+.catalog_items_list dl.is_line .promo span {
+    display: inline;
+}
+
+.catalog_items_list dl dt {
+    margin-bottom: 5px;
+    line-height: 21px;
+    font-size: 14px;
+}
+
+.catalog_items_list dl .desc {
+    line-height: 16px;
+    font-size: 11px;
+}

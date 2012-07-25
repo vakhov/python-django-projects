@@ -1,0 +1,23 @@
+{% if current_widget %}
+<dl class="icon_block context_vis">
+	{% if current_widget.icon %}
+		<dd class="image"><img src="{{ current_widget.icon }}" alt="{{ current_widget.title }}"/></dd>
+	{% endif %}
+
+	{% if current_widget.title %}
+		<dt>
+			{% if current_widget.url %}
+				<a href="http://{{ current_widget.url }}">
+			{% endif %}
+				{{ current_widget.title }}
+			{% if current_widget.url %}
+				</a>
+			{% endif %}
+		</dt>
+	{% endif %}
+
+	{% if current_widget.description %}
+		<dd class="desc">{{ current_widget.description }}</dd>
+	{% endif %}
+</dl>
+{% endif %}

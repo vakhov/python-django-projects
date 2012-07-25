@@ -1,0 +1,40 @@
+{% if products %}
+    <div class="container">
+	        <div class="grid context_vis">
+	        {% for product in products %}
+		            <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+		                <dl class="catalogItem">
+		                    <dd class="photo">
+		                    	{% if set %}
+		                    		<a href="{{ product.get_url }}/"><img src="{{ product.picture.all.0.get_image.1 }}" alt="" /></a>
+		                    	{% else %}
+		                        	<a href="{{ product.get_url }}"><img src="{{ product.picture.all.0.get_image.1 }}" alt="" /></a>
+		                    	{% endif %}
+					<ins class="colored_border"></ins>
+		                    </dd>
+		                    {% if product.name %}
+			                    <dt>
+			                    	{% if set %}
+				                    	<a href="{{ current_section }}{{ catalog.slug }}/set-{{ product.slug }}/">{{ product.name }}</a>
+			                    	{% else %}
+				                        <a href="{{ product.get_url }}">{{ product.name }}</a>
+			                    	{% endif %}
+			                    </dt>
+			                {% endif %}
+			                {% if product.price %}
+			                    <dd class="price">
+			                        <span>{{ product.price }} <em>Р<i>&nbsp;</i></em>&nbsp;{% if product.unit %}/&nbsp;{{ product.get_unit|safe }}{% endif %}</span>
+			                    </dd>
+			                {% endif %}
+			                {% if product.desc_short %}
+		                    	<dd class="desc">{{ product.desc_short }}</dd>
+		                    {% endif %}
+		                </dl>
+		            </div>
+	            {% endfor %}
+	        </div>
+	        <div class="showMore colored_bgColor">
+            <a href="#"><span class="virtualLink">Показать еще</span></a>
+        </div>
+    </div>
+{% endif %}

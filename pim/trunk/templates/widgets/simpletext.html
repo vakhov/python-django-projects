@@ -1,0 +1,9 @@
+{% if current_widget.text_type == 1 %}
+    <p class="announce">{{ current_widget.text|safe }}</p>
+{% endif %}
+{% if current_widget.text_type == 2 %}
+    <blockquote>{{ current_widget.text|safe }}</blockquote>
+{% endif %}
+{% if current_widget.text_type == 3 %}
+    <p class="tip">{{ current_widget.text|safe }}</p>
+{% endif %}

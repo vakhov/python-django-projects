@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+	<title>На сайт pim66.ru поступил новый вопрос.</title>
+	</head>
+	<style type="text/css">
+	#qa .pos {
+	margin: 1em 0 1em 0;
+	width: 70%;
+	}
+	
+	#qa p {
+		margin: 0;
+	}
+	
+	#qa .autor {
+		margin: 0 0 5px 0;
+		font-weight: bold;
+	}
+	
+	#qa .autor em {
+		font-size: 0.9em;
+	}
+		
+	#q_autor, #q_mes {
+		width: 300px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1em;
+		padding: 3px;
+	}
+	</style>
+<body>
+<h3>На сайт pim66.ru поступил новый вопрос.</h3>
+
+<div id="qa">
+	<p class="autor">
+          {{ author|safe }}
+		<em>({{ date|date:"d.m.Y" }})</em>
+	</p>
+	<hr />
+	<p class="mes">
+		<span class="autor">Отзыв:</span> {{ question|safe }}
+	</p>
+	<a href="http://www.pim66.ru/vopros-otvet/">Перейти в вопрос-ответ</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Files
+ */
+
+.icon_block {
+    padding: 0 0 15px 0;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.icon_block dt {
+    margin: 0 0 5px 88px;
+    line-height: 1.285em;
+    font-size: 1.428em;
+}
+
+.icon_block .image {
+    float: left;
+    width: 88px;
+}
+
+.icon_block .desc {
+    margin-left: 88px;
+    line-height: 1.66em;
+    font-size: 0.857em;
+}
+
+.socials_buttons {
+    margin-bottom: 20px;
+    padding: 16px 17px 4px 17px;
+    background: #ffd90c;
+}
+
+.socials_buttons small {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.socials_buttons ul {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.socials_buttons li {
+    float: left;
+    padding: 0 19px 12px 0;
+}
+
+.auto_remark {
+    white-space: nowrap;
+    border-width: 0 0 1px 0;
+    border-style: dotted;
+}
+
+.auto_remark:hover {
+    border-style: dotted !important;
+}
+
+.arp_icon {
+    display: none;
+    position: absolute;
+    top: -11px;
+    width: 14px;
+    height: 14px;
+    background: url('../images/specials/Arp_icon.gif') left top no-repeat;
+}
+
+.arp_cont {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 27px;
+    padding: 10px 15px 15px 15px;
+    width: 265px;
+    border: 3px solid #000;
+    background: #fff;
+}
+
+.arp_bg {
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    width: 13px;
+    height: 7px;
+    background: url('../images/specials/Arp_bg.gif') left top no-repeat;
+}
+
+.arp_text {
+    line-height: 18px;
+    font-size: 12px;
+}
+
+.color_heighter table {
+    width: 100%;
+}
+
+.color_heighter table td {
+    text-align: center;
+    vertical-align: middle;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 20px;
+}
+
+.color_heighter table td a {
+    color: #000;
+    border-width: 0 0 2px 0;
+    border-color: #000;
+}
+
+.ch_black table td a {
+    color: #fff;
+    border-width: 0 0 2px 0;
+    border-color: #fff;
+}
+
+.color_heighter table td a:hover {
+    border-bottom: 0 !important;
+}
+
+.is_comment {
+    position: relative;
+}
+
+.is_comment .panel {
+    display: none;
+    position: absolute;
+    right: -8px;
+    top: 0;
+    padding: 10px 0;
+    white-space: nowrap;
+    width: 0;
+    height: 100%;
+}
+
+.is_comment .panel_top {
+    position: absolute;
+    left: 3px;
+    top: 0;
+}
+
+.is_comment .panel_top .png {
+    width: 159px;
+    height: 10px;
+    background: url('../images/specials/Panel_top.png') left top no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "Front/content/images/specials/Panel_top.png", sizingMethod = "crop");
+}
+
+.is_comment .panel_bottom {
+    position: absolute;
+    left: 3px;
+    bottom: 0;
+}
+
+.is_comment .panel_bottom .png {
+    width: 159px;
+    height: 10px;
+    background: url('../images/specials/Panel_bottom.png') left top no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "Front/content/images/specials/Panel_bottom.png", sizingMethod = "crop");
+}
+
+.is_comment .panel_rep {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url('../images/specials/Panel_rep.png') left top repeat-y;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "Front/content/images/specials/Panel_rep.png", sizingMethod = "scale");
+}
+
+.is_comment .panel_rep p {
+    margin: 0 0 10px 10px !important;
+    padding: 3px 0 0 13px !important;
+    line-height: 1.225em !important;
+    font-size: 11px !important;
+}
+
+.is_comment .panel_rep .view_comments {
+    background: url('../images/specials/Panel_view.gif') left 6px no-repeat;
+}
+
+.is_comment .panel_rep .add_comment {
+    background: url('../images/specials/Panel_add.gif') left 6px no-repeat;
+}
+
+.is_comment .panel_rep .view_comments a {
+    border-width: 0 0 1px;
+    border-style: dotted;
+}
+
+.is_comment .panel_rep .add_comment a {
+    color: #ef4426;
+    border-bottom: 1px dotted #ef4426;
+}
+
+.is_comment .panel_rep .add_comment a:hover {
+    color: #069;
+    border-bottom: 1px dotted #069;
+}
+
+.is_comment .panel_rep .like {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 0 !important;
+}
+
+.is_comment .panel_rep .like a {
+    padding-left: 15px;
+    color: #666;
+    border: 0;
+    background: url('../images/specials/Panel_like.gif') left 3px no-repeat;
+}
+
+.is_comment .panel_rep .like a:hover {
+    color: #000;
+    border: 0;
+}
+
+.is_comment .panel_relative {
+    position: relative;
+    padding-left: 3px;
+    height: 100%;
+}
+
+.is_comment .panel_relative .stripe {
+    position: absolute;
+    left: 0;
+    top: -4px;
+    padding: 4px 0;
+    width: 3px;
+    height: 100%;
+    background: #fa7f22;
+}

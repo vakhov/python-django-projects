@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* Horizontal menu CSS Document */
+
+#menu {
+    margin-bottom: 1.5em;    
+}
+
+#menu ul {
+	margin: 0.5em 0;
+	padding: 0.4em 0.8em;
+	list-style-type: none;
+}
+#menu ul ul {
+	margin: 0;
+	display: none;
+}
+#menu li {
+	line-height: 1.3em;
+	margin: 0.3em 0;
+}
+
+#menu ul ul li {
+	padding-top: 3px 0;
+}
+
+#menu ul ul ul {
+    list-style-type: circle;
+    color: #fff;
+    font-size: 95%;
+    margin-left: 10px;
+}
+#menu ul ul ul ul {
+    font-size: 95%;
+    list-style-type: square;
+}
+
+#menu ul ul ul ul ul {
+    list-style-type: disc;
+}
+#menu ul ul ul li {
+    padding-bottom: 3px;
+}

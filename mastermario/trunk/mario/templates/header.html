@@ -1,0 +1,75 @@
+<div class="header">
+    <div class="header_padding">
+        <div class="header_relative dynamicWidth">
+            <div class="header_logo"></div>
+            <div class="header_phone">
+                <small>(343)</small>
+                <a href="#" class="header_phone_value">{{ phone }}</a>
+                <a href="#" class="header_phone_refresh">
+                    <img src="{{ STATIC_URL }}front/common/images/Blank.gif" alt="Обновить"/>
+                </a>
+            </div>
+            <ul class="header_contactsMenu">
+                <li class="header_contactsMenu_phone">
+                    <a href="#" class="popupMaster-link"><span>мы перезвоним</span></a>
+                </li>
+                <li class="header_contactsMenu_question">
+                    <a href="#" class="popupMaster-link"><span>задать вопрос</span></a>
+                </li>
+                <li class="header_contactsMenu_icq">
+                    <a href="#"><span>228-999-777</span></a>
+                </li>
+                <li class="header_contactsMenu_skype">
+                    <a href="#"><span>mastermario</span></a>
+                </li>
+            </ul>
+            <!--<div class="header_authLink"><a href="#"><span>Войти на сайт</span></a></div>-->
+            <div class="header_userName"
+                 style="background-image: url('{{ STATIC_URL }}front/common/images/examples/userName.jpg');">
+                вы вошли как <span>mastermario</span>
+
+                <div class="header_userName_fade">
+                    <ins></ins>
+                </div>
+            </div>
+            <div class="header_search">
+                <div class="header_search_layer_2">
+                    <div class="header_search_layer_3">
+                        <div class="header_search_layer_4">
+                            <div class="header_search_layer_5">
+                                <div class="header_search_layer_6">
+                                    <form action="#" method="post">
+                                        <p class="header_search_phrase">
+                                            <input type="text" name="phrase"/>
+                                        </p>
+
+                                        <p class="header_search_submit">
+                                            <input type="submit" name="submit" value=" "/>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="header_basket">-->
+            <!--<span class="header_basket_title">моя <strong>корзина</strong></span>-->
+            <!--<a href="#" class="popupMaster-link header_basket_info">Как наполнить?</a>-->
+            <!--</div>-->
+            <div class="header_basket">
+                <span class="header_basket_title">у меня <strong><a href="#">18 товаров</a></strong></span>
+                <a href="#" class="popupMaster-link header_basket_link">Хочу заказать</a>
+            </div>
+            <ul class="header_navigation">
+				<li><a href="#">О проекте</a></li>
+				<li><a href="#">Товары</a></li>
+				<li><a href="#">Услуги</a></li>
+				<li class="cur">Объекты</li>
+				<li><a href="#">Справочник строителя</a></li>
+				<li><a href="#">Вопрос-ответ</a></li>
+				<li><a href="#" class="header_navigation_more popupMaster-link">Еще разделы...</a></li>
+			</ul>
+        </div>
+    </div>
+</div>

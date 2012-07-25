@@ -1,0 +1,42 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+
+	{% include "flora/common/index_link.html" %}
+    
+    {% if user.is_staff %}
+    <p>
+    	<a class="adder_link" href="#" aph-adder="yes" aph-model="News" aph-predefined="" aph-initial="section={{ current_section.id }}">Добавить новость</a>
+    </p>
+    {% endif %}
+    
+    {% if not news %}
+    <h1>Новостей нет</h1>
+        
+    {% else %}
+    <h1>Новости</h1>
+    
+    {% for new in news %}
+        <div id="news_list">
+            <div class="pos" aph-block-type="dge" aph-redirect-url="{{ surrent_section.path }}item-{{ new.id }}" aph-model="News" aph-id="{{ new.id }}">
+                <h3>{{ new.date|date:"d.m.Y" }} &raquo;
+                    {% if new.slug and new.text %}
+                        <a href="{{ current_section.path }}{{ new.slug }}/">{{ new.caption|safe }}</a>
+                    {% else %}
+                        {% if new.text %}
+                            <a href="{{ current_section.path }}item-{{ new.id }}/">{{ new.caption|safe }}</a>
+                        {% else %}
+                            {{ new.caption }}
+                        {% endif %}
+                    {% endif %}
+                </h3>
+            {% if new.announce %}
+                <p class="desc">{{ new.announce|safe }}</p>
+            {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+
+    {% include "generic/pagination.html" %}
+    
+{% endblock %}

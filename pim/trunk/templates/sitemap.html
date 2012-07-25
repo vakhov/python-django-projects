@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}Карта сайта{% endblock%}
+
+{% block site %}
+
+<p class="crumbs">
+    <a href="/">Главная</a> &raquo; Карта сайта
+</p>
+
+<ul>
+{% for item in structure.1.nodes.values %}
+    <li><a href="{{ item.path }}">{{ item.caption }}</a>
+    {% if item.nodes %}
+        <ul>
+        {% for subitem in item.nodes.values %}
+            <li><a href="{{ subitem.path }}">{{ subitem.caption }}</a>
+            {% if subitem.nodes %}
+                <ul>
+                {% for subsubitem in subitem.nodes.values %}
+                    <li><a href="{{ subsubitem.path }}">{{ subsubitem.caption }}</a>
+                    {% if subsubitem.nodes %}
+                        <ul>
+                        {% for item_3 in subsubitem.nodes.values %}
+                            <li><a href="{{ item_3.path }}">{{ item_3.caption }}</a>
+                            {% if item_3.nodes %}
+                                <ul>
+                                {% for item_4 in item_3.nodes.values %}
+                                    <li><a href="{{ item_4.path }}">{{ item_4.caption }}</a>
+                                    {% if item_4.nodes %}
+                                        <ul>
+                                        {% for item_5 in item_4.nodes.values %}
+                                            <li><a href="{{ item_5.path }}">{{ item_5.caption }}</a>
+                                        {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

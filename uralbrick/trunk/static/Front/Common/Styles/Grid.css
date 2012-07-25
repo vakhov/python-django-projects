@@ -1,0 +1,28 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Grid
+ */
+
+.grid {
+    position: relative;
+    width: 890px;
+}
+
+.grid__width_50, .grid__width_33 {
+    display: inline;
+	float: left;
+	position: relative;
+}
+
+.grid__width_50 {
+    width: 420px;
+}
+
+.grid__width_33 {
+    width: 263px;
+}
+
+.grid__margin {
+    margin-left: 50px;
+}
+

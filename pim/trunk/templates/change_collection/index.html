@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Добавить товар в коллекцию</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/typography.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/qa.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/catalog.css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/interface.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/hashing.js"></script>
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/change_collection.js"></script>
+	
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+			<ul id="collection_list">
+			{% for item in structure.1.nodes.values %}
+			    <li><a href="{{ item.path }}" id="{{ item.id }}">{{ item.caption }}</a><div></div>
+			    {% if item.nodes %}
+			        <ul>
+			        {% for subitem in item.nodes.values %}
+			            <li><a href="{{ subitem.path }}" id="{{ subitem.id }}">{{ subitem.caption }}</a><div></div>
+			            {% if subitem.nodes %}
+			                <ul>
+			                {% for subsubitem in subitem.nodes.values %}
+			                    <li><a href="{{ subsubitem.path }}" id="{{ subsubitem.id }}">{{ subsubitem.caption }}</a><div></div>
+			                    {% if subsubitem.nodes %}
+			                        <ul>
+			                        {% for item_3 in subsubitem.nodes.values %}
+			                            <li><a href="{{ item_3.path }}" id="{{ item_3.id }}">{{ item_3.caption }}</a><div></div>
+			                            {% if item_3.nodes %}
+			                                <ul>
+			                                {% for item_4 in item_3.nodes.values %}
+			                                    <li><a href="{{ item_4.path }}" id="{{ item_4.id }}">{{ item_4.caption }}</a><div></div>
+			                                    {% if item_4.nodes %}
+			                                        <ul>
+			                                        {% for item_5 in item_4.nodes.values %}
+			                                            <li><a href="{{ item_5.path }}" id="{{ item_5.id }}">{{ item_5.caption }}</a><div></div>
+			                                        {% endfor %}
+			                                        </ul>
+			                                    {% endif %}
+			                                    </li>
+			                                {% endfor %}
+			                                </ul>
+			                            {% endif %}
+			                            </li>
+			                        {% endfor %}
+			                        </ul>
+			                    {% endif %}
+			                    </li>
+			                {% endfor %}
+			                </ul>
+			            {% endif %}
+			            </li>
+			        {% endfor %}
+			        </ul>
+			    {% endif %}
+			    </li>
+			{% endfor %}
+			</ul>
+        </div>
+    </div>
+<input type="hidden" value="{{ collection_id }}" />
+</body>
+</html>

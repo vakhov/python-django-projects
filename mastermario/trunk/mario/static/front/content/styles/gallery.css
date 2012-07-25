@@ -1,0 +1,127 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Gallery
+ */
+
+/** @section TextGallery */
+#content .text_gallery {
+    padding: 15px 0 20px 0;
+}
+
+#content .text_gallery .big_pic {
+    margin-right: 21px;
+    padding: 3px;
+    border: 3px solid #f89110;
+    zoom: 1;
+}
+
+#content .text_gallery .big_pic table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#content .text_gallery .big_pic table td {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+#content .text_gallery .big_pic .overflow img {
+    display: block;
+    width: 100%;
+}
+
+#content .text_gallery .big_pic .overflow .virtual {
+    position: absolute;
+    left: 0;
+    top: -10000px;
+    width: 100%;
+}
+
+#content .text_gallery .big_pic .overflow .virtual img {
+    width: 100%;
+}
+
+#content .text_gallery .pics {
+    float: right;
+    width: 18px;
+}
+
+#content .text_gallery .pics li {
+    margin-bottom: 1px;
+}
+
+#content .text_gallery .pics li a {
+    display: block;
+    padding: 6px;
+    width: 6px;
+    height: 6px;
+    font-size: 1px;
+    border: 0;
+}
+
+#content .text_gallery .pics li a span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #848484;
+}
+
+#content .text_gallery .pics li a:hover span, #content .text_gallery .pics li.cur a span {
+    background: #000;
+}
+
+#content .text_gallery .pics li.cur a {
+    padding: 3px;
+    border: 3px solid #f89110;
+    cursor: default;
+}
+
+#content .text_gallery .pics li.cur a:hover {
+    border: 3px solid #f89110 !important;
+}
+
+#content .text_gallery .pics img {
+    display: none;
+}
+
+#content .text_gallery .panel {
+    margin-right: 24px;
+    padding-top: 4px;
+    font-size: 11px;
+}
+
+#content .text_gallery .panel .i_like {
+    display: block;
+    float: right;
+    padding-left: 13px;
+    text-decoration: none;
+    background-position: left 4px;
+    background-repeat: no-repeat;
+    color: #666666;
+    border: 0;
+}
+
+#content .text_gallery .panel .i_like:hover {
+    color: #000;
+}
+
+#content .text_gallery .panel .comments, #content .text_gallery .panel .add span {
+    text-decoration: none;
+    color: #408bb2;
+    border-bottom: 1px dashed #408bb2;
+}
+
+#content .text_gallery .panel .comments:hover, #content .text_gallery .panel .add:hover span {
+    color: #ef4426;
+    border-bottom: 1px dashed #ef4426;
+}
+
+#content .text_gallery .panel .comments {
+    margin-right: 15px;
+}
+
+#content .text_gallery .panel .add {
+    padding-left: 13px;
+    background: url('../images/gallery/Edit.gif') left 4px no-repeat;
+    border-bottom: 0;
+}

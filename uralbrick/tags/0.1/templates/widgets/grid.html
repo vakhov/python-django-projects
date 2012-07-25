@@ -1,0 +1,20 @@
+{% load zones %}
+<div class="grid context_vis">    
+    {% for frame, margin in current_widget.columns %}
+            {% if forloop.counter == 1 %}
+            <div class="grid__width_{{ frame }}">
+                {% render_zone current_widget.grid_zone_1 %}
+            </div>
+            {% endif %}
+            {% if forloop.counter == 2 %}
+            <div class="grid__width_{{ frame }} grid__margin">
+                {% render_zone current_widget.grid_zone_2 %}
+            </div>
+            {% endif %}
+            {% if forloop.counter == 3 %}
+            <div class="grid__width_{{ frame }} grid__margin">
+                {% render_zone current_widget.grid_zone_3 %}
+            </div>
+            {% endif %}
+    {% endfor %}
+</div>

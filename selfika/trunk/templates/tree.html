@@ -1,0 +1,81 @@
+<script type="text/javascript">
+$(function () {
+    $("#structure").jstree({ 
+        "json_data" : {
+            "ajax" : {
+                "url" : "/api/parts/list/",
+                "data": { 'document_id': {{ document.id }} },
+                "type": "POST"
+            }
+        },
+        "plugins" : [ 
+            "themes","json_data","ui","crrm","cookies","dnd","types","contextmenu" 
+        ]
+    })
+    .bind("dblclick.jstree", function (e, data) {
+    	var path = e.target.parentElement.getAttribute('path');
+    	path = "/document/{{ document.id }}" + path
+    	window.location.href = path;
+    	return false;
+    })
+    .bind("remove.jstree", function (e, data) {
+        data.rslt.obj.each(function () {
+            $.ajax({
+                async : false,
+                type: 'GET',
+                url: "/api/parts/delete/" + data.rslt.obj.attr("id") + "/", 
+                success : function () {
+                    data.inst.refresh();
+                }
+            });
+        });
+    })
+    .bind("create.jstree", function (e, data) {
+        $.post(
+            "/api/parts/create/", 
+            { 
+                "pid" : data.rslt.parent.attr("id").replace("node_",""),
+                "caption" : data.rslt.name,
+            }, 
+            function (r) {
+                data.inst.refresh();
+            }
+        );
+    })
+    .bind("rename.jstree", function (e, data) {
+        $.post(
+            "/api/parts/rename/"+ data.rslt.obj.attr("id").replace("node_","") + "/", 
+            {  
+                "caption" : data.rslt.new_name
+            }, 
+            function (r) {
+                data.inst.refresh();
+            }
+        );
+    })
+    .bind("move_node.jstree", function (e, data) {
+        data.rslt.o.each(function (i) {
+            if (data.rslt.cr === -1) {
+                $.jstree.rollback(data.rlbk);
+            }
+            else {
+                $.ajax({
+                    async : false,
+                    type: 'POST',
+                    url: "/api/parts/move/",
+                    data : { 
+                        "id" : $(this).attr("id").replace("node_",""), 
+                        "newpid" : data.rslt.cr === -1 ? 1 : data.rslt.np.attr("id").replace("node_",""), 
+                        "order": data.rslt.cp + 1
+                    },
+                    success : function (r) {
+                        data.inst.refresh();
+                    }
+                });
+            }   
+        });
+    });
+});
+</script>
+
+<div id="structure"></div>

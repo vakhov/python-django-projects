@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bp/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bp/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/global.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/news.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/specials.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/colors_new.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/font_new.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/template1.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/menu_h.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/boxy.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/qa.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/catalogue-blocks.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/catalogue-position.css" type="text/css" />
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.md5.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/global.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/actions.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/menu.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/user.vote.js"></script>
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/user.key.js"></script>
+	
+	{% if user.is_staff %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" />  
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+	<script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js">
+	</script>
+	{% endif %}
+	
+	<title>{{ title }}</title>
+</head>
+
+<body>
+
+{% if user.is_staff %}
+    {% include "admin/legacy-admin.html" %}
+{% endif %}
+
+<!--[if lt IE 7]><div id="ie6"><![endif]-->
+<!--[if gte IE 7]><div id="ie7"><![endif]-->
+
+    <div class="container" id="template1">
+        <div class="wheel">
+
+            <div id="header" class="span-24 last">
+
+                <div id="logo">
+                    <a href="/"></a>
+                </div>
+                <div class="header_box_bg"></div>
+                <div class="header_box">
+                    <div id="navigation">
+                        <ul>
+                            <li><a id="writeletter"
+                                href="mailto:info@ekad.ru"
+                                title="Написать письмо"></a></li>
+                            <li><a id="tohome" href="/"
+                                title="На главную"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="phone" class="clearfix">
+                        <span id="phone_number">{{ phone }}</span> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="span-24 last append-bottom">
+                <div id="menu">
+                    <ul class="clearfix">
+            
+                    {% for item in structure.1.nodes.values %}
+                        <li><a href="{{ item.path }}">{{ item.caption }}</a>
+                            {% if item.nodes %}
+                                <ul>
+                                {% for subitem in item.nodes.values %}
+                                    <li><a href="{{ subitem.path }}">{{ subitem.caption }}</a>
+                                        {% if subitem.nodes %}
+                                            <ul>
+                                            {% for subsubitem in subitem.nodes.values %}
+                                                <li><a href="{{ subsubitem.path }}">{{ subsubitem.caption }}</a>
+                                            {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+            
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+            {% block site %} 
+            {% endblock %}
+
+            <div id="footer" class="span-24 last">
+                <div class="span-13">
+                    <div id="company">
+                        {% load zones %}
+                        {% render_zone footer_zone %}
+                    </div>
+                </div>
+                <div class="span-10 last">
+                    <div id="wss">
+                        <p class="siteexpress">
+                            <a href="http://www.s12345.ru/">Создание
+                                сайтов в Екатеринбурге</a><br /> Сайт
+                            создан в рамках проекта «Сайт-Экспресс»
+                            '2010
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--[if IE]></div><![endif]-->
+</body>
+</html>

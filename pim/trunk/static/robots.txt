@@ -1,0 +1,9 @@
+User-agent: Yandex
+Allow: /
+Disallow: /basket/
+Disallow: /%D1%81abinet/
+
+User-agent: *
+Allow: /
+Disallow: /basket/
+Disallow: /%D1%81abinet/

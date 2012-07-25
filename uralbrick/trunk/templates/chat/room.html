@@ -1,0 +1,14 @@
+{% extends "chat/layout.html" %}
+		{% block title %}Чат{% endblock %}
+{% block body %}
+<div id="latest-post-wrap">
+	<div id="latest-post" class="post">
+		<div id="window_chat"><span id="loading">Loading...</span></div>
+		<form id="chatform" action="" method="post">{% csrf_token %}
+			<label for="id_message">Message:</label>
+			{{ form.message }}
+			<input id="button" type="submit" value="Send message" /><br />
+		</form>
+	</div>
+</div>
+{% endblock %}

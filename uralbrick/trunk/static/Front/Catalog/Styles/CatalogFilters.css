@@ -1,0 +1,227 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage CatalogFilters
+ */
+
+.symbol_list {
+    padding-bottom: 20px;
+}
+
+.symbol_list span {
+    display: block;
+    float: left;
+    margin: 0 3px 3px 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.symbol_list span a {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 1.286em;
+    font-weight: bold;
+    border-bottom-width: 0;
+}
+
+.symbol_list span a.selected,
+.symbol_list span a.colored_link:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.alphabet_result_container {
+    display: none;
+}
+
+.alphabet_result {
+    position: relative;
+    padding: 7px 0 0 70px;
+    min-height: 43px;
+}
+
+.ie-lt7 .alphabet_result {
+    height: 43px;
+}
+
+.alphabet_result_letter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 2.143em;
+    font-weight: bold;
+    color: #000;
+}
+
+.alphabet_result_item {
+    display: block;
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 260px;
+}
+
+.alphabet_result_item a:hover {
+    color: #ccc;
+    border-color: #ccc;
+}
+
+.alphabet_result_item .colored_bgColor {
+    padding: 0 3px 2px;
+}
+
+/** @section filters list */
+
+.filter_list_item {
+    display: block;
+    float: left;
+    margin: 0 25px 10px 0;
+    height: 30px;
+    line-height: 30px;
+}
+
+.filter_list_item .colored_bgColor {
+    position: relative;
+    padding: 7px 25px 7px 10px;
+    color: #fff;
+    border-bottom: 0;
+}
+
+.filter_list_item .colored_bgColor ins {
+    display: block;
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    width: 7px;
+    height: 4px;
+    background: url('../Images/FilterList.png') -90px 0 no-repeat;
+}
+
+.filter_list_item__redirect .colored_bgColor {
+    background: #666 !important;
+}
+
+.colored_yellow .filter_list_item .colored_bgColor ins {
+    background-position: -30px -60px;
+}
+
+.colored_yellow .filter_list_item .colored_bgColor {
+    color: #000;
+}
+
+.filter_list_item .colored_bgColor:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.filter_list_item .colored_bgColor:hover ins {
+    background-position: -90px 0;
+}
+
+.filter_list_item__selected .colored_bgColor {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.filter_list_item__selected .colored_bgColor ins {
+    background-position: -60px -30px !important;
+}
+
+.filter_list_item__selected .colored_bgColor:hover ins {
+    background-position: -60px -30px !important;
+}
+
+.filter_list_item__redirect .colored_bgColor ins {
+    top: 12px;
+    right: 14px;
+    width: 4px;
+    height: 7px;
+    background: url('../Images/FilterRedirect.png') -15px 0 no-repeat !important;
+}
+
+.colored_yellow .filter_list_item__redirect .colored_bgColor ins {
+    background-position: 0 -15px !important;
+}
+
+.colored_yellow .filter_list_item__redirect .colored_bgColor:hover ins {
+    background-position: -15px 0 !important;
+}
+
+/** @section Filters hide */
+
+.color_filter,
+.price_filter,
+.purpose_filter {
+    display: none;
+}
+.loading .color_filter,
+.loading .price_filter,
+.loading .purpose_filter {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.filter_container .showMore {
+    position: relative;
+    top: 15px;
+    display: none;
+    margin: 0 -50px;
+    border: 0;
+}
+
+.filter_container .showMore ins {
+    text-decoration: none;
+}
+
+.filter_container__changed {
+    border-width: 3px;
+    border-style: solid;
+}
+
+.filter_disable {
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+}
+
+/* Cloud */
+
+.alphabet_result_cloud {
+    position: relative;
+    top: -10px;
+    vertical-align: baseline;
+    line-height: 30px;
+}
+
+.alphabet_result_cloud a {
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+.alphabet_result_cloud a:hover {
+    color: #ccc;
+    border-color: #ccc;
+}
+
+.alphabet_result_cloud .size6 { font-size: 10px; }
+.alphabet_result_cloud .size7 { font-size: 12px; }
+.alphabet_result_cloud .size8 { font-size: 14px; }
+.alphabet_result_cloud .size1 { font-size: 16px; }
+.alphabet_result_cloud .size2 { font-size: 18px; border-bottom-width: 2px; }
+.alphabet_result_cloud .size3 { font-size: 20px; border-bottom-width: 2px; }
+.alphabet_result_cloud .size10 { font-size: 22px; border-bottom-width: 2px; }
+.alphabet_result_cloud .size4 { font-size: 24px; border-bottom-width: 2px; }
+.alphabet_result_cloud .size5 { font-size: 26px; border-bottom-width: 3px; }
+.alphabet_result_cloud .size9 { font-size: 30px; border-bottom-width: 3px; }

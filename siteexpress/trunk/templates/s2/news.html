@@ -1,0 +1,68 @@
+{% extends "s2/layout.html" %}
+{% block site %}
+<div class="rright prepend-top span-16 last">
+    <p style="margin-left: -0.7em;">&laquo;&nbsp;<a href="/">На главную страницу</a></p>
+    {% if not news %}
+        <h1>Новостей нет</h1>
+    {% else %}
+        <h1>Новости</h1>
+        {% for new in news %}
+            <div id="news_list">
+                <div class="pos">
+                    <h3>{{ new.date|date:"D\, d M Y" }}
+                        {% if new.slug and new.text %}
+                            <a href="/news/{{ new.slug }}/">{{ new.caption }}</a>
+                        {% else %}
+                            {% if new.text %}
+                                <a href="/news/item-{{ new.id }}/">{{ new.caption }}</a>
+                            {% else %}
+                                {{ new.caption }}
+                            {% endif %}
+                        {% endif %}
+                    </h3>
+                {% if new.announce %}
+                    <p class="desc">{{ new.announce }}</p>
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if pagination.num_pages > 1 %}
+    <h2>Страницы
+        <span class="pager_links">
+            {% if not pagination.previous_page %}
+                <span class="prev"><em>Предыдущая</em></span>
+            {% else %}
+                {% ifnotequal pagination.previous_page 1 %}
+                    <a href="/news/page-{{ pagination.previous_page }}/" class="prev"><em>Предыдущая</em></a>
+                {% else %}
+                    <a href="/news/" class="prev"><em>Предыдущая</em></a>
+                {% endifnotequal %}
+            {% endif %}
+            <ins>&nbsp;</ins>
+            {% if not pagination.next_page %}
+                <span class="next"><em>Следующая</em></span>
+            {% else %}
+                <a href="/news/page-{{ pagination.next_page }}/" class="next"><em>Следующая</em></a>
+            {% endif %}
+        </span>
+    </h2>
+
+    <ul class="pager_list">
+        {% for p in pagination.page_range %}
+            {% ifequal p pagination.current_page %}
+                <li class="cur"><strong>{{ p }}</strong></li>
+            {% else %}
+                {% ifnotequal p 1 %}
+                    <li><a href="/news/page-{{ p }}/"><span>{{ p }}</span></a></li>
+                {% else %}
+                    <li><a href="/news/"><span>{{ p }}</span></a></li>
+                {% endifnotequal %}
+            {% endifequal %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+  </div>
+{% endblock %}

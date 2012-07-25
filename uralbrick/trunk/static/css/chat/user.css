@@ -1,0 +1,14 @@
+.error {
+	border: 2px solid #F00;
+	background-color: #F93;
+}
+
+#window_chat {
+	height: 250px;
+	width: 400px;
+	border: 1px solid;
+	padding: 5px;
+	margin: 10px 0;
+	overflow: auto;
+	background-color: white;
+}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+<div class="content">
+{% render_zone current_section.zone %}
+<h1>страница лендинга</h1>
+<ul>
+{% for section in sections %}
+    <li>{{ forloop.counter }})  <a href="{{ section.path }}">{{ section.caption }}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

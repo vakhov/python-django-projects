@@ -1,0 +1,209 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Header
+ */
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 77px;
+}
+
+.ie-lt7 .header {
+    position: absolute;
+}
+
+.header_panel {
+    height: 77px;
+    background-image: url('../Images/Background.png');
+    background-repeat: no-repeat;
+}
+
+.colored_red .header_panel { background-position: 50% 0; }
+.colored_yellow .header_panel { background-position: 50% -77px; }
+.colored_green .header_panel { background-position: 50% -154px; }
+.colored_blue .header_panel { background-position: 50% -231px; }
+.colored_purple .header_panel { background-position: 50% -308px; }
+
+
+.header_content {
+    position: relative;
+    height: 85px;
+}
+
+.header_shadow {
+    position: absolute;
+    left: 0;
+    top: 129px;
+    width: 100%;
+    height: 5px;
+    background: url('../Images/Shadow.png') repeat-x;
+}
+
+.header_logo {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 206px;
+    height: 44px;
+}
+
+.header_logo ins {
+    display: block;
+    position: absolute;
+    right: -12px;
+    top: -3px;
+    width: 42px;
+    height: 12px;
+    background: url('../Images/LogoMark.png') no-repeat;
+}
+
+.header_logo a {
+    border-bottom-width: 0;
+}
+
+.header_phone {
+    position: absolute;
+    left: 100%;
+    top: 16px;
+    margin-left: -205px;
+    padding-bottom: 2px;
+    width: 200px;
+    text-align: right;
+}
+
+.header_phone_text {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 2.143em;
+    font-style: italic;
+}
+
+.ie .header_phone_text {
+    position: relative;
+    left: 8px;
+}
+
+.header_phone_text small {
+    margin-right: 4px;
+    font-size: 0.667em;
+}
+
+.header_phone_call {
+    padding-left: 20px;
+    font-size: 0.858em;
+    color: #000;
+    background: url('../Images/Call.png') -30px 4px no-repeat;
+}
+
+.header_phone_call:hover {
+    background-position: -15px -11px;
+}
+
+.colored_yellow .header_phone_call:hover {
+    background-position: 0 -26px;
+}
+
+.header_call {
+    position: absolute;
+    right: 5px;
+    top: 75px;
+}
+
+.mainMenu {
+    position: absolute;
+    left: 235px;
+    top: 0;
+    height: 32px;
+}
+
+.mainMenu li {
+    float: left;
+    font-size: 1.143em;
+    font-style: italic;
+}
+
+.mainMenu li.selected {
+    padding: 16px 7px 15px;
+    color: #fff;
+}
+
+.mainMenu li a {
+    display: block;
+    padding: 16px 15px 15px;
+    height: 32px;
+    line-height: 30px;
+    border-bottom: 0;
+    color: #fff;
+}
+
+.colored_yellow .mainMenu li a {
+    color: #000;
+}
+
+.mainMenu li a:hover {
+    background: url('../Images/ShadowHover.png');
+}
+
+.mainMenu li span {
+    display: block;
+    float: left;
+    height: 32px;
+    line-height: 30px;
+}
+
+.mainMenu li span.left {
+    width: 8px;
+    background: url('../Images/SelectedLeft.png') no-repeat;
+}
+
+.mainMenu li span.right {
+    width: 8px;
+    background: url('../Images/SelectedRight.png') no-repeat;
+}
+
+.mainMenu li span.center {
+    padding: 0 4px 0 1px;
+    background: url('../Images/SelectedRep.png') repeat-x;
+}
+
+.header_serviceMenu {
+    position: absolute;
+    right: 0;
+    top: -33px;
+}
+
+.header_serviceMenu li {
+    position: relative;
+    float: left;
+    margin-left: 35px;
+    padding: 0 30px 0 7px;
+    height: 22px;
+    line-height: 20px;
+    background-color: #fff;
+}
+
+.header_serviceMenu li .icon {
+    display: block;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: -22px;
+    width: 22px;
+    height: 22px;
+}
+
+.header_serviceMenu li.holder .icon {
+    background-color: #000;
+    background-image: url('../Images/Holder.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.header_serviceMenu li.map .icon {
+    background-image: url('../Images/Map.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,85 @@
+body {
+	padding: 0; margin: 0;
+    min-width: 800px;
+}
+
+a {
+	color: #00a;
+}
+a:hover, a:visited {
+	color: #333;
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+}
+
+#structure {
+	float: left;
+	top: 0;
+	padding-top: 50px;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	position: fixed;
+	overflow: auto;
+	background: #ffe;
+}
+
+#index {
+    float: left;
+    top: 0;
+    left: 0;
+    width: 20%;
+    min-width: 160px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    background: #ffe;
+    padding: 0 10px;
+}
+
+#document {
+	float: right;
+	width: 70%;
+	margin-right: 4%;
+	margin-bottom: 50px;
+}
+
+header {
+    padding: 1em 1.5em;
+    background: #f0f0f0;
+}
+
+header .exit {
+    color: #a42;
+}
+
+.padded {
+    padding: 1em 1.5em;
+} 
+
+.document_list {
+	margin: 0;
+	padding: 1.5em;
+	border: 1px solid #ccc;
+}
+
+.document_item {
+	display: block;
+	float: left;
+	width: 150px;
+	height: 50px;
+	padding-top: 120px;
+	text-align: center;
+	border: 0;
+	margin-right: 1em;
+	background: url(/static/images/document_icon.png) 0 0 no-repeat;
+}
+
+.create_document {
+	padding: 15px 20px;
+	background: url(/static/images/aphaline/legacy/add.png) 0 50% no-repeat;
+}

@@ -1,0 +1,14 @@
+{% load fun %}
+
+<p  {% fun %}
+    fun:block-type="go edit delete"
+    fun:link="/some/url/"
+    fun:id="{{ some.id }}" 
+    fun:model="Catalog"
+    fun:initial="name=Новая позиция, section={{ current_section.id }}, catalog={{ catalog.id }}"
+    fun:only=""
+    fun:exclude="" 
+    {% endfun %}
+>
+    {{ current_widget.text }}
+</p>

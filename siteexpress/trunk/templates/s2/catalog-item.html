@@ -1,0 +1,81 @@
+{% extends "s2/layout.html" %}
+{% block site %}    
+<div class="right prepend-top span-16 last">
+    <p style="margin-left: -0.7em;">&laquo;&nbsp;<a href="/">На главную страницу</a></p>
+    <div id="position">
+    {% if position.caption %}
+        <h1>{{ position.caption }}</h1>
+    {% endif %}
+
+    {% if position.article %}
+        <p class="artic">Артикул: <span id="articul">{{ position.article }}</span></p>
+    {% endif %}
+
+    {% if position.desc_short %}
+        <p id="cat_short">{{ position.desc_short }}</p>
+    {% endif %}
+
+    {% if position.desc_full %}
+        <h2>{{ position.desc_full }}</h2>
+    {% endif %}
+    <div class="desc" id="cat_desc">
+        <p><br />&nbsp;</p>
+    </div>
+
+    {% if position.desc_full %}
+        <h2>Технические характеристики</h2>
+        <div class="desc" id="cat_tech">
+        {{ position.desc_full }}
+            <p>&nbsp;</p>
+        </div>
+    {% endif %}
+        
+        <h2>??????????????????Дополнительные материалы</h2>
+    <ul id="c_files">
+                <li><a href="/files/files/kartocka_predpriatia_(studia_veb-reseniy)-4aafa97dde99d.doc">Файл, загруженный к позиции</a><small>(179кб)</small></li>
+                <li><a href="/files/files/1-4dc0e8a3a7d1f.gif">1234356</a><small>(7кб)</small></li>
+            </ul>
+    
+        <h2>Фотографии</h2>
+    <div id="c_photo">
+        <div class="pos">
+            <div class="img">
+                {% if position.images %}
+                    <a href="{{ position.image_path_full }}"><img src="{{ position.image_path_small }}" alt="" /></a>
+                {% else %}
+                    <img src="/static/images/not_loaded.gif" alt="" />
+                {% endif %}
+            </div>
+            {% if position.image_name %}
+                <div class="name">{{ position.image_name }}</div>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    {% if position.price_opt or position.price_rozn %}
+        <div id="p_price">
+            {% if position.price_rozn %}
+                <div class="one" id="rozn">
+                    <span>{{ position.price_rozn }} руб.</span> розница
+                </div>
+            {% endif %}
+            {% if position.price_opt %}
+                <div class="two" id="opt">
+                    <span>{{ position.price_opt }} руб.</span> опт
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    
+    
+    <div class="clear"></div>
+    
+        
+    <p><a class="back" href="/catalogue/">Вернуться к списку позиций</a></p>
+    
+</div>
+    </div>
+    
+    </div>
+{% endblock %}

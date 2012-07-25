@@ -1,0 +1,83 @@
+﻿/**
+ * @package Brick66
+ * @subpackage Qa
+ */
+
+.qa_list {
+    padding-top: 25px;
+}
+
+.qa_list dl {
+    padding: 0 0 50px;
+}
+
+.qa_list dt {
+    margin-bottom: 20px;
+    font-size: 1.43em;
+    font-style: italic;
+}
+
+.qa_list dt a {
+    border-bottom-width: 2px;
+}
+
+.qa_list dt a:hover {
+    color: #f00;
+    border-color: #f00;
+}
+
+.qa_list .question, .qa_list .answer {
+    line-height: 1.715em;
+}
+
+.qa_list .answer {
+    padding-left: 24px;
+    background: url('../Images/Answer.png') 2px 50% no-repeat;
+}
+
+.qa_list .tags {
+    margin-bottom: 20px;
+}
+
+/* Tags */
+.qa_tags {
+    margin-bottom: 20px;
+}
+.qa_list .qa_tags {
+    margin-bottom: 0;
+}
+
+.qa_tags span {
+    padding: 2px 5px;
+    line-height: 16px;
+    font-size: .786em;
+}
+
+.qa_tags .name {
+    margin-right: 16px;
+    color: #fff;
+}
+
+.colored_yellow .qa_tags .name {
+    color: #000;
+}
+
+.qa_tags .title {
+    background-color: #747b74;
+    color: #fff;
+}
+
+.qa_tags .list {
+    color: #666;
+}
+
+.qa_tags .list a {
+    margin-right: 5px;
+    color: #666;
+    border-color: #666;
+}
+
+.qa_tags .list a:hover {
+    color: #f30;
+    border-color: #f30;
+}

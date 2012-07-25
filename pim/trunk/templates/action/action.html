@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+{% if user.is_staff and aphaline_edit_mode %}
+<p><a href="#" 
+    aph-adder="yes" 
+    aph-model="Action"
+    class="adder_link">
+    Добавить акцию
+    </a>
+</p>
+{% endif %}
+
+    {% include "generic/crumbs.html" %}
+
+	{% if disables and user.is_staff %}
+	<div>
+	<h1>Не активные акции</h1>
+		{% for action in disables %}
+			<div class="articles_listItem"
+			{% if action.picture %}
+				style="background: url('{{ MEDIA_URL }}{{ action.picture }}') no-repeat;"
+			{% endif %}
+	        aph-block-type="gde"
+	        aph-model="Action"
+	        aph-id="{{ action.id }}"
+	        aph-redirect-url="/specials/{{ action.slug }}/">
+				<a href="{{ action.slug }}/"><h1>{{ action.name }}</h1></a>
+				
+				{% if action.desc %}
+					<p>{{ action.desc|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	<h1>Активные коллекции</h1>
+	{% endif %}
+	
+	{% if actions %}
+	<div>
+		{% for action in actions %}
+			<div class="articles_listItem"
+			{# {% if action.picture %}
+				style="background: url('{{ MEDIA_URL }}{{ action.picture }}') 0 50% no-repeat;"
+			{% endif %} #}
+	        aph-block-type="gde"
+	        aph-model="Action"
+	        aph-id="{{ action.id }}"
+	        aph-redirect-url="/specials/{{ action.slug }}/">
+				<a href="{{ action.slug }}/"><h1>{{ action.name }}</h1></a>
+				
+				{% if action.desc %}
+					<p>{{ action.desc|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	{% else %}
+		<h1>Акций нет</h1>
+	{% endif %}
+	
+	{% include "generic/pagination.html" %}
+	<br />
+{% endblock %}

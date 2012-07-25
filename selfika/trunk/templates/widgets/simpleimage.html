@@ -1,0 +1,11 @@
+<div class="widget img">
+{% if current_widget.image %}
+    {% if current_widget.link %}<a href="{{ current_widget.link }}">{% endif %}
+        <img 
+            src="{{ MEDIA_URL }}{{ current_widget.image }}" 
+            alt="{{ current_widget.alt }}" 
+            title="{{ current_widget.title }}"
+        />
+    {% if current_widget.link %}</a>{% endif %}
+{% endif %}
+</div>

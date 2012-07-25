@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load zones %}
+{% load vars %}
+
+{% block title %}{{ current_section.caption }}{% endblock %}
+
+{% block site %}
+
+    {% include "generic/crumbs.html" %}
+
+    {% assign parent current_section.parent %}
+        
+    {% if parent.path == '/' %}
+        {% assign items current_section.children.all %}
+    {% else %}
+        {% assign items parent.children.all %}
+    {% endif %}
+    
+    {% if items %}
+        <ul id="text_submenu">
+            {% for item in items %}
+                {% if item != current_section %}
+                <li><a href="{{ item.path }}">{{ item.caption }}</a></li>
+                {% else %}
+                <li>{{ item.caption }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% render_zone current_section.zone %}
+
+{% endblock %}

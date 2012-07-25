@@ -1,0 +1,49 @@
+{% load vars %}
+
+<span class="h2">Статьи</span>
+<div class="leftMenu">
+    {% for group in groups.values %}
+    <div class="leftMenu_group{% if section %} group_hide{% endif %}">
+        <p><a href="#"><span>{{ group.caption }}</span></a></p>
+        {% if group.nodes %}
+        <ul>
+            {% for subgroup in group.nodes.values %}
+                {% if subgroup.nodes %}
+                    <li class="leftMenu_innerMenu">
+                        <a href="/articles/{{ subgroup.name }}/" class="dashedBorder">{{ subgroup.caption }}</a>
+                        <ul>
+                            {% for ggg in subgroup.nodes.values %}
+                                {% ifequal ggg.name section.name %}
+                                    {% if not article.caption %}
+                                        <li class="cur"><span class="inlineBlock">{{ ggg.caption }}</span></li>
+                                    {% else %}
+                                        <li class="cur"><a href="/articles/{{ ggg.name }}/"><span class="inlineBlock">{{ ggg.caption }}</span></a></li>
+                                    {% endif %}
+                                {% else %}
+                                    <li><a href="/articles/{{ ggg.name }}/">{{ ggg.caption }}</a></li>
+                                {% endifequal %}
+                            {% endfor %}
+                        </ul>
+                        <ins></ins>
+                    </li>
+                {% else %}
+                    {% ifequal subgroup.name section.name %}
+                            {% if not article.caption %}
+                                <li class="cur"><span class="inlineBlock">{{ subgroup.caption }}</span></li>
+                            {% else %}
+                                <li class="cur"><a href="/articles/{{ subgroup.name }}/"><span class="inlineBlock">{{ subgroup.caption }}</span></a></li>
+                            {% endif %}
+                        {% else %}
+                        <li><a href="/articles/{{ subgroup.name }}/">{{ subgroup.caption }}</a></li>
+                    {% endifequal %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+<script type="text/javascript">
+    $('.cur').parents('.group_hide').removeClass('group_hide');
+    $('.cur').parents('.leftMenu_innerMenu').addClass('show');
+</script>

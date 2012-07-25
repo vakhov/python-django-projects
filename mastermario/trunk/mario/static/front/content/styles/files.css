@@ -1,0 +1,55 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Files
+ */
+
+/** @section DownloadFiles */
+
+.download_files {
+    margin-bottom: 14px;
+    padding: 14px 0 5px 0;
+    border-width: 1px 0;
+    border-style: dashed;
+    border-color: #b7b7b7;
+}
+
+.download_files dl {
+    padding: 0 0 11px 38px;
+    min-height: 36px;
+    background-position: left 6px;
+    background-repeat: no-repeat;
+}
+.ie-lt7 .download_files dl {
+    height: 36px;
+}
+
+.download_files dl dt {
+    padding-bottom: 7px;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.download_files dl dd {
+    font-size: 12px;
+    color: #666;
+}
+
+/** @section FilesList */
+
+.files_list dl {
+    padding: 0 0 15px 18px;
+    background-position: left 3px;
+    background-repeat: no-repeat;
+}
+
+.files_list dl dt {
+    padding-bottom: 2px;
+    font-size: 15px;
+}
+
+.files_list dl dd {
+    padding-top: 3px;
+    line-height: 14px;
+    font-size: 11px;
+    color: #666666;
+}

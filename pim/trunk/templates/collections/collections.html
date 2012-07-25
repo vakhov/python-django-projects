@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+{% if user.is_staff and aphaline_edit_mode %}
+<p><a href="#" 
+    aph-adder="yes" 
+    aph-model="NewCollection"
+    class="adder_link">
+    Добавить коллекцию
+    </a>
+</p>
+{% endif %}
+
+    {% include "generic/crumbs.html" %}
+
+	{% if disables and user.is_staff %}
+	<div>
+	<h1>Не активные коллекции</h1>
+		{% for collection in disables %}
+			<div class="articles_listItem"
+			{% if collection.picture %}
+				style="background: url('{{ MEDIA_URL }}{{ collection.picture }}') no-repeat;"
+			{% endif %}
+	        aph-block-type="gde"
+	        aph-model="NewCollection"
+	        aph-id="{{ collection.id }}"
+	        aph-redirect-url="/collections/{{ collection.slug }}/">
+				<a href="{{ collection.slug }}/"><h1>{{ collection.name }}</h1></a>
+				
+				{% if collection.desc %}
+					<p>{{ collection.desc|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	<h1>Активные коллекции</h1>
+	{% endif %}
+	
+	{% if collections %}
+	<div>
+		{% for collection in collections %}
+			<div class="articles_listItem"
+			{# {% if collection.picture %}
+				style="background: url('{{ MEDIA_URL }}{{ collection.picture }}') 0 50% no-repeat;"
+			{% endif %} #}
+	        aph-block-type="gde"
+	        aph-model="NewCollection"
+	        aph-id="{{ collection.id }}"
+	        aph-redirect-url="/collections/{{ collection.slug }}/">
+				<a href="{{ collection.slug }}/"><h1>{{ collection.name }}</h1></a>
+				
+				{% if collection.desc %}
+					<p>{{ collection.desc|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	{% else %}
+		<h1>Коллекций нет</h1>
+	{% endif %}
+	
+	{% include "generic/pagination.html" %}
+	<br />
+{% endblock %}

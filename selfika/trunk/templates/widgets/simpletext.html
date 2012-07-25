@@ -1,0 +1,11 @@
+{% if current_widget.text_type == 1 %}
+    <p class="widget text simple">{{ current_widget.text|safe }}</p>
+{% endif %}
+{% if current_widget.text_type == 2 %}
+    {# Cite #}
+    <p class="widget text cite">{{ current_widget.text|safe }}</p>
+{% endif %}
+{% if current_widget.text_type == 3 %}
+    {# Remark #}
+    <p class="widget text remark">{{ current_widget.text|safe }}</p>
+{% endif %}

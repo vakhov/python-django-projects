@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Живой поиск</title>
+		<link href="{{ STATIC_URL }}css/livesearch/livesearch.css" rel="stylesheet" type="text/css"/>
+		<link href="{{ STATIC_URL }}css/livesearch/jquery.autocomplete.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.autocomplete.pack.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/livesearch.js"></script>
+	</head>
+	<body>
+		<div class="container">
+            <form action="" onsubmit="return false">
+                <p>
+                	<label>Поиск:</label> <input id="livesearch" type="text" autocomplete="off"></p>
+                <p>
+                	Например: <span id="sample" style="cursor:pointer;border-bottom:1px dotted;text-decoration:none;" onclick="$('#livesearch').focus().val($(this).text())">{{ sample.text }}</span></p>
+            </form>
+        </div>
+	<br />
+	<div id="liveoutput"></div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage CatalogueList
+ */
+
+.catalogue_listItem {
+    margin-bottom: 40px;
+    padding-top: 10px;
+}
+
+.catalogue_listItem .image {
+    float: left;
+    margin-top: -10px;
+    width: 140px;
+}
+
+.catalogue_listItem .image img {
+    width: 140px;
+    display: block;
+}
+
+.catalogue_listItem dd.mark, .catalogue_listItem dd.desc, .catalogue_listItem dt {
+    margin-left: 140px;
+}
+
+.catalogue_listItem dd.mark {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.catalogue_listItem dt {
+    margin-bottom: 8px;
+    font-size: 1.285em;
+    font-style: italic;
+}
+
+.catalogue_listItem dt a {
+    border-bottom-width: 2px;
+}
+
+.catalogue_listItem dd.desc {
+    line-height: 1.66em;
+    font-size: 0.857em;
+}

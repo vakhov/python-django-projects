@@ -1,0 +1,25 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Includes
+ */
+
+/* @section Common styles */
+@import url('Common/Styles/Reset.css');
+@import url('Common/Styles/Common.css');
+@import url('Common/Styles/Typography.css');
+@import url('Common/Styles/Grid.css');
+@import url('Common/Styles/General.css');
+@import url('Common/Styles/Colorbox.css');
+
+/* @section Header styles */
+@import url('Header/Styles/Header.css');
+
+/* @section Footer styles */
+@import url('Footer/Styles/Footer.css');
+
+/* @section Content styles */
+@import url('Content/Styles/Content.css');
+@import url('Content/Styles/SlideGallery.css');
+
+/* @section Colored styles */
+@import url('Colored/Styles/Colored.css');

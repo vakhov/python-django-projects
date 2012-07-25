@@ -1,0 +1,21 @@
+{% if current_widget.is_span %}
+    {% if current_widget.header_type == 1 %}
+        <span class="h1">{{ current_widget.header|safe }}</span>
+    {% endif %}
+    {% if current_widget.header_type == 2 %}
+        <span class="h2">{{ current_widget.header|safe }}</span>
+    {% endif %}
+    {% if current_widget.header_type == 3 %}
+        <span class="h3">{{ current_widget.header|safe }}</span>
+    {% endif %}
+{% else %}
+    {% if current_widget.header_type == 1 %}
+        <h1>{{ current_widget.header|safe }}</h1>
+    {% endif %}
+    {% if current_widget.header_type == 2 %}
+        <h2>{{ current_widget.header|safe }}</h2>
+    {% endif %}
+    {% if current_widget.header_type == 3 %}
+        <h3>{{ current_widget.header|safe }}</h3>
+    {% endif %}
+{% endif %}

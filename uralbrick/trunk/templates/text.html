@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block site %}
+{% load zones %}
+<body>
+
+<ul class="illustrations">
+    <li id="illustration_1">
+        {% if catalog.big_blurry_picture %}
+        <img src="{{ catalog.big_blurry_picture.url }}" alt=""/>
+        {% else %}
+        <img src="{{ MEDIA_URL }}{{ background }}" alt=""/>
+        {% endif %}
+        <ins></ins>
+    </li>
+</ul>
+
+<div class="site widthFixed">
+	{% include "generic/crumbs.html" %}
+    <div class="container content">
+    	{% render_zone current_section.zone %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% if pagination.num_pages > 1 %}
+<!-- <p>Страницы:
+    <span class="pager_links">
+        {% if not pagination.previous_page %}
+            <span class="prev">&larr; Предыдущая</span>
+        {% else %}
+            {% ifnotequal pagination.previous_page 1 %}
+                &larr; <a href="{{ pagination.root }}page-{{ pagination.previous_page }}/" class="prev">Предыдущая</a>
+            {% else %}
+                &larr; <a href="{{ pagination.root }}" class="prev">Предыдущая</a>
+            {% endifnotequal %}
+        {% endif %}
+        |
+        {% if not pagination.next_page %}
+            <span class="next">Следующая &rarr;</span>
+        {% else %}
+            <a href="{{ pagination.root }}page-{{ pagination.next_page }}/" class="next">Следующая</a> &rarr;
+        {% endif %}
+    </span>
+</p> -->
+
+<ul class="pager_list">
+    {% for p in pagination.page_range %}
+        {% ifequal p pagination.current_page %}
+            <!-- Дооформить вывод текущей страницы -->
+            <span>{{ p }}</span>
+        {% else %}
+            {% ifnotequal p 1 %}
+                <span><a class="colored_bgColor colored_link" href="{{ pagination.root }}page-{{ p }}/">{{ p }}</a></span>
+            {% else %}
+                <span><a class="colored_bgColor colored_link" href="{{ pagination.root }}">{{ p }}</a></span>
+            {% endifnotequal %}
+        {% endifequal %}
+    {% endfor %}
+</ul>
+
+<div class="clear"></div>
+
+{% endif %}

@@ -1,0 +1,18 @@
+{% if catalog %}
+	<table id="catalog_submenu" cellspacing="5" border="1">
+		<tr>
+			{% for position in catalog %}
+				{% if forloop.counter0|divisibleby:"5" %}
+					</tr><tr>
+				{% endif %}
+				<td>
+					<div class="wtp_catalog_image{% if position.id in wtp_pid %} check{% endif %}" style="background: url({{ position.picture.url_130x130 }}) 50% 100% no-repeat" wtp_id="{{ position.id }}">
+		                {{ position.name }}
+		            </div>
+				</td>
+			{% endfor %}
+		</tr>
+	</table>
+{% else %}
+	<span>Товара нет</span>
+{% endif %}

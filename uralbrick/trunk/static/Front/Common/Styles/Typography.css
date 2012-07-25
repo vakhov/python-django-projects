@@ -1,0 +1,78 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Typography
+ */
+
+/** @section GlobalFonts */
+
+body, button, input, select, textarea {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	font-size: 87.5%;
+    color: #000;
+}
+
+/** @section Links */
+
+a, .blackLink, .virtualLink {
+    text-decoration: none;
+	cursor: pointer;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+}
+
+a {
+    color: #006699;
+    border-color: #006699;
+}
+
+.blackLink {
+    color: #000;
+    border-color: #000;
+}
+
+.whiteLink {
+    color: #fff;
+    border-color: #fff;
+}
+
+.virtualLink {
+	border-bottom-width: 1px;
+    border-bottom-style: dashed;
+	text-decoration: none;
+}
+
+a:hover, a:hover .virtualLink {
+    color: #ff3300;
+    border-color: #ff3300;
+}
+
+.blackLink:hover, .blackLink:hover .virtualLink {
+	color: #000;
+    border-color: #000;
+}
+
+.whiteLink:hover, .whiteLink:hover .virtualLink {
+    color: #fff;
+    border-color: #fff;
+}
+
+/** @section Border */
+
+.noBorder, .noBorder:hover {
+    border: 0 !important;
+}
+
+.dashedBorder, .dashedBorder:hover {
+    border-style: dashed;
+}
+
+.dottedBorder, .dottedBorder:hover {
+    border-style: dotted;
+}
+
+.ie-lt7 .dottedBorder, .ie-lt7 .dottedBorder:hover {
+    border-style: dotted;
+}

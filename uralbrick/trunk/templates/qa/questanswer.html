@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<body>
+
+<ul class="illustrations">
+    <li>
+        <img src="{{ STATIC_URL }}Front/Common/Images/Illustrations/1.jpg" alt="" />
+    </li>
+</ul>
+
+<div class="site widthFixed">
+    {% include "generic/crumbs.html" %}
+    <div class="container">
+        <h1>Вопрос-ответ</h1>
+        <p>Задвайте вопросы и получайте адекватные ответы.<br/>
+Чтобы быстро найти ответ на свой вопрос, воспользуйтесь алфавитным указателем.</p>
+        <div class="alphabet_filter symbol_list context_novis">
+            {% for a in alphabet %}
+                <span><a href="#" class="colored_bgColor colored_link">{{ a.letter }}</a></span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container container__black alphabet_result_container">
+        <div class="alphabet_result context_novis">
+        </div>
+    </div>
+    <div class="container">
+        <div class="qa_list">
+            {% for question in questanswer %}
+            <dl>
+                <dt><a href="{{ current_section.path }}{{ question.pk }}/" class="blackLink">{{ question.question_short }}</a></dt>
+                <dd class="tags">
+                    <div class="qa_tags">
+                        <span class="name colored_bgColor">{{ question.date_publication }}, {{ question.author }}</span>
+                        <span class="title">Метки</span>
+                        <span class="list">
+                            {% for tag in question.tag.all %}
+                                <a href="{{ current_section.path }}/tag/{{ tag.slug }}/">{{ tag.name }}{% if not forloop.last %},{% endif %}</a>
+                            {% endfor %}
+                        </span>
+                    </div>
+                </dd>
+                <dd class="question">
+                    {{ question.question }}
+                </dd>
+                <dd class="answer">
+                    <a href="{{ current_section.path }}{{ question.pk }}/">Посмотреть ответ</a>
+                </dd>
+            </dl>
+            {% endfor %}
+        </div>
+        <div class="symbol_list context_novis">
+            {% include "generic/pagination.html" %}
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

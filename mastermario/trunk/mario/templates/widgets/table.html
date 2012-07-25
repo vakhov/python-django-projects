@@ -1,0 +1,15 @@
+{% ifequal current_widget.table_type 1 %}
+    <table class="tableColored table__smallText">
+        {{ current_widget.content|safe }}
+    </table>
+{% endifequal %}
+{% ifequal current_widget.table_type 2 %}
+    <table class="tableText m-double">
+        {{ current_widget.content|safe }}
+    </table>
+{% endifequal %}
+{% ifequal current_widget.table_type 3 %}
+    <table class="tableSimple m-double">
+        {{ current_widget.content|safe }}
+    </table>
+{% endifequal %}

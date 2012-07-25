@@ -1,0 +1,97 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Paragraph
+ */
+
+p {
+    margin: 0 0 20px 0;
+    padding-bottom: 2px;
+    line-height: 1.571em;
+}
+
+.hr {
+    display: block;
+    margin-bottom: 20px;
+    height: 1px;
+    line-height: 1px;
+    font-size: 1px;
+    border-bottom: 1px dashed #b7b7b7;
+}
+
+p.capital {
+    position: relative;
+    padding-top: 17px;
+}
+
+p.capital .v {
+    margin-right: 3px;
+}
+
+p.capital .r {
+    display: block;
+    float: left;
+    margin: -14px 3px 0 0;
+    padding: 0 7px;
+    text-decoration: none;
+    line-height: 1.26em;
+    height: 36px;
+    font-size: 2.142em;
+    font-weight: bold;
+    background-color: #fa7f22;
+    color: #fff;
+}
+
+p.capital__red .r {
+    background-color: #ef4426;
+}
+
+p.quote {
+    padding-left: 15px;
+    border-left:  3px solid #ef4426;
+}
+
+p.tip {
+    padding: 15px 18px 16px 18px;
+    line-height: 1.66em;
+    font-size: 0.857em;
+    background-color: #efefef;
+    color: #000;
+}
+
+p.small {
+    line-height: 1.66em;
+    font-size: 0.857em;
+}
+
+span.mark {
+    margin-right: 5px;
+    padding: 1px 6px 1px 6px;
+    font-size: 11px;
+    color: #fff;
+    background-color: #ef4426;
+}
+
+span.mark__sup {
+    position: relative;
+    top: -1em;
+}
+
+span.mark__green {
+    background-color: #339900;
+}
+
+span.mark__orange {
+    background-color: #f89110;
+}
+
+span.mark__yellow {
+    background-color: #ffd90c;
+    color: #333333;
+}
+
+.note {
+    padding: 0 0 0 15px;
+    line-height: 1.66em;
+    font-size: 0.857em;
+    color: #666666;
+}

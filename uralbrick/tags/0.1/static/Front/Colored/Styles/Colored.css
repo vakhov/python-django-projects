@@ -1,0 +1,208 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Colored
+ */
+
+/** @section Gradient */
+
+.colored_gradient {
+    background-image: url('../Images/Gradient.png');
+    background-repeat: repeat-x;
+}
+
+.colored_red .colored_gradient {
+    background-color: #e6282e;
+    background-position: 0 0;
+}
+
+.colored_yellow .colored_gradient {
+    background-color: #fae02c;
+    background-position: 0 -85px;
+}
+
+.colored_green .colored_gradient {
+    background-color: #9ee12a;
+    background-position: 0 -170px;
+}
+
+.colored_blue .colored_gradient {
+    background-color: #3fa4cd;
+    background-position: 0 -255px;
+}
+
+.colored_purple .colored_gradient {
+    background-color: #d021de;
+    background-position: 0 -340px;
+}
+
+/** @section Hover */
+
+.colored_red .colored_hover:hover,
+.colored_red .colored_hover:hover .virtualLink {
+    color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+.colored_yellow .colored_hover:hover,
+.colored_yellow .colored_hover:hover .virtualLink {
+    color: #f30 !important;
+    border-bottom-color: #f30 !important;
+}
+
+.colored_green .colored_hover:hover,
+.colored_green .colored_hover:hover .virtualLink {
+    color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+.colored_blue .colored_hover:hover,
+.colored_blue .colored_hover:hover .virtualLink {
+    color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+.colored_purple .colored_hover:hover,
+.colored_purple .colored_hover:hover .virtualLink {
+    color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+/** @section Link */
+
+.colored_link,
+.colored_link .virtualLink {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.colored_link:hover,
+.colored_link:hover .virtualLink {
+    color: #000 !important;
+    border-bottom-color: #000 !important;
+}
+
+.colored_yellow .colored_link,
+.colored_yellow .colored_link .virtualLink {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.colored_yellow .colored_link:hover,
+.colored_yellow .colored_link:hover .virtualLink {
+    color: #f30 !important;
+    border-bottom-color: #f30 !important;
+}
+
+/** @section Text */
+
+.colored_text {
+    color: #fff;
+}
+
+.colored_yellow .colored_text {
+    color: #000;
+}
+
+/** @section Text */
+
+.colored_red .colored_border {
+    border-color: #e3282e;
+}
+
+.colored_yellow .colored_border {
+    border-color: #fbd82c;
+}
+
+.colored_green .colored_border {
+    border-color: #8bd723;
+}
+
+.colored_blue .colored_border {
+    border-color: #319dc5;
+}
+
+.colored_purple .colored_border {
+    border-color: #c61ed5;
+}
+
+/** @section Menu */
+
+.colored_menu {
+    position: absolute;
+    left: 0;
+    top: -35px;
+}
+
+.colored_menu li {
+    float: left;
+    margin-right: 3px;
+    padding: 2px;
+    width: 22px;
+    height: 22px;
+}
+
+.colored_menu li a {
+    border-bottom-width: 0 !important;
+    text-decoration: none !important;
+}
+
+.colored_menu li img {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+.colored_menu li.selected {
+    background-color: #000;
+}
+
+.colored_menu li.selected a {
+    cursor: default;
+}
+
+.colored_menu li.selected img {
+    background-image: url('../Images/Selected.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.colored_menu li.red img {
+    background-color: #e3282e;
+}
+
+.colored_menu li.yellow img {
+    background-color: #fbd82c;
+}
+
+.colored_menu li.green img {
+    background-color: #8bd723;
+}
+
+.colored_menu li.blue img {
+    background-color: #319dc5;
+}
+
+.colored_menu li.purple img {
+    background-color: #c61ed5;
+}
+
+.colored_red .colored_bgColor {
+    background-color: #e3282e;
+}
+
+.colored_yellow .colored_bgColor {
+    background-color: #fbd82c;
+}
+
+.colored_green .colored_bgColor {
+    background-color: #8bd723;
+}
+
+.colored_blue .colored_bgColor {
+    background-color: #319dc5;
+}
+
+.colored_purple .colored_bgColor {
+    background-color: #c61ed5;
+}
+

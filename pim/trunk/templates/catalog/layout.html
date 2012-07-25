@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block title %}{% for c in crumbs %}{{ c.caption }}{% if not forloop.last %} / {% endif %}{% endfor %}{% endblock %}
+
+{% block site %}
+    <div id="catalog">
+        <div id="catalog_typeselect">
+            <dl>
+			  {% ifequal current_section.path '/collections/' %}
+                <dt><span>Новые коллекции</span></dt>
+                <dd>(коллекции)<dd>
+			  {% else %}
+                <dt><a href="/collections/"><span>Новые коллекции</span></a></dt>
+			  {% endifequal %}
+
+              {% include "catalog/tree.html" %}
+              
+            </dl>
+            {% if filter.price_max and filter.price_min or filter.size_max and filter.size_min %}
+	            <dl>
+	            	<form method="get" action="">
+	            		{% if filter.price_max and filter.price_min %}
+			           		<label for="price_max">Max цена:</label>
+			           		<input id="price_max" name="price_max" type="text" value={{ filter.price_max }} maxlength="8" />
+			           		<br />
+			           		<label for="price_min">Min цена:</label>
+			           		<input id="price_min" name="price_min" type="text" value={{ filter.price_min }} maxlength="8" />
+			           		<br />
+	            		{% endif %}
+	            		{% if filter.size %}
+		            		<div id="size">
+		            			{% for size in filter.size %}
+				            		<label for="size_max">{{ size.st }}</label>
+				            		<input id="{{ size.id }}" type="checkbox" />
+				            	{% endfor %}
+				            </div>
+		            	{% endif %}
+		            		<input id="filter" type="submit" value="Отфильтровать">
+		            		<script type="text/javascript">
+		            			$('#filter').click(function(){
+		            				var size = [];
+		            				$('input:checkbox').each(function() {
+		            					if($(this).is(':checked')){
+		            						size.push($(this).attr('id'));
+		            					}
+		            				});
+		            				$.ajax({
+		            					async: true,
+		        						type: 'POST',
+		        						url: '/filter/',
+		        						data: {
+		        							catalog: window.location.pathname,
+		        							price_max: $('#price_max').val(),
+		            						price_min: $('#price_min').val(),
+		            						size: $.toJSON(size)
+		        						},
+		            					success: function(data){
+		            						$('.catalog_list_position').remove();
+		            						$('#catalog_list').append(data);
+		            					}
+		            				});
+		            				return false;
+		            			});
+		            		</script>
+	            	</form>
+	            </dl>
+            {% endif %}
+        </div>
+
+        {% block catalog_content %}
+        {% endblock %}
+    
+        <div style="clear: both"></div>
+    </div>
+	
+	{% if pagination.current_page == 1 or current_section.path == '/' %}
+		{% block catalog_section_zone %}
+			{% render_zone current_section.zone %}
+		{% endblock %}
+	{% else %}
+		{% if not textonpage and aphaline_edit_mode and pagination.current_page != 1 %}
+			<p><a href="#" 
+			    aph-adder="yes" 
+			    aph-model="TextOnPage"         
+			    aph-initial="url={{ current_path }}"
+			    class="adder_link">
+			    Добавить текст
+			    </a>
+			</p>
+		{% endif %}
+		{% if textonpage and aphaline_edit_mode %}
+			<a href="#"
+				aph-block-type="de"
+				aph-model="TextOnPage"
+				aph-id="{{ textonpage.id }}" 
+				class="adder_link">Редактировать текст на странице</a>
+		{% endif %}
+	{% endif %}
+
+	{% if textonpage and pagination.carrent_page != 1 %}
+		<h1>{{ textonpage.caption }}</h1>
+		<p class="announce">{{ textonpage.desc|safe }}</p>
+	{% endif %}
+    
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "articles/article_layout.html" %}
+
+{% load zones %}
+{% load vars %}
+
+{% block article_content %}
+{% if user.is_staff and aphaline_edit_mode %}
+<p><a href="#" 
+    aph-adder="yes" 
+    aph-model="Article"
+    class="adder_link">
+    Добавить новость или статью
+    </a>
+</p>
+{% endif %}
+    
+    <!-- zone ... -->
+    {% for article in articles %}
+        <div class="articles_listItem"
+            aph-block-type="gde"
+            aph-model="Article"
+            aph-id="{{ article.id }}"
+            aph-redirect-url="{{ current_section.path }}{{ article.name }}/">
+            
+            <h2>
+                <a href="{{ current_section.path }}{{ article.name }}">{{ article.caption }}</a>
+            </h2>
+            <p class="description">
+               {{ article.shortdesc|safe }}
+            </p>
+        </div>
+    {% endfor %}
+
+    {% include "generic/pagination.html" %}
+
+{% endblock %}

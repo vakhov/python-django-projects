@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		{% block script %}
+			<link href="{{ STATIC_URL }}css/chat/style.css" rel="stylesheet" type="text/css"/>
+			<link href="{{ STATIC_URL }}css/chat/user.css" rel="stylesheet" type="text/css"/>
+			<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+			<script type="text/javascript" src="{{ STATIC_URL }}js/user.js"></script>
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>

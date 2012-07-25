@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+.header_box, .header_box_bg {
+	right: 0;
+	top: 0;
+	height: 50px;
+	padding: 1.4em 1em 32px 1em;
+	margin-top: 50px;
+	width: 15em;
+	text-align: right;
+}
+.header_box_bg {
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+}
+
+#phone {
+	font-family: "Times New Roman", serif;
+}
+
+#phone p {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	height: 200px;
+}
+
+#basket {
+	margin: 0.7em 0 0.5em 0;
+	height: 4em;
+}
+
+#search form {
+	margin: 0.5em 0;
+	height: 4em;
+	padding: 0;
+}
+#search input {
+	margin-top: 12pt;
+}
+#ie6 #search input {
+	margin-top: 10pt;
+}
+
+.left {
+	padding-left: 2em;
+}
+
+.right {
+	padding-left: 2em;
+}
+
+#news li {
+	float: none;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+.clear {
+    font-size:0;
+    overflow:hidden;
+}
+
+#menu {
+	font-size: 100%;
+}
+
+.pager_list {
+	margin: 0; padding: 0; list-style-type: none;
+}
+
+.pager_list li {
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    
+}

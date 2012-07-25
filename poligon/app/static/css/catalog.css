@@ -1,0 +1,266 @@
+#catalog {
+	margin-bottom: 30px;
+}
+
+#catalog_typeselect {
+    float: left;
+    width: 20%;
+    padding-right: 2%;
+    margin-right: 2%;
+    border-right: 1px dotted #ccc;
+}
+
+#catalog_typeselect dl {
+    margin: 0;
+    padding: 0 0 10px 0;
+}
+
+#catalog_typeselect dt a {
+	text-decoration: none;
+}
+
+#catalog_typeselect dt span {
+    cursor: pointer;
+    font-size: 120%;
+    font-style: italic;
+    font-family: Georgia;
+}
+
+#catalog_typeselect dt a span {
+    border-bottom: 1px dotted #444;
+}
+
+#catalog_typeselect dt:first-child {
+    margin-top: 0;
+}
+#catalog_typeselect dt {
+    margin-top: 15px;
+}
+#catalog_typeselect dd.hidden {
+    display: none;
+}
+
+#catalog_typeselect ul {
+    list-style-type: none;
+    font-size: 12px;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+#catalog_typeselect li {
+    line-height: 140%;
+    padding: 2px 0 2px 15px;
+    background: none;
+}
+#catalog_typeselect li li {
+    padding-left: 20px;
+}
+#catalog_typeselect a {
+    color: #222;
+}
+
+#catalog_typeselect dd {
+    padding: 0;
+    margin: 5px 0;
+    /*display: none;*/
+}
+
+#catalog_list,
+#catalog_item,
+#catalog_menu {
+    float: left;
+    width: 75%;
+    //width: 70%;
+}
+
+#catalog_submenu {
+    margin: 0 0 20px 0 !important;
+    overflow: hidden;
+    border-top: 3px solid #eee;
+    border-bottom: 3px solid #eee;
+    padding: 10px 5px !important;
+    display: table;
+    width: 100%;
+    font-size: 90%;
+}
+#catalog_submenu td {
+	background: none;
+    padding: 3px 7px;
+    vertical-align: middle;
+    width: 180px;
+    //width: 25%;
+    border-right: 1px dotted #bbb;
+    text-align: center;
+}
+
+#catalog_submenu td:first-child {
+	border-left: 1px dotted #bbb;
+}
+
+.catalog_list_position {
+    float: left;
+    //display: inline;
+    height: 225px;
+    width: 21.5%;
+    padding: 5px 0.7%;
+    margin: 0 0 40px 1.8%;
+    font-size: 85%;
+    line-height: 140%;
+    cursor: pointer;
+    border: 1px solid #fff;
+    color: #000;
+    text-decoration: none;
+}
+
+.catalog_list_position.unexist {
+    color: #555;
+    opacity: 0.5;
+}
+
+.catalog_list_position:hover {
+    border: 1px dotted #ccc;
+}
+
+.catalog_list_image {
+    height: 125px;
+    background: #f0fff0;
+}
+
+.catalog_list_name {
+    margin-top: 5px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.catalog_list_name,
+.catalog_list_price {
+    text-align: center;
+}
+
+.catalog_list_price {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 5px 0;
+    height: 16px;
+    line-height: 16px;
+    font-size: 110%;
+}
+
+.catalog_item_table {
+    width: 100%;
+    font-size: 100%;
+    line-height: 140%;
+    margin-top: 20px;
+}
+
+.catalog_item_table td {
+    vertical-align: top;
+}
+
+.catalog_item_image {
+    padding-right: 20px;
+    width: 300px;
+}
+.catalog_item_image img {
+}
+
+.catalog_item_description {
+}
+
+.catalog_position_image_list {
+    margin-top: 10px;    
+}
+
+.catalog_item_small_image {
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin-right: 12px;
+}
+
+/* .crumbs {
+    position: relative;
+    top: -20px;	
+}
+ */
+.catalog_item_caption_table {
+	width: 100%;
+}
+.catalog_item_name {
+	width: 80%;
+    background: #f0f0f0;    
+}
+
+.catalog_item_name h1 {
+	padding: 0;
+	margin: 10px;
+	font-size: 20px;
+}
+
+.catalog_item_articul {
+	font-size: 85%;
+	color: #555;
+	text-align: right;
+    background: #f0f0f0;
+    padding-right: 10px;
+    font-style: italic;
+}
+
+.catalog_item_articul p {
+    margin: 0;
+    padding: 0;
+}
+
+.catalog_item_price {
+    font-size: 200%;
+    margin-top: 5px;
+    padding: 5px 0;    
+}
+.catalog_item_order {
+	text-align: right;
+	font-size: 22px;	
+}
+.catalog_item_order p {
+	background: #ee3500 url(/static/img/basket_small.png) 10px 50% no-repeat;
+	display: inline-block;
+	padding: 5px 15px 5px 45px;
+    border-radius: 10px;
+    line-height: 28px;
+}
+
+#ordering {
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.size_not_exist {
+    color: #aaa;
+}
+
+
+/* FORM */
+.catalog_form {
+	margin: 3px 0;
+	padding: 5px;
+	border: 1px solid #ccc;
+	font-size: 90%;
+}
+.property_name {
+	font-weight: bold;
+}
+
+#basket_table {
+	//width: 920px;
+	border-collapse: collapse;
+}
+
+#basket_table th {
+	background: #eee;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+#basket_table td {
+	height: 50px;
+	border: 1px solid #ccc;
+	padding: 5px;
+}

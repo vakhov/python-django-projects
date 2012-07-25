@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+
+    {% include "generic/crumbs.html" %}
+   	<h1>Акция &laquo;<span style="color:red;text-decoration:underline;">{{ action.name }}</span>&raquo;</h1>
+    
+    {{ action.desc|safe }}
+    
+    {% render_zone action.zone_top %}
+    {% if user.is_staff and aphaline_edit_mode %}
+		<p><a class="adder_link" href="/api/add_action/{{ action.id }}/" id="change_collection" pk={{ catalog_position.id }}>Добавить товары в данную акцию.</a></p>
+	{% endif %}
+    
+    {% for p in positions %}
+    <a  class="catalog_list_position{% if not p.is_exist %} unexist{% endif %}"
+        href="{{ p.section.path }}{{ p.slug }}"
+    >
+        <div class="catalog_list_image" style="background: url({{ p.picture.url_130x130 }}) 50% 100% no-repeat">
+            {% if p.is_special %}<p>Акция</p>{% endif %}
+        </div>
+        <div class="catalog_list_name">
+            {{ p.name }}
+        </div>
+        <div class="catalog_list_price">
+            {% if p.discount > 0 %}
+                <span style="text-decoration:line-through;color:red;">{{ p.price }} P</span>
+                {{ p.discounted }} Р
+            {% else %}
+                {{ p.price }} Р
+            {% endif %}
+        </div>
+        {% if position.is_free_delivery %}
+			<div class="is_free_delivery">Бесплатная доставка</div>
+		{% endif %}
+    </a>
+    {% endfor %}
+
+    <div style="clear: both"></div>
+    
+    {% include "generic/pagination.html" %}
+
+    {% render_zone action.zone_bottom %}
+
+{% endblock %}

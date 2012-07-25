@@ -1,0 +1,99 @@
+{% extends "s1/layout.html" %} 
+
+{% block site %}
+
+<!-- Left column -->
+<div class="left span-6 prepend-top">
+    
+    <!-- News -->    
+    <h3>Новости</h3>
+    <div id="news" aph-block-type="g" aph-redirect-url="/news/">
+        <ul>
+            {% for news_item in news %}
+            <li>
+                <div class="date">
+                    <span class="plash">{{ news_item.date|date:"d.m.Y" }}</span>
+                </div>
+                <div class="header">
+                    {% if news_item.slug %} 
+                        <a href="/news/{{ news_item.slug }}/">{{ news_item.caption }}</a> 
+                    {% else %} 
+                        <a href="/news/item-{{ news_item.id }}/">{{ news_item.caption }}</a> 
+                    {% endif %}
+                </div>
+                <div class="shortdesc">{{ news_item.announce }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <!-- Files -->
+    <h3>Загруженные файлы</h3>
+    <div id="files">
+        <ul class="clearfix">
+            <li id="file-2"><a href="#">Ссылка на файл</a><small>179кб</small></li>
+        </ul>
+    </div>
+    
+</div>
+
+<!-- Right column -->
+<div class="right append-1 prepend-1 span-15 last prepend-top">
+
+    <!-- Content -->
+    <div id="text">
+        {% load zones %}
+        {% render_zone current_section.zone %}
+    </div>
+    
+    <!-- Special offers -->
+    <div id="specials">
+        {% if specialoffer %} 
+            {% for so in specialoffer %}
+                <ul class="clearfix">
+                    <li id="special-1" aph-block-type="de" aph-model="SpecialOffer" aph-id="{{ so.id }}">
+                    
+                    {% if so.url_link %} 
+                        <a href="{{ so.url_link }}"> 
+                    {% endif %}
+                     
+                        {% if so.picture %} 
+                            <span class="image"> 
+                                <img 
+                                src="/media/{{ so.picture }}" 
+                                alt="Горячее предложение" />
+                            </span> 
+                        {% else %} 
+                            <span class="image"> 
+                                <img
+                                src="/static/images/not_loaded.gif"
+                                alt="Горячее предложение" />
+                            </span> 
+                        {% endif %} 
+                        {% if so.url_link %} 
+                            <span class="href" style="display: none"> 
+                                {{ so.url_link }} 
+                            </span> 
+                        {% endif %} 
+                        {% if so.caption %} 
+                            <span class="header">{{ so.caption }}</span>
+                        {% endif %} 
+                        {% if so.description %} 
+                            <span class="shortdesc">{{ so.description }}</span>
+                        {% endif %} 
+                        {% if so.price %}
+                            <span class="price">{{ so.price }}</span>
+                        {% endif %} 
+                    
+                    {% if so.url_link %}
+                        </a> 
+                    {% endif %}
+                    </li>
+                </ul>
+            {% endfor %} 
+        {% endif %}
+    </div>
+    
+    
+</div>
+{% endblock %}

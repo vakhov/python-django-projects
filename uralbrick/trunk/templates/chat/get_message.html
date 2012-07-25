@@ -1,0 +1,3 @@
+{% for message in messages %}
+	[{{ message.time|date:"H:i:s" }}] <strong>{{ message.name }}</strong> {{ message.message }}</br>
+{% endfor %}

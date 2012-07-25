@@ -1,0 +1,57 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+
+    {% include "flora/common/index_link.html" %}
+	<h1>Товары по тегу &laquo;{{ tagview.tag }}&raquo;</h1>
+    {% load vars %}
+
+	{% if catalog %}
+    <ul id="catalog_body" class="clearfix">
+
+        {% for c in catalog %}
+        <li id="{{ c.path }}position-{{ c.id }}" 
+        	aph-block-type="ge" 
+        	aph-model="Position" 
+        	aph-id="{{ c.id }}"
+        	aph-redirect-url="{{ c.section }}/item-{{ c.id }}/" 
+        >
+        
+            <div class="image">
+                <a href="{{ c.section }}item-{{ c.id }}/">
+
+                    <img src="{{ c.picture.url }}" style="max-width: 150px; max-height: 180px" alt="{{ c.desc_short }}" />
+
+                </a>
+            </div>
+            
+            <div class="header"><a href="{{ c.section }}item-{{ c.id }}">{{ c.caption|safe }}</a></div>
+            
+            {% if c.price_rozn != 0 %}<div class="price">{{ c.price_rozn|safe }} руб.</div>{% endif %}
+            
+            {% if not c.is_exists %}
+                <div class="price" style="font-weight: bold;">НЕТ В НАЛИЧИИ</div>
+            {% endif %}
+            
+            <div class="description">{{ c.desc_short|safe }}</div>
+            {% assign tags c.tags.all %}
+            {% if tags %}
+                <span class="marks">
+                    метки: 
+                        {% for tag in tags %}
+                        <a href="/tag/{{ tag.name }}/">{{ tag.tag }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                </span>
+            {% endif %}
+        </li>
+        {% endfor %}
+   
+    	<li class="clear" style="height: 2em; border: none;"></li>
+    	
+    </ul>
+    {% else %}
+    	<h1>Товаров нет</h1>
+    {% endif %}
+    
+    {% include "generic/pagination.html" %}
+    
+{% endblock %}

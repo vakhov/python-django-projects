@@ -1,0 +1,21 @@
+{% if current_widget.image %}
+<div class="just_image border_bottom">
+    <div class="img"><img src="/{{ current_widget.image }}" alt="{{ current_widget.alt }}" title="{{ current_widget.title }}"/>
+        {% if current_widget.description_top or current_widget.description_bottom %}
+                {% if current_widget.description_top %}
+                    <p class="top">{{ current_widget.description_top }}</p>
+                {% endif %}
+                {% if current_widget.description_bottom %}
+                    <p class="bottom">{{ current_widget.description_bottom }}</p>
+                {% endif %}
+        {% endif %}
+        {% if current_widget.description_below %}
+        </div>
+            <div class="txt">
+                <p>{{ current_widget.description_below }}</p>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<div class="just_image border_bottom"></div>
+{% endif %}

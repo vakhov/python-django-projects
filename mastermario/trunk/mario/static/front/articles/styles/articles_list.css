@@ -1,0 +1,75 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage ArticlesList
+ */
+
+.articles_listItem {
+    margin-bottom: 60px;
+}
+
+.articles_listItem dt {
+    margin-bottom: 15px;
+    padding-bottom: 2px;
+    line-height: 1.5em;
+    font-size: 1.428em;
+}
+
+.articles_listItem dt a {
+    border-bottom-width: 2px;
+}
+
+.articles_listItem dt ins {
+    margin: 5px;
+    text-decoration: none;
+}
+
+.articles_listItem dt .mark {
+    margin-left: 5px;
+}
+
+.articles_listItem .info {
+    margin-bottom: 20px;
+}
+
+.articles_listItem .info .date {
+    margin-right: 16px;
+}
+
+.articles_listItem .info .authors {
+    font-size: 0.786em;
+    color: #333333;
+}
+
+.articles_listItem .description {
+    margin-bottom: 20px;
+}
+
+.articles_listItem .data {
+    font-size: 0.786em;
+}
+
+.articles_listItem .data .rateShow {
+    margin-right: 22px;
+}
+
+.articles_listItem .marks {
+    padding-left: 12px;
+    background: url('../images/mark.png') 0 4px no-repeat;
+    color: #333333;
+}
+
+.articles_listItem .marks a {
+    color: #999999;
+    border-color: #999999;
+}
+
+.articles_listItem .marks a:hover {
+    color: #f30;
+    border-color: #f30;
+}
+
+.articles_listItem .comments {
+    margin-left: 25px;
+    padding-left: 13px;
+    background: url('../images/comments.png') 0 4px no-repeat;
+}

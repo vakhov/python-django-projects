@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block site %}
+    <h1>Личный кабинет</h1>
+    {% render_zone current_section.zone %}
+{% endblock %}

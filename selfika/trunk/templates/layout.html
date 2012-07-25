@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Selfika [alpha]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/typography.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/widgets.css"/>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
+    
+    {% block head %}
+    {% endblock %}
+
+    {% if document and user == document.owner %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" />  
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+    <script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js"></script>
+    {% endif %}
+    
+</head>
+<body>
+    <div id="content">
+        {% block site %}{% endblock %}
+    </div>
+    <div id="footer">
+    </div>
+</body>
+</html>

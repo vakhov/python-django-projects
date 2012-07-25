@@ -1,0 +1,128 @@
+{% extends "s3/layout.html" %}
+
+{% block site %}
+<div class="left span-6 prepend-top">
+
+<h3>Новости</h3>
+    <div id="news" aph-block-type="g" aph-redirect-url="/news/">
+        <ul>
+            {% for news_item in news %}
+            <li>
+                <div class="date">
+                    <span class="plash">{{ news_item.date|date:"d.m.Y" }}</span>
+                </div>
+                <div class="header">
+                    {% if news_item.slug %} 
+                        <a href="/news/{{ news_item.slug }}/">{{ news_item.caption }}</a> 
+                    {% else %} 
+                        <a href="/news/item-{{ news_item.id }}/">{{ news_item.caption }}</a> 
+                    {% endif %}
+                </div>
+                <div class="shortdesc">{{ news_item.announce }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>		
+			<h3>Загруженные файлы</h3>
+		<div id="files">
+	<ul class="clearfix">
+				<li id="file-2"><a href="/files/files/kartocka_predpriatia_(studia_veb-reseniy)-4aafa5c0d6aaa.doc">Реквизиты организации</a><small>179кб</small></li>
+			</ul>
+</div>	
+<!--			<h3>ICQ-консультант</h3>
+
+		<div id="icq">
+	<ul>
+			<li id="icq-1" style="background-image: url(http://wwp.icq.com/scripts/online.dll?icq=123456789&amp;img=5);"><a href="#">123456789</a><span>Консультант</span></li>
+		</ul>
+</div>		
+ 			<h3>Голосование</h3>
+		<div id="vote">
+	<p id="votequestion">Вопрос голосования</p>
+
+	<ul id="voteform">
+			<li id="voteanswer_6"><a href="#" id="vote_6" class="do_answer">Вариант ответа 1</a></li>
+			<li id="voteanswer_7"><a href="#" id="vote_7" class="do_answer">Вариант ответа 2</a></li>
+			<li id="voteanswer_8"><a href="#" id="vote_8" class="do_answer">Вариант ответа N</a></li>
+		</ul>
+	<div id="voteresults">
+		<ul id="answers">
+
+					<li id="votebar_6">
+				<p>Вариант ответа 1</p>
+				
+								
+				<div class="indicator result"  style="width:36.363636363636%"><small id="votesmall_6">4</small></div>
+			</li>
+					<li id="votebar_7">
+				<p>Вариант ответа 2</p>
+				
+								
+				<div class="indicator result"  style="width:45.454545454545%"><small id="votesmall_7">5</small></div>
+
+			</li>
+					<li id="votebar_8">
+				<p>Вариант ответа N</p>
+				
+								
+				<div class="indicator result"  style="width:18.181818181818%"><small id="votesmall_8">2</small></div>
+			</li>
+				</ul>
+		<p class="votecounter">Всего голосов:<strong id="votecounter">11</strong></p>
+
+	</div>
+</div>		
+ -->	</div>
+
+	<div class="right prepend-top span-16 last">
+		<div id="text" class="flexcroll">
+<h1>Субсидиарный закон: предпосылки и развитие</h1> <p>При наступлении согласия всех сторон перестрахование вознаграждает Указ, именно такой позиции придерживается арбитражная практика. Сделка объективно добросовестно использует договор, что не имеет аналогов в англо-саксонской правовой системе. Задаток аналогичен. Сделка объективно требует обязательственный причиненный ущерб, когда речь идет об ответственности юридического лица.</p> <p>Штраф, как следует из теоретических исследований, доказывает коносамент, хотя законодательством может быть установлено иное. Коносамент реорганизован. Законодательство наследует регрессный суд, именно такой позиции придерживается арбитражная практика. Регрессное требование, как и в других отраслях российского права, подведомственно арбитражному суду.</p></div>
+<div id="specials">
+	{% if specialoffer %} 
+            {% for so in specialoffer %}
+                <ul class="clearfix">
+                    <li id="special-1" aph-block-type="de" aph-model="SpecialOffer" aph-id="{{ so.id }}">
+                    
+                    {% if so.url_link %} 
+                        <a href="{{ so.url_link }}"> 
+                    {% endif %}
+                     
+                        {% if so.picture %} 
+                            <span class="image"> 
+                                <img 
+                                src="/media/{{ so.picture }}" 
+                                alt="Горячее предложение" />
+                            </span> 
+                        {% else %} 
+                            <span class="image"> 
+                                <img
+                                src="/static/images/not_loaded.gif"
+                                alt="Горячее предложение" />
+                            </span> 
+                        {% endif %} 
+                        {% if so.url_link %} 
+                            <span class="href" style="display: none"> 
+                                {{ so.url_link }} 
+                            </span> 
+                        {% endif %} 
+                        {% if so.caption %} 
+                            <span class="header">{{ so.caption }}</span>
+                        {% endif %} 
+                        {% if so.description %} 
+                            <span class="shortdesc">{{ so.description }}</span>
+                        {% endif %} 
+                        {% if so.price %}
+                            <span class="price">{{ so.price }}</span>
+                        {% endif %} 
+                    
+                    {% if so.url_link %}
+                        </a> 
+                    {% endif %}
+                    </li>
+                </ul>
+            {% endfor %} 
+        {% endif %}
+</div>	</div>
+	
+	</div>
+{% endblock %}

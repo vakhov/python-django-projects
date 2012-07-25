@@ -1,0 +1,38 @@
+<div class="span-24 last">
+        
+        <div class="left span-6 prepend-top">
+    <div id="menu">
+        <ul class="clearfix">
+
+        {% for item in structure.1.nodes.values %}
+            <li><a href="{{ item.path }}">{{ item.caption }}</a>
+                {% if item.nodes %}
+                    <ul>
+                    {% for subitem in item.nodes.values %}
+                        <li><a href="{{ subitem.path }}">{{ subitem.caption }}</a>
+                            {% if subitem.nodes %}
+                                <ul>
+                                {% for subsubitem in subitem.nodes.values %}
+                                    <li><a href="{{ subsubitem.path }}">{{ subsubitem.caption }}</a>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+    <div id="phone" class="clearfix">
+  <p>
+        <small>(<span id="phone_code">343</span>)</small>
+        <span id="phone_number">367-68-07</span>
+  </p>
+</div>
+</div>

@@ -1,0 +1,17 @@
+{% if get_class %}
+		class="{{ get_class|join:" " }}"
+	{% endif %}
+	{% if current_widget.free_border or current_widget.font_style %}
+		style="{% if current_widget.free_border %}border-color:#{{ current_widget.free_border }};{% endif %}
+		{% ifequal current_widget.font_style 1 %}font-family:Tahoma, Geneva, sans-serif;{% endifequal %}
+		{% ifequal current_widget.font_style 2 %}font-family:Arial, Helvetica, sans-serif;{% endifequal %}
+		{% if current_widget.icon %}background-image: url('{{ current_widget.icon }}');{% endif %}"
+	{% endif %}
+>
+	{% if current_widget.link_href %}
+	<small class="part"><a href="{{ current_widget.link_href }}">{{ current_widget.link_text }}</a></small>
+	{% endif %}
+
+	{% autoescape off %}
+	{{ current_widget.header }}
+	{% endautoescape %}

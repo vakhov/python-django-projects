@@ -1,0 +1,177 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ie-lt7 ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 8]>
+<html class="nojs ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 9]>
+<html class="nojs ie-lt9 ie">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="nojs">
+<!--><![endif]-->
+
+<head>
+    <title>Brick 66</title>
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="robots" content="all"/>
+    <meta name="copyright" content="dw-ural.ru"/>
+
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <!--[if IE]>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><![endif]-->
+
+    <!-- <link href="{{ STATIC_URL }}Front/Includes.css" rel="stylesheet" type="text/css"/>-->
+    <link href="{{ STATIC_URL }}Front/main-built.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_json.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_ui_core.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_ui_widget.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_ui_mouse.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_ui_slider.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_carousel.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/Base.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_print.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_easing.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_colorbox.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_disable_text_select.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Colored/Scripts/Colored.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGallery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryConstants.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryControl.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryArea.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/RenderHelper.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Catalog/Scripts/RangeInput.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Catalog/Scripts/AlphabetFilter.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Catalog/Scripts/Filters.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Footer/Scripts/Search.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Footer/Scripts/Time.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Footer/Scripts/FooterGallery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Index/Scripts/IndexGallery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Run.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/search.js"></script>
+    
+    {% block head %}{% endblock %}
+    
+    <!-- facebox start
+	<link href="{{ STATIC_URL }}js/fancybox/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css"/>
+	<script src="{{ STATIC_URL }}js/fancybox/jquery.fancybox-1.3.4.js" type="text/javascript"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/popupwindow.js"></script>
+	facebox end -->
+
+    <!--<script type="text/javascript" src="{{ STATIC_URL }}main-built.js"></script>-->
+
+    {% if user.is_staff %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/boxy.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+    <script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
+    {% endif %}
+</head>
+
+{% block site %}
+{% endblock %}
+
+<div class="header">
+    <div class="header_panel">
+        <div class="header_content widthFixed">
+            <div class="header_logo">
+                <a href="/">
+                    <img src="{{ STATIC_URL }}Front/Header/Images/Logo.png" alt=""/>
+                    <ins></ins>
+                </a>
+            </div>
+            <ul class="mainMenu">
+            	{% for menu in header_menu %}
+            		{% if menu.path != current_section.path %}
+            			<li><a href="{{ menu.path }}">{{ menu.caption }}</a></li>
+            		{% else %}
+            			<li class="selected">
+                        <span class="left"></span>
+                        <span class="center">{{ menu.caption }}</span>
+                        <span class="right"></span>
+                    </li>
+            		{% endif %}
+            	{% endfor %}
+            </ul>
+            <div class="header_phone">
+                <span class="header_phone_text">
+                    <small>(343)</small>200-60-48
+                </span>
+                <a href="#" class="noBorder header_phone_call colored_hover">
+                    <span class="virtualLink">хочу бесплатный звонок</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer colored_bgColor">
+    <div class="footer_content widthFixed">
+        <ul class="colored_menu">
+            <li class="red">
+                <a href="#" rel="colored_red"><img src="{{ STATIC_URL }}Front/Common/Images/Blank.gif" alt=""/></a>
+            </li>
+            <li class="yellow">
+                <a href="#" rel="colored_yellow"><img src="{{ STATIC_URL }}Front/Common/Images/Blank.gif" alt=""/></a>
+            </li>
+            <li class="green">
+                <a href="#" rel="colored_green"><img src="{{ STATIC_URL }}Front/Common/Images/Blank.gif" alt=""/></a>
+            </li>
+            <li class="blue">
+                <a href="#" rel="colored_blue"><img src="{{ STATIC_URL }}Front/Common/Images/Blank.gif" alt=""/></a>
+            </li>
+            <li class="purple">
+                <a href="#" rel="colored_purple"><img src="{{ STATIC_URL }}Front/Common/Images/Blank.gif" alt=""/></a>
+            </li>
+        </ul>
+        <form action="#" method="post" class="footer_search">
+            <input class="footer_search_text" type="text" name="phrase" value="" />
+            <input class="footer_search_submit" type="submit" name="submit" value=" " />
+            <span class="footer_search_watermark">Поиск по сайту</span>
+        </form>
+        <ul class="footer_menu">
+            <li class="footer_menu__consultant">
+                <a href=""><span>Консультант</span></a>
+            </li>
+            <li class="footer_menu__basket">
+                <a href=""><span>Моя корзина (<b>19</b>)</span></a>
+            </li>
+        </ul>
+        <ul class="service_menu">
+            <li class="service_menu__power selected">
+                <a href="#"><ins></ins></a>
+            </li>
+            <li class="service_menu__question">
+                <span><ins></ins></span>
+            </li>
+            <li class="service_menu__sitemap">
+                <a href="#"><ins></ins></a>
+            </li>
+            <li class="service_menu__download">
+                <a href="#"><ins></ins></a>
+            </li>
+        </ul>
+        <div class="footer_time">
+            <span class="inlineBlock footer_time_hours"></span><span class="inlineBlock footer_time_dots">:</span><span class="inlineBlock footer_time_minutes"></span>
+        </div>
+    </div>
+    <div class="footer_shadow"></div>
+    {% block footer_gallery %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

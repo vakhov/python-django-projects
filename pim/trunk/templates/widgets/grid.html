@@ -1,0 +1,18 @@
+{% load zones %}
+<table class="grid">
+    <tr>
+    {% for frame, margin in current_widget.columns %}
+        <td class="grid__width_{{ frame }}">
+        {% if forloop.counter == 1 %}
+            {% render_zone current_widget.grid_zone_1 %}
+        {% endif %}
+        {% if forloop.counter == 2 %}
+            {% render_zone current_widget.grid_zone_2 %}
+        {% endif %}
+        {% if forloop.counter == 3 %}
+            {% render_zone current_widget.grid_zone_3 %}
+        {% endif %}
+        </td>      
+    {% endfor %}
+    </tr>
+</table>

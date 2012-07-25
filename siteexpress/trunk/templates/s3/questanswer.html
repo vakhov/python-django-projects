@@ -1,0 +1,55 @@
+{% extends "s3/layout.html" %}
+{% block site %}
+<div class="right prepend-top span-16 last">
+  <p style="margin-left: -0.7em;">
+  &laquo;&nbsp;<a href="/">На главную страницу</a>
+  </p>
+  <div id="qa">
+    <h1>Вопрос-ответ</h1>
+    {% if questanswer %}
+      {% for qa in questanswer %}
+        <div class="pos">
+          <p class="autor">{{ qa.author }}<em> ({{ qa.date_publication|date:"D\, d M Y" }})</em></p>
+          <p class="mes">{{ qa.question }}</p>
+          {% if qa.moderator and qa.answer %}
+            <p class="a_men">{{ qa.moderator }}</p>
+            <p class="answr">{{ qa.answer }}</p>
+          {% else %}
+            <p class="answr"></p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div id="q_form">
+      <form action="#" method="post">
+      <table class="null">
+        <tr>
+          <td>Автор:</td>
+          <td>
+            <input type="text" name="q_autor" value="Гость" id="q_autor" />
+          </td>
+        </tr>
+        <tr>
+          <td>Сообщение:</td>
+          <td>
+            <textarea name="q_mes" id="q_mes"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="button" name="q_submit" value="Отправить" id="q_submit" />
+          </td>
+        </tr>
+      </table>
+      </form>
+      </div>
+      <div id="q_thankyou" style="display: none; margin: 3em 0;">
+      <h2>Спасибо за Ваш вопрос!</h2>
+      <p>Он будет размещен в списке одновременно с ответом.</p>
+      </div>
+      <script type="text/javascript" src="/static/js/user.qa.js"></script> 
+    </div>
+  </div>
+</div>
+{% endblock %}

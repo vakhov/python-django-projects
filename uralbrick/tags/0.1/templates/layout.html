@@ -1,0 +1,120 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="nojs ie-lt7 ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 8]>
+<html class="nojs ie-lt8 ie-lt9 ie">
+<![endif]-->
+<!--[if lt IE 9]>
+<html class="nojs ie-lt9 ie">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="nojs">
+<!--><![endif]-->
+
+<head>
+    <title>
+    {% if not metatag.title %}
+        {% block title %}{{ flatpages.header }}{% endblock %}
+    {% else %}
+        {{ metatag.title }}
+    {% endif %}
+    </title>
+	
+	{# Metatag decription and keywords #}
+	{% if metatag.description %}
+		<meta name="description" content="{{ metatag.description }}"/>
+	{% endif %}
+	{% if metatag.keywords %}
+		<meta name="keywords" content="{{ metatag.keywords }}"/>
+	{% endif %}
+	
+    <meta name="robots" content="all"/>
+    <meta name="copyright" content="dw-ural.ru"/>
+
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <!--[if IE]>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><![endif]-->
+
+    <script type="text/javascript">
+        document.documentElement.className = document.documentElement.className.replace('nojs', 'js');
+    </script>
+
+    <link href="{{ STATIC_URL }}/Front/Includes.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="{{ STATIC_URL }}Front/Common/Images/favicon.ico" type="image/x-icon"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/Base.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_print.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_easing.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_colorbox.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Vendors/jquery_disable_text_select.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Ie/IeFinder.js"></script>
+
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Ie/IeStyleSheet.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Ie/IePngAil.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Colored/Scripts/Colored.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGallery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryConstants.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryControl.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Content/Scripts/SlideGallery/SlideGalleryArea.js"></script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/RenderHelper.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}Front/Common/Scripts/Run.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}tiny_mce/tiny_mce.js"></script>
+
+    {% if user.is_staff %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/boxy.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" /> 
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+	<script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js">
+	</script>
+    {% endif %}
+
+
+</head>
+<body>
+{% if user.is_staff %}
+	<div id="adminblock"></div>
+	<div id="adminbutton">
+	    <div id="aph-button-go" class="adminbutton" title="Перейти"></div>
+	    <div id="aph-button-edit" class="adminbutton" title="Редактировать"></div>
+	    <div id="aph-button-delete" class="adminbutton" title="Удалить"></div>
+	</div>
+{% endif %}
+
+{# Background image #}
+{% if background %}
+<ul class="illustrations">
+    <li>
+    	<img src="{{ MEDIA_URL }}{{ background }}" alt="" />
+    </li>
+</ul>
+{% endif %}
+{# Background image #}
+
+<div class="site widthFixed">
+    {% block site %}
+    {% endblock %}
+</div>
+
+{% include 'header.html' %}
+{% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+
+    {% include "flora/common/index_link.html" %}
+
+    {% load zones %}
+    {% load vars %}
+
+    {% if pagination.current_page == 1 %}
+    {% render_zone current_section.zone %}
+    {% endif %}
+
+	{% if user.is_staff and aphaline_edit_mode %}
+    <p style="margin: 10px 0">
+        <a class="link" href="all/" >Изменить порядок</a>
+    </p>
+	<p style="margin: 10px 0">
+        	<a 
+			class="link" 
+			aph-adder="yes"
+			aph-model="Position"
+			aph-initial="section={{ current_section.id }}"
+			href="#" 
+		>Добавить позицию</a>
+    	</p>
+	{% endif %}
+
+	{% if catalog %}
+    <ul id="catalog_body" class="clearfix">
+
+        {% for c in catalog %}
+        <li id="position-{{ c.id }}" 
+        	aph-block-type="gde" 
+        	aph-model="Position" 
+        	aph-id="{{ c.id }}"
+        	aph-redirect-url="{{ current_section.path }}item-{{ c.id }}/" 
+        >
+        
+            <div class="image">
+                <a href="{{ current_section.path }}item-{{ c.id }}/" style="background-image: url('{{ c.get_thumb|escape }}')">
+                </a>
+            </div>
+            
+            <div class="header"><a href="{{ current_section.path }}item-{{ c.id }}">{{ c.caption|safe }}</a></div>
+            
+            {% if c.price_rozn %}<div class="price">{{ c.price_rozn|floatformat }} руб.</div>{% endif %}
+            
+            {% if not c.is_exists %}
+                <div class="price" style="font-weight: bold;">НЕТ В НАЛИЧИИ</div>
+            {% endif %}
+            
+        </li>
+        {% endfor %}
+   
+    	<li class="clear" style="height: 2em; border: none;"></li>
+    	
+    </ul>
+    {% endif %}
+    
+    {% include "generic/pagination.html" %}
+    {% render_zone current_section.third_zone %}
+    
+{% endblock %}

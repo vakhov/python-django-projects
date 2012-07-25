@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>
+    {% if not metatag.title %}
+	{% block title %}PIM{% endblock %}
+    {% else %}
+        {{ metatag.title }}
+    {% endif %}
+	</title>
+	
+	{# Metatag decription and keywords #}
+	{% if metatag.description %}
+		<meta name="description" content="{{ metatag.description }}"/>
+	{% endif %}
+	{% if metatag.keywords %}
+		<meta name="keywords" content="{{ metatag.keywords }}"/>
+	{% endif %}
+
+    <meta name='yandex-verification' content='790e182da6400c6f' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/typography.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/qa.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/catalog.css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+
+    {% if catalog_position_images %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/lb/jquery.lightbox.css">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.lightbox.js"></script>
+	{% endif %}
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/interface.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/basket.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/hashing.js"></script>
+	
+	<!-- facebox start  -->
+	<link href="{{ STATIC_URL }}js/fancybox/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css"/>
+	<script src="{{ STATIC_URL }}js/fancybox/jquery.fancybox-1.3.4.js" type="text/javascript"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/user.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/change_collection.js"></script>
+	<!-- facebox end -->
+
+    {% if user.is_staff %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/boxy.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+    <script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js">
+    </script>
+    {% endif %}
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    {% if user.is_staff %}
+    <div id="adminblock"></div>
+    <div id="adminbutton">
+        <div id="aph-button-go" class="adminbutton" title="Перейти"></div>
+        <div id="aph-button-edit" class="adminbutton" title="Редактировать"></div>
+        <div id="aph-button-delete" class="adminbutton" title="Удалить"></div>
+    </div>
+    {% endif %}
+
+    <div id="container">
+        <div id="header">
+            <div id="logo_wrapper">
+                <div id="logo"></div>
+            </div>
+            <div id="phone">
+                <span class="micronavigation">
+                        <a href="/">
+                            <img alt="" src="{{ STATIC_URL }}images/icon/home.gif" />
+                        </a>
+                        <a href="mailto:sales@pim66.ru">
+                            <img alt="" src="{{ STATIC_URL }}images/icon/email.gif" />
+                        </a>
+                        <a href="/sitemap/">
+                            <img alt="" src="{{ STATIC_URL }}images/icon/map.gif" />
+                        </a>
+                </span>
+		<br />
+		(343) {{ phone }}
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{{ main_links.table_size.path }}" id="modal1">Таблица размеров</a></li>
+                    <li><a href="{{ main_links.payment.path }}" id="modal2">Доставка и оплата</a></li>
+                    <li><a href="{{ main_links.contacts.path }}" id="modal3">Контакты</a></li>
+                    {% if nova %}
+                    	<li><a href="{{ main_links.nova.path }}" id="modal3">Новинки</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{{ main_links.news_and_articles.path }}">Новости и статьи</a></li>
+                    <li><a href="{{ main_links.q_and_a.path }}">Вопрос-ответ</a></li>
+                    <li><a href="{{ main_links.action.path }}">Акции</a></li>
+                    <li><a href="{{ main_links.glossarium.path }}">Глоссарий</a></li>
+                </ul>
+            </div>
+            <div id="basket">
+                <a href="/basket/" class="basket">моя<br/>корзина</a>
+                {% if summary_count %}
+	            <span class="summary_count">{{ summary_count }} шт. / {{ summary_price }} руб.</span>
+				{% endif %}
+            </div>
+        </div>
+
+        <div id="content">
+            {% block site %}{% endblock %}
+        </div>
+
+        <div id="footer">
+        	{% if user.is_staff and aphaline_edit_mode and not metatag %}
+	                <a href="#"
+		                aph-adder="yes" 
+					    aph-model="Metatag"
+					    aph-initial="name={{ current_path }}"
+		                class="colored_link adder_link">Добавить свойства</a>
+			{% else %}
+				{% if user.is_staff and aphaline_edit_mode and metatag %}
+			<a href="#"
+			                aph-block-type="de"
+					        aph-model="Metatag"
+					        aph-id="{{ metatag.id }}" 
+			                class="colored_link edit_link">Редактировать свойства</a>
+		        {% endif %}
+	        {% endif %}
+        {% load zones %}
+        {% render_zone footer.zone %}
+        </div>
+    </div>
+    <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter859209 = new Ya.Metrika({id:859209, clickmap:true, accurateTrackBounce:true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/859209" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

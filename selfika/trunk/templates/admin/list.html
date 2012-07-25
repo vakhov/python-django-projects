@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>LIST</title>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/jquery.jstree.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.hotkeys.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(function () {
+    $("#list").jstree({ 
+        "json_data" : {
+            "ajax" : {
+                "url" : "/api/structure/{{ document.id }}/list/",
+            }
+        },
+        "plugins" : [ 
+            "themes","json_data","ui","crrm","cookies","dnd","types","contextmenu" 
+        ]
+    })
+    .bind("remove.jstree", function (e, data) {
+        data.rslt.obj.each(function () {
+            $.ajax({
+                async : false,
+                type: 'GET',
+                url: "/temp/structure/api/delete/" + data.rslt.obj.attr("id") + "/", 
+                success : function () {
+                    data.inst.refresh();
+                }
+            });
+        });
+    })
+    .bind("create.jstree", function (e, data) {
+        $.post(
+            "/temp/structure/api/create/", 
+            { 
+                "pid" : data.rslt.parent.attr("id").replace("node_",""),
+                "caption" : data.rslt.name,
+            }, 
+            function (r) {
+                data.inst.refresh();
+            }
+        );
+    })
+    .bind("rename.jstree", function (e, data) {
+        $.post(
+            "/temp/structure/api/rename/", 
+            {  
+                "id" : data.rslt.obj.attr("id").replace("node_",""),
+                "caption" : data.rslt.new_name
+            }, 
+            function (r) {
+                data.inst.refresh();
+            }
+        );
+    })
+    .bind("move_node.jstree", function (e, data) {
+        data.rslt.o.each(function (i) {
+            if (data.rslt.cr === -1) {
+                $.jstree.rollback(data.rlbk);
+            }
+            else {
+                $.ajax({
+                    async : false,
+                    type: 'POST',
+                    url: "/temp/structure/api/move/",
+                    data : { 
+                        "id" : $(this).attr("id").replace("node_",""), 
+                        "newpid" : data.rslt.cr === -1 ? 1 : data.rslt.np.attr("id").replace("node_",""), 
+                        "order": data.rslt.cp + 1
+                    },
+                    success : function (r) {
+                        data.inst.refresh();
+                    }
+                });
+            }   
+        });
+    });
+});
+
+</script>
+<div id="list"></div>
+</body>
+</html>

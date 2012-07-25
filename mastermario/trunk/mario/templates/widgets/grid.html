@@ -1,0 +1,19 @@
+{% load zones %}
+<div class="siteFrame context_vis">    
+    {% for frame, margin in current_widget.columns %}
+        <div class="siteFrame_{{ frame }} siteFrame_margin_{{ margin }}">
+            {% if forloop.counter == 1 %}
+                {% render_zone current_widget.grid_zone_1 %}
+            {% endif %}
+            {% if forloop.counter == 2 %}
+                {% render_zone current_widget.grid_zone_2 %}
+            {% endif %}
+            {% if forloop.counter == 3 %}
+                {% render_zone current_widget.grid_zone_3 %}
+            {% endif %}
+            {% if forloop.counter == 4 %}
+                {% render_zone current_widget.grid_zone_4 %}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

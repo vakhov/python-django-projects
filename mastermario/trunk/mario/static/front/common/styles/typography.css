@@ -1,0 +1,188 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Typography
+ */
+
+/** @section GlobalFonts */
+
+body, button, input, select, textarea, h3 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
+    font-family: Tahoma;
+}
+
+body {
+	font-size: 87.5%;
+    color: #000;
+}
+
+/** @section Headers */
+
+.h4 {
+    margin-bottom: 5px;
+    font-size: 0.857em;
+    font-weight: bold;
+}
+
+/** @section Links */
+
+a, .blackLink, .redLink, .whiteLink {
+    text-decoration: none;
+	cursor: pointer;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    color: #069;
+    border-color: #069;
+}
+.blankLink {
+    padding-right: 18px;
+    border: 0;
+    background-image: url('../images/blank_link_blue.png');
+    background-position: right 2px;
+    background-repeat: no-repeat;
+}
+.blankLink span {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+}
+.blankLink__red {
+    background-image: url('../images/blank_link_red.png');
+}
+.blankLink__black {
+    background-image: url('../images/blank_link_black.png');
+}
+.blankLink__white {
+    background-image: url('../images/blank_link_white.png');
+}
+
+.h2Link {
+    font-size: 1.57em;
+}
+
+.h3Link {
+    font-size: 1.142em;
+    font-weight: bold;
+}
+
+.h4Link {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.blackLink, .blankLink__black span {
+    color: #000;
+    border-color: #000;
+}
+
+.redLink, .blankLink__red span {
+    color: #ef4426;
+    border-color: #ef4426;
+}
+
+.whiteLink, .blankLink__white span {
+    color: #fff;
+    border-color: #fff;
+}
+
+a:hover, .blackLink:hover, .whiteLink:hover, .blankLink:hover span {
+	color: #ef4426;
+    border-color: #ef4426;
+}
+
+.blankLink:hover {
+    background-image: url('../images/blank_link_red.png');
+}
+
+.redLink:hover, .blankLink__red:hover span {
+	color: #069;
+    border-color: #069;
+}
+
+.blankLink__red:hover {
+    background-image: url('../images/blank_link_blue.png');
+}
+
+.whiteLink:hover, .blankLink__white:hover span {
+    color: #000;
+    border-color: #000;
+}
+
+.blankLink__white:hover {
+    background-image: url('../images/blank_link_black.png');
+}
+
+/** @section Border */
+
+.noBorder, .noBorder:hover {
+    border: 0 !important;
+}
+
+.dashedBorder, .dashedBorder:hover {
+    border-style: dashed;
+}
+
+.dottedBorder, .dottedBorder:hover {
+    border-style: dotted;
+}
+
+.ie-lt7 .dottedBorder, .ie-lt7 .dottedBorder:hover {
+    border-style: dotted;
+}
+
+/** @section Margins */
+
+.margin_5 {
+    margin-bottom: 5px !important;
+}
+
+.margin_10 {
+    margin-bottom: 10px !important;
+}
+
+.margin_15 {
+    margin-bottom: 15px !important;
+}
+
+.margin_20 {
+    margin-bottom: 20px !important;
+}
+
+.margin_30 {
+    margin-bottom: 30px !important;
+}
+
+.margin_40 {
+    margin-bottom: 40px !important;
+}
+
+.margin_50 {
+    margin-bottom: 50px !important;
+}
+
+.margin_60 {
+    margin-bottom: 60px !important;
+}
+
+/** @section Type */
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.big_line_height {
+    line-height: 2.14em;
+}
+
+.small_text {
+    padding-top: 1px;
+    line-height: 1.81em;
+    font-size: 0.785em;
+    border-top:  1px solid #d3d3d3;
+    color: #666666;
+}

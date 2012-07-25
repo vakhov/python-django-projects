@@ -1,0 +1,61 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage CommonStyles
+ */
+
+.inlineBlock {
+	display: inline-block;
+}
+
+/**
+ * @section Contexts
+ */
+
+.context_novis {
+	overflow: hidden;
+	position: relative;
+}
+
+.context_nopos {
+	display: table-cell;
+}
+
+.context_vis:after {
+	clear: both;
+	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+	display: block;
+	font-size: xx-large;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/** @section ieOnly */
+
+.ie-lt7 .inlineBlock {
+	display: inline;
+	zoom: 1;
+}
+
+.ie-lt8 .context_novis, .ie-lt8 .context_nopos {
+	zoom: 1;
+}
+
+.ie-lt9 .ie-layout {
+	zoom: 1;
+}
+
+.adder_link {
+	display: inline-block;
+	padding: 0 10px 5px 25px;
+	background: red url(/static/images/aphaline/legacy/add.png) 0 50% no-repeat;
+	background-position: 3px;
+	border: 1px solid #ccc;
+	}
+
+.edit_link {
+	display: inline-block;
+	padding: 0 10px 0px 10px;
+	background: blue;
+	border: 1px solid #ccc;
+	}

@@ -1,0 +1,207 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage Footer
+ */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 39px;
+    z-index: 5;
+}
+
+.footer_shadow {
+    position: absolute;
+    left: 0;
+    top: -9px;
+    width: 100%;
+    height: 9px;
+    background: url('../Images/Shadow.png') repeat-x;
+}
+
+.footer_question {
+    position: absolute;
+    right: 143px;
+    bottom: 0;
+}
+
+/** @section Footer search */
+
+.footer_search {
+    position: relative;
+    float: left;
+    top: 7px;
+    margin-left: 23px;
+    padding: 5px 10px 5px 26px;
+    width: 212px;
+    height: 15px;
+    background: url('../Images/Search.png') no-repeat;
+}
+
+.footer_search_text {
+    display: block;
+    width: 100%;
+    height: 15px;
+    line-height: 15px;
+    font-family: Arial;
+    font-size: 0.858em;
+    border: 0;
+    background: #fff;
+}
+
+.footer_search_submit {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 19px;
+    height: 19px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.footer_search_watermark {
+    display: block;
+    position: absolute;
+    left: 27px;
+    top: 6px;
+    font-size: 0.858em;
+    color: #999;
+}
+
+/** @section Footer menu */
+
+.footer_menu {
+    float: left;
+    margin-left: 54px;
+}
+
+.footer_menu li {
+    float: left;
+    height: 39px;
+    font-size: 0.858em;
+}
+
+.footer_menu li a {
+    display: block;
+    float: left;
+    padding: 0 11px;
+    height: 39px;
+    line-height: 38px;
+    color: #fff;
+}
+
+.footer_menu li a:hover {
+    background: url('../Images/ShadowHover.png');
+}
+
+.footer_menu li a span {
+    padding-left: 22px;
+    background-image: url('../Images/FooterMenuIcons.png');
+    background-repeat: no-repeat;
+}
+
+.footer_menu__consultant span {
+    background-position: -60px 2px;
+}
+.footer_menu__basket span {
+    background-position: -40px -18px;
+}
+
+.colored_yellow .footer_menu__consultant span {
+    background-position: -20px -38px;
+}
+.colored_yellow .footer_menu__basket span {
+    background-position: 0 -58px;
+}
+.colored_yellow .footer_menu li a {
+    color: #000;
+}
+
+/** @section Service menu */
+
+.service_menu {
+    float: left;
+    margin-left: 34px;
+}
+
+.service_menu li {
+    float: left;
+    width: 39px;
+    height: 39px;
+}
+
+.service_menu li a,
+.service_menu li span {
+    display: block;
+    float: left;
+    padding: 12px;
+    width: 15px;
+    height: 15px;
+    border-bottom: 0;
+}
+
+.service_menu li a:hover {
+    background: url('../Images/ShadowHover.png');
+}
+
+.service_menu li.selected a,
+.service_menu li span {
+    background: url('../Images/ShadowChecked.png');
+}
+
+.service_menu li ins {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url('../Images/ServiceMenu.png');
+    background-repeat: no-repeat;
+}
+
+.service_menu__power ins {
+    background-position: -45px 0;
+}
+.service_menu__question ins {
+    background-position: -30px -15px;
+}
+.service_menu__sitemap ins {
+    background-position: -15px -30px;
+}
+.service_menu__download ins {
+    background-position: 0 -45px;
+}
+
+/** @section Footer time */
+
+.footer_time {
+    float: left;
+    position: relative;
+    top: 12px;
+    left: 10px;
+    margin-left: 0;
+    padding-left: 20px;
+    font-weight: bold;
+    color: #fff;
+    background: url('../Images/Time.png') -15px 0 no-repeat;
+}
+
+.colored_yellow .footer_time {
+    color: #000;
+    background-position: 0 -15px;
+}
+
+.footer_time_dots {
+    margin: 0 2px;
+    width: 4px;
+}
+
+.footer_time__even .footer_time_dots {
+    visibility: hidden;
+}
+
+.footer_time_hours,
+.footer_time_minutes {
+    width: 16px;
+}

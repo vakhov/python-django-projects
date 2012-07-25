@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+#admin {
+	position: relative;
+	height: 107px;
+	color: #fff;
+	border-bottom: 1px solid #000;
+	background: #000 url(../img/admin_bg.gif) left bottom repeat-x;
+	overflow: hidden;
+	display: none;
+}

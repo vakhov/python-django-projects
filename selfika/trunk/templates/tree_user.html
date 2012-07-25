@@ -1,0 +1,22 @@
+{% load vars %}
+<ul>
+    {% for node in tree.values %}
+    <li><a href="/document/{{ document.id }}{{ node.path }}">{{ node.caption }}</a>
+        {% if node.nodes %}
+        <ul>
+            {% for sub1 in node.nodes.values %}
+            <li><a href="/document/{{ document.id }}{{ sub1.path }}">{{ sub1.caption }}</a>
+                {% if sub1.nodes %}
+                <ul>
+                    {% for sub2 in sub1.nodes.values %}
+                    <li><a href="/document/{{ document.id }}{{ sub2.path }}">{{ sub2.caption }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

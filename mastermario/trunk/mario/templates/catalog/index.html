@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<h1>страница лендинга</h1>
+<ul>
+{% for section in sections %}
+    <li>{{ forloop.counter }})  <a href="{{ section.slug }}/">{{ section.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

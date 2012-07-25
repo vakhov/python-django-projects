@@ -1,0 +1,55 @@
+{% extends "articles/article_layout.html" %}
+
+{% block article_content %}
+
+    <h1>Статьи по тегу &laquo;{{ tagview.tag }}&raquo;</h1>
+
+    {% for article in articles %}
+        <dl class="articles_listItem">
+            <dt>
+                {% if article.group %}
+                    <a class="blackLink" href="/articles/{{ article.group.name }}/">{{ article.group.caption }}</a>
+                    <ins>&rarr;</ins>
+                {% endif %}
+
+                <a href="/articles/{{ article.group.name }}/{{ article.name }}/">{{ article.caption }}</a>
+
+                {% if article.label_text %}
+                    <span style="background-color:#{{ article.label_color }}">{{ article.label_text }}</span>
+                {% endif %}
+
+            </dt>
+            <dd class="info">
+                <span class="date mark mark__yellow">{{ article.date_written }}</span>
+                <span class="authors">Авторы:
+                    <a href="#">Ирина Алексеевна</a>,
+                    <a href="#">Новожилов Леонид</a> ,
+                    <a href="#">Толмачев Иван</a>
+                    (Команда МастерМарио)
+                </span>
+            </dd>
+            <dd class="description">
+                <p>{{ article.shortdesc }}</p>
+            </dd>
+            <dd class="data">
+                <span class="rateShow inlineBlock">
+                    <span class="rate_process rate_5 inlineBlock"></span>
+                </span>
+                {% if article.tags.all %}
+                <span class="marks">
+                    метки: 
+                        {% for tag in article.tags.all %}
+                        <a href="/articles/tag/{{ tag.name }}/">{{ tag.tag }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                </span>
+                {% endif %}
+                <!-- <span class="comments">
+                    <a href="#" class="blackLink">29 комментариев</a>
+                </span> -->
+            </dd>
+        </dl>
+    {% endfor %}
+
+    {% include "generic/pagination.html" %}
+
+{% endblock %}

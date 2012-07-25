@@ -1,0 +1,39 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Includes
+ */
+
+/* @section common styles */
+@import url('common/styles/reset.css');
+@import url('common/styles/common.css');
+@import url('common/styles/typography.css');
+@import url('common/styles/grid.css');
+@import url('common/styles/general.css');
+@import url('common/styles/lightbox.css');
+@import url('common/styles/buttons.css');
+
+/* @section Header styles */
+@import url('header/styles/header.css');
+
+/* @section content styles */
+@import url('content/styles/files.css');
+@import url('content/styles/gallery.css');
+@import url('content/styles/headers.css');
+@import url('content/styles/lists.css');
+@import url('content/styles/menu.css');
+@import url('content/styles/paragraph.css');
+@import url('content/styles/picture.css');
+@import url('content/styles/specials.css');
+@import url('content/styles/tables.css');
+
+/* @section Catalogue styles */
+@import url('catalogue/styles/catalogue_list.css');
+@import url('catalogue/styles/catalogue_positionList.css');
+@import url('catalogue/styles/landing.css');
+@import url('catalogue/styles/card.css');
+
+/* @section Articles styles */
+@import url('articles/styles/articles_list.css');
+
+/* @section Footer styles */
+@import url('footer/styles/footer.css');

@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+	{% include 'catalog/social/social_head.html' %}
+{% endblock %}
+
+{% block site %}
+{% load zones %}
+<body>
+
+<ul class="illustrations">
+    <li id="illustration_1">
+        {% if unit.big_blurry_picture %}
+        <img src="{{ unit.big_blurry_picture.url }}" alt=""/>
+        {% else %}
+        <img src="{{ MEDIA_URL }}{{ background }}" alt=""/>
+        {% endif %}
+        <ins></ins>
+    </li>
+</ul>
+
+<div class="site widthFixed">
+	{% include "generic/crumbs.html" %}
+    <div class="container">
+        <div class="catalogPosition context_novis">
+        	{% if image %}
+	            <div class="catalogPosition_photo context_novis">
+	                <ul class="small_photos">
+	                    <li>
+	                        <a href="{{ MEDIA_URL }}{{ image.picture.name }}" class="cBox">
+	                            <img src="{{ image.get_image.0 }}" alt="" />
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a href="{{ MEDIA_URL }}{{ image.picture.name }}" class="cBox">
+	                            <img src="{{ image.get_image.3 }}" alt="" />
+	                        </a>
+	                    </li>
+	                </ul>
+	                <a href="{{ MEDIA_URL }}{{ image.picture.name }}" class="photo cBox">
+	                    <img src="{{ MEDIA_URL }}{{ image.picture.name }}" class="colored_border" alt="" />
+	                    <ins class="zoom"></ins>
+	                </a>
+	            </div>
+	        {% endif %}
+            <div class="content">
+                <h1>{{ product.name }}</h1>
+            </div>
+            {% if product.articul or product.count_in_the_presence or product.delivery_period %}
+	            <ul class="catalogPosition_info">
+	            	{% if product.articul %}
+	                	<li>Артикул: <b>{{ product.articul }}</b></li>
+	                {% endif %}
+	                {% if product.count_in_the_presence %}
+	                	<li>В наличии: <b>{{ product.count_in_the_presence }} шт</b></li>
+	                {% endif %}
+	                {% if product.delivery_period %}
+	                	<li>Доставка: <b>{{ product.get_delivery_period_display }}</b></li>
+	                {% endif %}
+	            </ul>
+	        {% endif %}
+            <div class="catalogPosition_links context_novis">
+                <div class="catalogPosition_links_item">
+                    <a href="#" class="catalogPosition_link__paramsShow inlineBlock">
+                        <span class="virtualLink">Характеристики</span>
+                    </a>
+                </div>
+                <div class="catalogPosition_links_item">
+                	{% include 'catalog/social/social.html' %}
+                </div>
+                {% if product.count_like %}
+	                <div class="catalogPosition_links_item">
+	                    <a href="#" class="catalogPosition_link__likeShow inlineBlock">
+	                        <span class="virtualLink">Нравится {{ product.count_like }} людям</span>
+	                        <ins></ins>
+	                    </a>
+	                </div>
+	            {% endif %}
+            </div>
+            <div class="catalogPosition_like context_novis">
+                <div class="like">
+                    <span><img alt="" src="Front/Catalog/Images/vk.png"></span>
+                    <span><img alt="" src="Front/Catalog/Images/fb.png"></span>
+                    <span><img alt="" src="Front/Catalog/Images/tw.png"></span>
+                    <span><img alt="" src="Front/Catalog/Images/gp.png"></span>
+                </div>
+            </div>
+            <!-- <div class="catalogPosition_params">
+                <table>
+                </table>
+            </div> -->
+            <div class="catalogPosition_buy">
+            	{% if product.price %}
+               		<span class="catalogPosition_price">{{ product.discounted }} руб. {% if product.unit %}/ {{ product.get_unit|safe }}{% endif %}</span>
+               	{% endif %}
+                <div class="catalogPosition_buyButton colored_bgColor"><a href="#">Купить!</a></div>
+            </div>
+            {% if product.desc_full %}
+	            <div class="catalogPosition_desc content">
+	                {{ product.desc_full }}
+	            </div>
+	        {% endif %}
+        </div>
+    </div>
+    {% if product.zone.widget_set.all or aphaline_edit_mode %}
+        <div  class="container">
+        	{% render_zone product.zone %}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

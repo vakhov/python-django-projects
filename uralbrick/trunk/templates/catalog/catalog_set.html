@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load zones %}
+
+{% block site %}
+<body>
+
+<ul class="illustrations">
+    <li id="illustration_1">
+        {% if catalog.big_blurry_picture %}
+        	<img src="{{ catalog.big_blurry_picture.url }}" alt=""/>
+        {% else %}
+       	 <img src="{{ MEDIA_URL }}{{ background }}" alt=""/>
+        {% endif %}
+        <ins></ins>
+    </li>
+</ul>
+
+<div class="site widthFixed">
+
+	{% include "generic/crumbs.html" %}
+	
+	{% if current_set.zone_one.widget_set.all or aphaline_edit_mode %}
+        <div  class="container">
+        	{% render_zone current_set.zone_one %}
+        </div>
+    {% endif %}
+    {% if current_set.zone_two.widget_set.all or aphaline_edit_mode %}
+        <div  class="container">
+        	{% render_zone current_set.zone_two %}
+        </div>
+    {% endif %}
+	
+    {% for set in products_set %}
+	<div class="container">
+    	<h2>{{ set.setgroup }}</h2>
+    	<div class="context_novis">
+    		{% for product in set.products %}
+	            <dl class="catalogItem__small">
+	                <dd class="photo"><a href="{{ product.get_url }}"><img src="{{ product.picture.all.0.get_image.0 }}" alt="" /></a></dd>
+	                <dt><a href="{{ product.get_url }}">{{ product.name }}</a></dt>
+	                {% if product.price %}
+		                <dd class="price">{{ product.discounted }} Р {% if product.unit %}/ {{ product.get_unit|safe }}{% endif %}</dd>
+		            {% endif %}
+		            {% if product.articul %}
+	                	<dd class="art">Арт. {{ product.articul }}</dd>
+	                {% endif %}
+	            </dl>
+	    	{% endfor %}
+	    </div>
+	</div>
+    {% endfor %}
+    {% if current_set.zone_three.widget_set.all or aphaline_edit_mode %}
+        <div  class="container">
+        	{% render_zone current_set.zone_three %}
+        </div>
+    {% endif %}
+    {% if current_set.zone_four.widget_set.all or aphaline_edit_mode %}
+        <div  class="container">
+        	{% render_zone current_set.zone_four %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

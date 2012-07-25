@@ -1,0 +1,69 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage General
+ */
+
+/** @section Page */
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    min-width: 990px;
+    min-height: 100%;
+}
+
+.ie-lt7 body {
+    height: 100%;
+    width: expression((document.compatMode && document.compatMode == 'CSS1Compat')
+		?
+		(
+			document.documentElement.clientWidth < 990
+			?
+			"990px"
+			:
+			"100%"
+		)
+		:
+		(
+			document.body.clientWidth < 990
+			?
+			"990px"
+			:
+			"100%"
+		)
+	);
+    zoom: 1;
+}
+
+.widthFixed {
+    position: relative;
+    margin: 0 auto;
+    width: 990px;
+}
+
+.site {
+    padding: 163px 0 200px;
+}
+
+.illustrations {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.illustrations li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.illustrations li img {
+    width: 100%;
+}

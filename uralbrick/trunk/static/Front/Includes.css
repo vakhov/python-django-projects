@@ -1,0 +1,41 @@
+﻿/**
+ * @package Brick66
+ * @subpackage Includes
+ */
+
+/* @section Common styles */
+@import url('Common/Styles/Reset.css');
+@import url('Common/Styles/Common.css');
+@import url('Common/Styles/Typography.css');
+@import url('Common/Styles/Grid.css');
+@import url('Common/Styles/General.css');
+@import url('Common/Styles/Colorbox.css');
+
+/* @section Header styles */
+@import url('Header/Styles/Header.css');
+
+/* @section Footer styles */
+@import url('Footer/Styles/Footer.css');
+@import url('Footer/Styles/FooterGallery.css');
+@import url('Index/Styles/IndexGallery.css');
+
+/* @section Content styles */
+@import url('Content/Styles/Content.css');
+@import url('Content/Styles/SlideGallery.css');
+
+/* @section Qa styles */
+@import url('Qa/Styles/Qa.css');
+
+/* @section Window styles */
+@import url('Window/Styles/Window.css');
+
+/* @section Catalog styles */
+@import url('Catalog/Styles/CatalogList.css');
+@import url('Catalog/Styles/CatalogFilters.css');
+@import url('Catalog/Styles/CatalogPosition.css');
+@import url('Catalog/Styles/CheckboxFilter.css');
+@import url('Catalog/Styles/RangeFilter.css');
+@import url('Catalog/Styles/ColorFilter.css');
+
+/* @section Colored styles */
+@import url('Colored/Styles/Colored.css');

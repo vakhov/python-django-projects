@@ -1,0 +1,39 @@
+﻿/**
+ * @package Brick 66
+ * @subpackage ColorFilter
+ */
+
+.color_filter_item {
+    float: left;
+    margin: 0 9px 9px 0;
+    width: 50px;
+    height: 50px;
+}
+
+.color_filter_item a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    -ms-opacity: 0.5;
+    -o-opacity: 0.5;
+    opacity: 0.5;
+    border-bottom: 0;
+}
+
+.color_filter_item__white a:hover, .color_filter_item__white a.selected {
+    background: url('../Images/ColorFilter.png') no-repeat;
+}
+
+.color_filter_item__black a:hover, .color_filter_item__black a.selected {
+    background: url('../Images/ColorFilter.png') 0 -50px no-repeat;
+}
+
+.color_filter_item__white a.remove {
+    background: url('../Images/ColorFilter.png') 0 -100px no-repeat;
+}
+
+.color_filter_item__black a.remove {
+    background: url('../Images/ColorFilter.png') 0 -150px no-repeat;
+}

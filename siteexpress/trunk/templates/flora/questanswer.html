@@ -1,0 +1,98 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+
+  {% include "flora/common/index_link.html" %}
+  
+  {% if not ok %}
+  <div id="qa">
+  
+    {% if unanswered and user.is_staff %}
+    <h1>Неотвеченные Отзывы</h1>
+      {% for qa in unanswered %}
+        <div class="pos" aph-block-type="de" aph-model="FeedbackFlora" aph-id="{{ qa.id }}">
+          <p class="autor">{{ qa.author|safe }}<em> ({{ qa.publication_date|date:"D\, d M Y" }})</em></p>
+          {% if qa.punkt %}
+          	<p class="mes"><span class="autor">Населённый пункт:</span> {{ qa.punkt|safe }}</p>
+          {% endif %}
+          {% if qa.work %}
+          	<p class="mes"><span class="autor">Место работы, должность:</span> {{ qa.work|safe }}</p>
+          {% endif %}
+          <p class="mes"><span class="autor">Отзыв:</span> {{ qa.question|safe }}</p>
+        </div>
+      {% endfor %}
+     {% endif %}
+  
+    <h1>Отзывы</h1>
+    {% if feedbackflora %}
+      {% for qa in feedbackflora %}
+        <div aph-block-type="de" aph-model="FeedbackFlora" aph-id="{{ qa.id }}">
+          <p style="font-weight: bold; padding: 25px 0 20px 0;">{{ qa.author|safe }}{% if qa.work %},<br/><em>{{ qa.work }}</em>{% endif %}</p>
+          {% if qa.punkt %}
+          	<p><span class="autor">Населённый пункт:</span> {{ qa.punkt }}</p>
+          {% endif %}
+          <p>{{ qa.question|safe }}</p>
+          {% if qa.moderator and qa.answer %}
+            <p class="a_men">{{ qa.moderator|safe }}</p>
+            <p class="answr">{{ qa.answer|safe }}</p>
+          {% else %}
+            <p class="answr"></p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      
+      {% include "generic/pagination.html" %}
+      
+    {% endif %}
+    
+    <div id="q_form">
+      <form action="" method="post">{% csrf_token %}
+      <table class="null">
+        <tr>
+          <td>ФИО<span style="color: red">*</span>:</td>
+          <td>
+            <input type="text" name="q_autor" value="Гость" id="q_autor" />
+          </td>
+        </tr>
+        <tr>
+          <td>Населённый пункт:</td>
+          <td>
+            <input type="text" name="q_punkt" id="q_punkt" value="{{ q_punkt }}" />
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Место работы, должность:</td>
+          <td>
+            <input type="text" name="q_work" id="q_work" value="{{ q_work }}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Текст сообщения<span style="color: red">*</span>:</td>
+          <td>
+            <textarea name="q_mes" id="q_mes">{{ q_mes }}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+			Звездочкой <span style="color: red">*</span> отмечены поля обязательные для заполнения.<br />
+	        <input type="submit" name="q_submit" value="Отправить" id="q_submit" />  
+          </td>
+        </tr>
+      </table>
+      </form>  
+    </div>
+    
+  </div>
+    
+{% else %} {# if okay o_O #}
+
+  <div id="q_thankyou" style="margin: 3em 0;">
+    <h2>Спасибо за Ваш отзыв!</h2>
+    <p>Он будет размещен в списке одновременно с ответом.</p>
+    <p>&laquo;&nbsp;<a href="/feedback/">Назад</a></p>
+  </div>
+    
+{% endif %}
+
+{% endblock %}

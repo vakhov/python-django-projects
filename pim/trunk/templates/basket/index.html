@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% load zones %}
+
+{% block title %}Корзина{% endblock %}
+
+{% block site %}
+    <h1>Корзина</h1>
+    {% if basket %}
+    <!-- <p>
+		<span id="clear" style="cursor:pointer;
+								color:white;
+								border-radius: 10px 10px 10px 10px;
+								display: inline-block;
+    							line-height: 28px;
+    							padding: 5px 15px 5px 15px;
+    							background:#EE3500;
+    							font-size: 1.25em;" title="Очистить корзину" onclick="javascript:basket_clear()">
+    	Очистить корзину</span>
+	</p>  -->
+    <table width="100%" border="0" cellspacing="0" id="basket_table">
+    	<tr align="center">
+            <th>&nbsp;</th>
+            <th>Наименование</th>
+    		<th>Размер, цена (руб)</th>
+    		<th>Кол-во</th>
+    		<th>Сумма (руб)</th>
+    	</tr>
+	    {% for position in basket %}
+	    <tr align="center">
+            <td><a href="{{ position.url }}"><img src="{{ position.product.picture.url_50x50 }}" height="50" width="50" alt="{{ position.product.name }}" /></a></td>
+            <td><a href="{{ position.url }}">{{ position.product.name }}</a></td>
+	    	<td>
+	    		{% if not position.sizes_list %}
+	    			{{ position.price }}
+	    		{% else %}
+		    		<select autocomplete="off" name="size" onchange="javascript:change_size({{ position.product.id }}, {{ position.current_size_id }}, this.value)">
+		    			{% for pricing in position.pricing_list %}
+		    				{% if pricing.is_exist %}
+			    				<option value="{{ pricing.size.id }}"
+			    						{% if pricing.size.id == position.current_size_id %}
+			    						selected="yes"
+			    						{% endif %} 
+	                            >{{ pricing.size.st }} — {{ pricing.discounted }}</option>
+                            {% endif %}
+		    			{% endfor %}
+		    		</select>
+	    		{% endif %}
+	    	</td>
+	    	<td><nobr>
+	    		<span style="color:red;cursor:pointer;" title="Убрать" onclick="basket_edit_del({{ position.product.id }}, {{ position.current_size_id }})">−</span>
+				{{ position.count }} шт.
+                <span style="color:green;cursor:pointer;" title="Добавить" onclick="basket_edit_add({{ position.product.id }}, {{ position.current_size_id }})">+</span>
+	    	</nobr></td>
+	    	<td>
+	    		{{ position.summary }}
+	    	</td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	<p style="border-bottom: 1px solid #ccc; padding: 10px 5px; margin-top: 0; text-align: center">Итого {{ summary_count }} шт. на сумму {{ summary_price }} руб.</p>
+	
+	<h2>Оформить заказ</h2>
+	{% if form.errors %}
+		<p style="color:red;">
+			Исправьте следующие ошибки:
+			<ul class="errorlist">
+                {% if form.name.errors %}
+                    <li>Пожалуйста, заполните ФИО</li>
+                {% endif %}
+                {% if form.email.errors %}
+                    <li>Неправильно указан адрес электронной почты</li>
+                {% endif %}
+				{% if form.phone.errors %}
+					<li>Необходимо заполнить номер телефона</li>
+				{% endif %}
+				
+				{% if form.city.errors %}
+					<li>Пожалуйста, заполните Город</li>
+				{% endif %}
+				{% if form.street.errors %}
+					<li>Пожалуйста, заполните Улицу</li>
+				{% endif %}
+				{% if form.house.errors %}
+					<li>Пожалуйста, заполните Дом</li>
+				{% endif %}
+				{% if form.apartment.errors %}
+					<li>Пожалуйста, заполните Квартиру</li>
+				{% endif %}
+			</ul>
+		</p>
+	{% endif %}
+	<form action="" method="post">
+		<table>
+			<tr>
+				<td>ФИО<span style="color:red;">*</span>:</td>
+				<td>{{ form.name }}</td>
+			</tr>
+			<tr>
+				<td>E-mail:</td>
+				<td>{{ form.email }}</td>
+			</tr>
+			<tr>
+				<td>Телефон<span style="color:red;">*</span>:</td>
+				<td>{{ form.phone }}</td>
+			</tr>
+			<tr>
+				<td>Индекс:</td>
+				<td>{{ form.index }}</td>
+			</tr>
+			<tr>
+				<td>Город:</td>
+				<td>{{ form.city }}</td>
+			</tr>
+			<tr>
+				<td>Улица:</td>
+				<td>{{ form.street }}</td>
+			</tr>
+			<tr>
+				<td>Дом:</td>
+				<td>{{ form.house }}</td>
+			</tr>
+			<tr>
+				<td>Квартира:</td>
+				<td>{{ form.apartment }}</td>
+			</tr>
+			<tr>
+				<td valign="top">Комментарий:</td>
+				<td>{{ form.comment }}</td>
+			</tr>
+		</table>
+		<p>Поля отмеченные <span style="color:red;">*</span> обязательны к заполнению.</p>
+		<input type="submit" value="Заказать">
+	</form>
+	{% else %}
+		{% if goods == 1 %}
+			<p>
+				<h3 style="color:green;">Спасибо за Ваш заказ!</h3>
+				&laquo;<a href="/">Главная</a>
+			</p>
+		{% else %}
+			<h3 style="color:green;">Корзина пуста</h3>
+		{% endif %}
+	{% endif %}
+{% endblock %}

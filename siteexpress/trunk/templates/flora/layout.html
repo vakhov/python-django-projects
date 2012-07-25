@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/bp/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/bp/print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/global.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/objects/news.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/objects/specials.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/colors.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/template2.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/objects/menu_v.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/boxy.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/objects/qa.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/objects/catalogue-blocks.css" type="text/css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/flora/objects/catalogue-position.css" type="text/css" />
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.json.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.md5.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.boxy.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/global.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/actions.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/menu.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/lb/jquery.lightbox.css">
+	<script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/lb/jquery.lightbox.js"></script>
+	
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/user.key.js"></script>
+	
+    
+	{% if user.is_staff %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline.css" type="text/css" />  
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/aphaline-legacy.css" type="text/css" />  
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/includes/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/includes/aphaline-utils.js"></script>
+	<script type="text/javascript" data-main="{{ STATIC_URL }}js/aphaline/main.js" src="{{ STATIC_URL }}js/require.js">
+	</script>
+	{% endif %}
+	<script type="text/javascript" src="{{ STATIC_URL }}player/flowplayer-3.2.6.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}tiny_mce/tiny_mce.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
+	<title>{{ title }}</title>
+</head>
+
+<body>
+
+	{% load zones %}
+
+	{# Необходимо для админки #}
+	{% if user.is_staff %}
+	    {% include "admin/legacy-admin.html" %}
+	{% endif %}
+
+	<!--[if IE 6]> <div id="ie6" class="ie"> <![endif]-->
+    <!--[if IE 7]> <div id="ie7" class="ie"> <![endif]-->
+    <!--[if IE 8]> <div id="ie8" class="ie"> <![endif]-->
+
+	<div class="container" id="template2">
+	
+		{# Шапка сайта #}
+		<div id="header" class="span-24 last">
+			<div id="logo"><a href="/"></a></div>
+			<div class="header_box_bg"></div>			
+			<div class="header_box">
+				<div id="phone" class="clearfix">
+					<div id="phone_number">
+						{% render_zone phone_flora.zone %}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		{# Основная часть сайта  #}
+		<div class="span-24 last">
+		
+			{# Левая колонка #}
+			<div class="left span-6 prepend-top">
+				
+				{# Меню #}
+				<div id="menu" class="menu_inner">
+				    <ul class="clearfix">
+	    			{% for item in structure.1.nodes.values %}
+	        			<li id="item-{{ item.id }}"><a href="{{ item.path }}">{{ item.caption }}</a>
+		            	{% if item.nodes %}
+			                <ul>
+	        		        {% for subitem in item.nodes.values %}
+	                		    <li id="item-{{ subitem.id }}"><a href="{{ subitem.path }}">{{ subitem.caption }}</a>
+	                        	{% if subitem.nodes %}
+	                            	<ul>
+	                            	{% for subsubitem in subitem.nodes.values %}
+	                                	<li id="item-{{ subsubitem.id }}"><a href="{{ subsubitem.path }}">{{ subsubitem.caption }}</a>
+	                                	{% if subsubitem.nodes %}
+	                                		<ul>
+	                                		{% for item_3 in subsubitem.nodes.values %}
+	                                			<li id="item-{{ item_3.id }}"><a href="{{ item_3.path }}">{{ item_3.caption }}</a>
+	                                			{% if item_3.nodes %}
+	                                				<ul>
+	                                				{% for item_4 in item_3.nodes.values %}
+	                                					<li id="item-{{ item_4.id }}"><a href="{{ item_4.path }}">{{ item_4.caption }}</a>
+			                                			{% if item_4.nodes %}
+			                                				<ul>
+			                                				{% for item_5 in item_4.nodes.values %}
+			                                					<li id="item-{{ item_5.id }}"><a href="{{ item_5.path }}">{{ item_5.caption }}</a></li>
+			                                				{% endfor %}
+			                                				</ul>
+			                                			{% endif %}
+	                                					</li>
+	                                				{% endfor %}
+	                                				</ul>
+	                                			{% endif %}
+	                                			</li>
+	                                		{% endfor %}
+	                                		</ul>
+	                                	{% endif %}
+	                                	</li>
+	                            	{% endfor %}
+	                            	</ul>
+	                        	{% endif %}
+	                    		</li>
+	                		{% endfor %}
+	                		</ul>
+	            		{% endif %}
+	        			</li>
+	    			{% endfor %}
+	    			</ul>
+	    			<div class="clear"></div>
+				</div>
+				
+				{% block left_column %}
+				{% render_zone current_section.left_zone %}
+				{% endblock %}
+				
+			</div>
+			
+			{# Правая колонка #}
+			<div class="right prepend-top span-16 last">
+				{% block site %}{% endblock %}
+			</div>
+			
+		</div>
+
+		{# Футер #}
+		<div id="footer" class="span-24 last">
+			<div id="company">	
+			{% render_zone footer_zone %}
+			</div>
+		</div>
+		
+	</div>
+	
+   <div id="section-id" style="display: none">{{ current_section.id }}</div>
+   
+    <!--[if IE 6]> </div> <![endif]-->
+    <!--[if IE 7]> </div> <![endif]-->
+    <!--[if IE 8]> </div> <![endif]-->
+    
+</body>
+</html>

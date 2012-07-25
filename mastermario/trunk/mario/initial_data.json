@@ -1,0 +1,36 @@
+[
+  {
+    "model": "structure.sectiontype",
+    "pk": 2,
+    "fields": {
+      "caption": "Text page",
+      "slug": "text",
+      "inherit_type": 2
+    }
+  },
+  {
+    "model": "structure.sectiontype",
+    "pk": 1,
+    "fields": {
+      "caption": "Index page",
+      "slug": "index",
+      "inherit_type": 2
+    }
+  },
+  {
+    "model": "widgets.zone",
+    "pk": 1,
+    "fields": {}
+  },  
+  {
+    "model": "structure.section",
+    "pk": 1,
+    "fields": {
+      "caption": "Index page",
+      "path": "/",
+      "type": 1,
+      "zone": 1,
+      "order": 1
+    }
+  }
+]

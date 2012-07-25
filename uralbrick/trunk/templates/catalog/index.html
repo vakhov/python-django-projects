@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% load zones %}
+
+{% block site %}
+<body>
+
+<ul class="illustrations">
+    <li id="illustration_1">
+        <img src="{{ MEDIA_URL }}{{ background }}" alt=""/>
+        <ins></ins>
+    </li>
+</ul>
+
+<div class="site widthFixed">
+
+	{% include "generic/crumbs.html" %}
+	
+    <div class="container content">
+        {% render_zone zone_product_head.zone %}
+        <div class="alphabet_filter symbol_list context_novis">
+        	{% for a in alphabet %}
+        		<span><a href="#" class="colored_bgColor colored_link">{{ a.letter }}</a></span>
+        	{% endfor %}
+        </div>
+    </div>
+    <div class="container container__black alphabet_result_container">
+        <div class="alphabet_result context_novis">
+        </div>
+    </div>
+    
+    {% for group in groups %}
+        <div class="container content">
+            <h2>{{ group.name }}</h2>
+           
+            {% with catalogs=group.catalog_set.all %}
+                <div class="grid context_vis">
+                {% for catalog in catalogs %}
+                    <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+                        <dl class="catalogList_item">
+                            <dd class="photo"><a href="{{ current_section }}{{ catalog.slug }}/">
+                                {% if catalog.medium_thumb %}
+                                <img src="{{ catalog.medium_thumb.url }}" alt="{{ catalog.name_short }}" />
+                                <ins class="colored_border"></ins>
+                                {% endif %}
+                            </a></dd>
+                            <dt><a href="{{ current_section }}{{ catalog.slug }}/">
+                                {{ catalog.name_short }}
+                            </a></dt>
+                            {% if catalog.description %}
+	                            <dd class="desc">
+	                                {{ catalog.description }}
+	                            </dd>
+	                        {% endif %}
+                        </dl>
+                    </div>                
+                {% endfor %}
+                </div>
+            {% endwith %}
+        </div>
+    {% endfor %}
+    {% if zone_product_foot.zone.widget_set.all or aphaline_edit_mode %}
+	<div class="container content">
+	    {% render_zone zone_product_foot.zone %}
+	</div>
+    {% endif %}
+</div>
+{% endblock %}

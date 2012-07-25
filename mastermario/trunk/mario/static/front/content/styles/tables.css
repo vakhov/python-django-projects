@@ -1,0 +1,155 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Tables
+ */
+
+/** @section CharsTable */
+.chars_table {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.chars_table th {
+    padding-right: 50px;
+    text-align: left;
+    font-weight: normal;
+    background: url('../images/tables/Chars_td.gif') left 15px repeat-x;
+}
+
+.chars_table th span {
+    padding-right: 3px;
+    background: #fff;
+}
+
+.chars_table th, .chars_table td {
+    padding-bottom: 5px;
+    vertical-align: top;
+    line-height: 21px;
+}
+
+.chars_table td {
+    padding-left: 3px;
+    width: 36%;
+}
+
+/** @section ColoredTable */
+
+.tableColored {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.tableColored th {
+    background-color: #f9f9f9;
+    border-color:  #bcbcbc;
+    border-style:  solid;
+    border-width:  1px 1px 0 0;
+    color: #333333;
+    font-size: 0.785em;
+    font-weight: normal;
+    line-height: 16px;
+    padding: 8px;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.tableColored .firstRow {
+    border-top:  0;
+}
+
+.tableColored .lastCol {
+    border-right:  0;
+}
+
+.tableColored td {
+    background-color: #fcface;
+    border-color:  #fff;
+    border-style:  solid;
+    border-width:  1px 1px 0 0;
+    padding:  12px 8px 15px;
+    vertical-align: top;
+}
+
+.tableColored .even {
+    background-color: #fcf4ce;
+}
+
+.tableColored .firstRow {
+    border-top: 1px solid #414141;
+}
+
+.tableColored .lastCol {
+    border-right:  0;
+}
+
+.tableColored .hover td {
+    background-color: #f9ce41;
+}
+
+/** @section TextTable */
+
+.tableText {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.tableText th {
+    background-color: #f9f9f9;
+    border-bottom:  1px solid #414141;
+    border-right:  1px solid #bcbcbc;
+    font-size: 0.785em;
+    font-weight: bold;
+    padding:  13px 9px 6px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tableText .lastCol {
+    border-right: 0;
+}
+
+.tableText td {
+    border-bottom:  1px solid #bcbcbc;
+    border-right:  1px solid #bcbcbc;
+    line-height: 22px;
+    padding:  15px 9px 10px;
+}
+
+.tableText .lastCol {
+    border-right: 0;
+}
+
+.tableText .hover td {
+    background-color: #f9f9f9;
+}
+
+.tableSimple {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.tableSimple th {
+    border-bottom:  2px solid #000;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0 18px 2px;
+    text-align:  left;
+    vertical-align: top;
+}
+
+.tableSimple td {
+    border-bottom:  1px dashed #b7b7b7;
+    padding: 10px 18px 12px;
+}
+
+.tableSimple .lastRow {
+    border-bottom: 0;
+}
+
+.tableSimple .even {
+    background-color: #f9f9f9;
+}
+
+.table__smallText td {
+    font-size: 0.857em;
+}

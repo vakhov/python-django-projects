@@ -1,0 +1,365 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Header
+ */
+
+/** @section Header */
+
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.header_padding {
+    padding: 6px 21px 0 8px;
+    background-color: #f89110;
+}
+
+.header_relative {
+    padding-top: 166px;
+    background: #fff url('../images/CornerBg.png') right top no-repeat;
+    position: relative;
+}
+
+.header_path {
+    padding: 0 0 2px 16px;
+    font-size: 11px;
+    color: #666;
+}
+
+.header_path ins {
+    margin: 0 1px 0 4px;
+    text-decoration: none;
+}
+
+/** @section Header phone */
+
+.header_phone {
+    position: absolute;
+    left: 168px;
+    top: 12px;
+    font-size: 30px;
+}
+
+.header_phone small {
+    margin-right: 7px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.header_phone a.header_phone_refresh {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    margin-left: 100%;
+    background-image: url('../images/PhoneRefresh.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+}
+
+.header_phone a.header_phone_refresh:hover {
+    background-position: 0 -17px;
+}
+
+.header_phone a.header_phone_refresh img {
+    display: block;
+    width: 17px;
+    height: 17px;
+}
+
+.header_phone a.header_phone_value {
+    color: #000;
+    border-bottom: 1px dotted #000;
+}
+
+.header_phone a.header_phone_value:hover {
+    color: #ef4426;
+    border-color: #ef4426;
+}
+
+/** @section Header Search */
+
+.header_search,
+.header_search_layer_2,
+.header_search_layer_3,
+.header_search_layer_4,
+.header_search_layer_5,
+.header_search_layer_6,
+.header_search form {
+    background-image: url('../images/SearchLayer.png');
+    background-repeat: no-repeat;
+}
+
+.header_search {
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    width: 75%;
+    height: 46px;
+    background-position: 0 top;
+}
+
+.header_search_layer_2 {
+    background-position: 20% -46px;
+}
+
+.header_search_layer_3 {
+    background-position: 40% -92px;
+}
+
+.header_search_layer_4 {
+    background-position: 60% -138px;
+}
+
+.header_search_layer_5 {
+    background-position: 80% -184px;
+}
+
+.header_search_layer_6 {
+    background-position: 100% -230px;
+}
+
+.header_search form {
+    padding: 8px 15% 8px 50px;
+    height: 30px;
+    background-position: right -276px;
+}
+
+.header_search_phrase input {
+    display: block;
+    padding: 4px 0 7px;
+    width: 100%;
+    line-height: 19px;
+    font-family: Arial;
+    font-size: 16px;
+    border: 0;
+    background: none;
+}
+
+.header_search_submit {
+    position: absolute;
+    margin-left: 100%;
+    left: -136px;
+    top: 8px;
+    width: 115px;
+    height: 30px;
+}
+
+.ie-lt8 .header_search_submit {
+    left: -251px;
+}
+
+.header_search_submit input {
+    display: block;
+    width: 115px;
+    height: 30px;
+    background-image: url('../images/SearchSubmit.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+}
+
+.header_search_submit input.hover {
+    background-position: 0 -30px;
+}
+
+/** @section Header Navigation */
+
+.header_navigation {
+    position: absolute;
+    left: 118px;
+    top: 111px;
+}
+
+.header_navigation li {
+    float: left;
+    padding: 0 35px 2px 0;
+    font-size: 14px;
+}
+
+.header_navigation li.cur {
+    font-weight: bold;
+}
+
+.header_navigation_more {
+    color: #000;
+    border-bottom: 1px dotted #000;
+}
+
+.header_navigation_more:hover {
+    color: #ef4426;
+    border-bottom: 1px dotted #ef4426;
+}
+
+/** @section Header contactMenu */
+
+.header_contactsMenu {
+    position: absolute;
+    left: 394px;
+    top: 25px;
+}
+
+.header_contactsMenu li {
+    float: left;
+    margin-right: 18px;
+    font-size: 14px;
+    background-image: url('../images/ContactsMenu.png');
+    background-repeat: no-repeat;
+}
+
+.header_contactsMenu_phone {
+    background-position: -150px 1px;
+}
+
+.header_contactsMenu_question {
+    background-position: -100px -49px;
+}
+
+.header_contactsMenu_icq {
+    background-position: -50px -99px;
+}
+
+.header_contactsMenu_skype {
+    background-position: 0 -149px;
+}
+
+.header_contactsMenu li a {
+    display: block;
+    padding: 2px 0 2px 21px;
+    border: 0;
+}
+
+.header_contactsMenu li a span {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.header_contactsMenu li a:hover span {
+    color: #ef4426;
+    border-bottom: 1px solid #ef4426;
+}
+
+.header_contactsMenu li a.popupMaster-link span {
+    color: #000;
+    border-bottom: 1px dotted #000;
+}
+
+.header_contactsMenu li a.popupMaster-link:hover span {
+    color: #ef4426;
+    border-bottom: 1px dotted #ef4426;
+}
+
+/** @section Header authLink */
+
+.header_authLink {
+    position: absolute;
+    left: 100%;
+    margin-left: -200px;
+    top: 19px;
+    padding: 0 0 2px 12px;
+    font-size: 18px;
+    background: url('../images/AuthLink.png') left 5px no-repeat;
+}
+
+.header_authLink a {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px dashed #ef4426;
+}
+
+.header_authLink a:hover {
+    color: #ef4426;
+}
+
+/** @section Header userName */
+
+.header_userName {
+    position: absolute;
+    margin-left: 100%;
+    left: -220px;
+    top: 6px;
+    padding-left: 35px;
+    width: 160px;
+    min-height: 35px;
+    overflow: hidden;
+    font-size: 12px;
+    background-position: left 10px;
+    background-repeat: no-repeat;
+    color: #666666;
+}
+
+.ie-lt7 .header_userName {
+    height: 35px;
+}
+
+.header_userName span {
+    display: block;
+    line-height: 1.1em;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #000;
+}
+
+.header_userName .header_userName_fade {
+    position: absolute;
+    margin-left: -35px;
+    left: 100%;
+    top: 15px;
+}
+
+.header_userName .header_userName_fade ins {
+    display: block;
+    width: 35px;
+    height: 22px;
+    text-decoration: none;
+    background: url('../images/UserName_fade.png') left top no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src = "front/header/images/UserName_fade.png", sizingMethod = "crop");
+}
+
+/** @section Header Basket */
+
+.header_basket {
+    position: absolute;
+    left: -187px;
+    top: 56px;
+    margin-left: 100%;
+    padding: 9px 0 0 74px;
+    line-height: 18px;
+    background: url('../images/Basket.png') left top no-repeat;
+}
+
+.header_basket_title, .header_basket_title strong {
+    display: block;
+}
+
+.header_basket_title strong a {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.header_basket_link {
+    font-size: 11px;
+}
+
+.header_basket_title {
+    margin-bottom: 6px;
+}
+
+.header_basket_info {
+    font-size: 11px;
+    color: #000;
+    border-bottom: 1px dotted #000 !important;
+}
+
+.header_basket_info:hover, .header_basket_title strong a:hover, .header_basket_link:hover {
+    color: #ef4426;
+    border-color: #ef4426 !important;
+}
+

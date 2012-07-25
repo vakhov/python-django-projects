@@ -1,0 +1,114 @@
+{% extends "flora/layout.html" %}
+{% block site %}    
+{% load zones %}
+{% load vars %}
+
+    {% include "flora/common/index_link.html" %}
+
+<p><a class="back" href="{{ current_section.path }}">Вернуться к списку позиций</a></p>
+    
+    <div id="position">
+    
+    {% if position.caption %}
+        <h1>{{ position.caption|safe }}</h1>
+    {% endif %}
+
+    {% if position.article %}
+        <p class="artic">Артикул: <span id="articul">{{ position.article|safe }}</span></p>
+    {% endif %}
+
+    {% if position.desc_short %}<p>{{ position.desc_short|safe }}</p>{% endif %}
+
+    {% if position.picture.url %}
+    <div id="mainpic">
+ 		<a href="{{ MEDIA_URL }}{{ position_image.picture.1000x1000 }}"><img src="{{ MEDIA_URL }}{{ position_image.picture.300x300 }}" alt="" /></a>
+ 	</div>
+ 		<script>
+			$(document).ready(function(){
+				$("#mainpic a").lightbox();
+			});
+		</script>
+ 	{% endif %}
+
+    {% render_zone position.zone %}
+    
+<!--     <h2>Фотографии</h2>
+    <div id="c_photo">
+        <div class="pos">
+            <div class="img">
+                <a href="{{ MEDIA_ROOT }}{{ position.picture.url }}"><img src="{{ MEDIA_ROOT }}{{ position.picture.url_150x150 }}" alt="" /></a>
+            </div>
+            {% if position.image_name %}
+                <div class="name">{{ position.image_name }}</div>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+    </div>
+ -->
+ 	{% if gallery %}
+ 		<h2>Фотографии</h2>
+ 		<div id="c_photo">
+	 		<div id="gallery">
+	 			{% for picture in gallery %}
+		 		<div class="pos">
+		 			<div class="img"
+		 				aph-block-type="de"
+		        		aph-model="Pictures"
+		        		aph-id="{{ picture.id }}"
+		        	>
+		 				<a rel="lightbox-tour" href="{{ MEDIA_URL }}{{ picture.picture.1000x1000 }}" 
+		 					style="background-image: url({{ MEDIA_URL }}{{ picture.picture.150x150 }})">
+		 				</a>
+		 			</div>
+		 		{% if picture.caption %}
+	                <div class="name">{{ picture.caption }}</div>
+	            {% endif %}
+		 		</div>
+		 		{% endfor %}
+		 	</div>
+		 	<script>
+				$(document).ready(function(){
+					$("#gallery a").lightbox();
+				});
+			</script>
+ 		</div>
+		<div class="clear"></div>
+ 	{% endif %}
+ 	{% assign tags position.tags.all %}
+	{% if tags %}
+	    <div class="marks">
+	        <h1>Метки:</h1>
+	            {% for tag in tags %}
+	            <a href="/tag/{{ tag.name }}/">{{ tag.tag }}</a>{% if not forloop.last %}, {% endif %}
+	            {% endfor %}
+	    </div>
+	{% endif %}
+ 	
+    {% if position.price_opt or position.price_rozn %}
+        <div id="p_price">
+            {% if position.price_rozn %}
+                <div class="one" id="rozn">
+                    <span>{{ position.price_rozn|safe|floatformat }} руб.</span> розница
+                </div>
+            {% endif %}
+    <!--         {% if position.price_opt %}
+                <div class="two" id="opt">
+                    <span>{{ position.price_opt|safe }} руб.</span> опт
+                </div>
+            {% endif %} -->
+        </div>
+    {% endif %}
+
+    <div class="clear"></div>
+	{% if user.is_staff and aphaline_edit_mode %}
+    <span><a href="#" 
+	    aph-adder="yes" 
+	    aph-model="Pictures"         
+	    aph-initial="model=Pictures, relaition_id={{ position.id }}" class="adder_link">Добавить фото
+	    </a>
+	</span>
+	{% endif %}
+    
+</div>
+
+{% endblock %}

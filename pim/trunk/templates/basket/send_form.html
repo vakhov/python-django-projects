@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Заказ №{{ num_order }}  с сайта pim66.ru</title>
+	</head>
+<body>
+<h1>Заказ №{{ num_order }}  с сайта pim66.ru</h1>
+{% if name %}
+	<p><b>Имя:</b> {{ name }}</p>
+{% endif %}
+{% if email %}
+	<p><b>E-mail:</b> {{ email }}</p>
+{% endif %}
+{% if phone %}
+	<p><b>Телефон:</b> {{ phone }}</p>
+{% endif %}
+<p><b>Адрес:</b>	{% if index %}{{ index }}, {% endif %}
+			{% if city %}г.{{ city }}, {% endif %}
+			{% if street %} ул.{{ street }}, {% endif %}
+			{% if house %}д.{{ house }}, {% endif %}
+			{% if apartment %}кв.{{ apartment }}, {% endif %}
+</p>
+{% if comment %}
+	<p><b>Комментарий:</b> {{ comment }}</p>
+	<hr />
+{% endif %}
+    <table width="100%" border="0" cellspacing="0" id="basket_table">
+    	<tr align="center">
+    		<th align="left">Артикул</th>
+            <th>Наименование</th>
+    		<th>Размер, цена (руб)</th>
+    		<th>Кол-во</th>
+    		<th>Сумма (руб)</th>
+    	</tr>
+	    {% for position in basket %}
+	    <tr align="center">
+	    	<th align="left">{{ position.product.article }}</th>
+            <td><a href="http://pim66.ru{{ position.url }}">{{ position.product.name }}</a></td>
+	    	<td>
+	    		{% if not position.sizes_list %}
+	    			{{ position.price }}
+	    		{% else %}
+	    				{% for pricing in position.pricing_list %}
+		    				{% if pricing.size.id == position.current_size_id %}
+			    				{{ pricing.size.st }} — {{ pricing.discounted }}
+                            {% endif %}
+		    			{% endfor %}
+	    		{% endif %}
+	    	</td>
+	    	<td>
+				{{ position.count }} шт.
+            </td>
+	    	<td>
+	    		{{ position.summary }}
+	    	</td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	<p style="border-bottom: 1px solid #ccc; padding: 10px 5px; margin-top: 0; text-align: center">Итого {{ basket_info.summary_count }} шт. на сумму {{ basket_info.summary_price }} руб.</p>
+</body>
+</html>

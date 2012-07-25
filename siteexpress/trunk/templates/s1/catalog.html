@@ -1,0 +1,68 @@
+{% extends "s1/layout.html" %}
+{% block site %}
+<div class="right append-1 prepend-1 span-22 last prepend-top">
+    <p style="margin-left: -0.7em;">&laquo;&nbsp;<a href="/">На главную страницу</a></p>
+    <ul id="catalog_body" class="clearfix">
+    {% if catalog %}
+        {% for c in catalog %}
+        <li id="position-{{ c.id }}">
+            <div class="image">
+                <a href="item-{{ c.id }}/">
+                {% if c.images %}
+                    <img src="{{ c.images_path }}" alt="{{ c.images_alt }}" />
+                {% else %}
+                    <img src="/static/images/not_loaded.gif" alt="Изображение не загружено" />
+                {% endif %}
+                </a>
+            </div>
+            <div class="header"><a href="item-{{ c.id }}">{{ c.caption }}</a></div>
+            <div class="price">{{ c.price_rozn }} руб.</div>
+            {% if not c.is_exists %}
+                <div class="price" style="font-weight: bold;">НЕТ В НАЛИЧИИ</div>
+            {% endif %}
+            <div class="description">{{ c.desc_short }}</div>
+            <div class="in_basket">В корзине: {{ c.count_in_basket }}</div>
+        </li>
+        {% endfor %}
+    {% endif %}
+    <li class="clear" style="height: 2em; border: none;"></li>
+    </ul>
+    <br />
+    <p class="pagination" id="catalogue-pager">Страницы: <a href="#">1</a><a href="#">2</a><a href="#">3</a><span>4</span><a href="#">5</a><a href="#">6</a></p>
+        {% if pagination.num_pages > 1 %}
+    <h2>Страницы
+        <span class="pager_links">
+            {% if not pagination.previous_page %}
+                <span class="prev"><em>Предыдущая</em></span>
+            {% else %}
+                {% ifnotequal pagination.previous_page 1 %}
+                    <a href="/catalogue/page-{{ pagination.previous_page }}/" class="prev"><em>Предыдущая</em></a>
+                {% else %}
+                    <a href="/catalogue/" class="prev"><em>Предыдущая</em></a>
+                {% endifnotequal %}
+            {% endif %}
+            <ins>&nbsp;</ins>
+            {% if not pagination.next_page %}
+                <span class="next"><em>Следующая</em></span>
+            {% else %}
+                <a href="/catalogue/page-{{ pagination.next_page }}/" class="next"><em>Следующая</em></a>
+            {% endif %}
+        </span>
+    </h2>
+
+    <ul class="pager_list">
+        {% for p in pagination.page_range %}
+            {% ifequal p pagination.current_page %}
+                <li class="cur"><strong>{{ p }}</strong></li>
+            {% else %}
+                {% ifnotequal p 1 %}
+                    <li><a href="/catalogue/page-{{ p }}/"><span>{{ p }}</span></a></li>
+                {% else %}
+                    <li><a href="/catalogue/"><span>{{ p }}</span></a></li>
+                {% endifnotequal %}
+            {% endifequal %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+{% endblock %}

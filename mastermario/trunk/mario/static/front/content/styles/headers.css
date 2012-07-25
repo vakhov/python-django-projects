@@ -1,0 +1,62 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage Headers
+ */
+
+/** @section Headers */
+
+h1, h2, h3, h4, span.h1, span.h2, span.h3, span.h4 {
+    display: block;
+    margin: 0 0 15px 0;
+    padding-bottom: 3px;
+    line-height: 1.1em;
+    font-weight: normal;
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    zoom: 1;
+}
+
+h1, span.h1 {
+    margin: 0 0 20px 0;
+    font-size: 2.14em;
+    border-color: #ef4628;
+}
+
+h2, span.h2 {
+    font-size: 1.57em;
+    border-color: #f89110;
+}
+
+.h__blue {
+    border-color: #076eef;
+}
+
+.h__light_blue {
+    border-color: #10b9d8;
+}
+
+.h__black {
+    border-color: #000000;
+}
+
+.h__green {
+    border-color: #33cc33;
+}
+
+h3, span.h3 {
+    line-height: 1.3125em;
+    font-size: 1.142em;
+    font-weight: bold;
+    font-style: italic;
+    border-color: #b7b7b7;
+    border-width: 0 0 1px 0;
+}
+
+h4, span.h4 {
+    padding-bottom: 2px;
+    line-height: 1.416em;
+    font-size: 1em;
+    font-weight: bold;
+    border-color: #b7b7b7;
+    border-width: 0 0 1px 0;
+}

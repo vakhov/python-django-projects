@@ -1,0 +1,30 @@
+#header {
+	height: 200px;
+}
+
+#logo {
+	margin-left: 25px;
+}
+
+.header_box, .header_box_bg {
+	right: 0;
+	top: 0;
+	height: 50px;
+	padding: 1.4em 1em 32px 1em;
+	margin-top: 50px;
+	width: 15em;
+	text-align: right;
+}
+.header_box_bg {
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+}
+
+.left {
+	padding-left: 2em;
+}
+
+#ie6 #key { display: none !important; }
+

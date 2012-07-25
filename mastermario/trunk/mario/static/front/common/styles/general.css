@@ -1,0 +1,281 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage General
+ */
+
+/** @section Page */
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 21px 0 8px;
+    min-height: 100%;
+}
+.ie-lt7 body {
+    height: 100%;
+}
+
+.bgFixed {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 9999em;
+}
+
+.bgFixed_relative {
+    padding: 0 21px 0 8px;
+    height: 100%;
+}
+.bgFixed_relative .dynamicWidth {
+    height: 100%;
+}
+
+.resizeWrapper {
+    position: relative;
+    padding-top: 173px;
+    padding-bottom: 280px;
+}
+
+.dynamicWidth {
+    margin: 0 auto;
+    padding-left: 42px;
+    min-width: 919px;
+    max-width: 1529px;
+    background: #fff;
+}
+
+.ie-lt7 .dynamicWidth {
+    width: expression((document.compatMode && document.compatMode == 'CSS1Compat')
+		?
+		(
+			document.documentElement.clientWidth < 919
+			?
+			"919px"
+			:
+			(
+				document.documentElement.clientWidth > 1529
+				?
+				"1529px"
+				:
+				"100%"
+			)
+		)
+		:
+		(
+			document.body.clientWidth < 919
+			?
+			"919px"
+			:
+			(
+				document.body.clientWidth > 1529
+				?
+				"1529px"
+				:
+				"100%"
+			)
+		)
+	);
+    zoom: 1;
+}
+
+/** @section MainContent */
+.content {
+    padding: 0 1.43% 0 17px;
+    border-left: 1px dashed #b7b7b7;
+}
+
+/** @section MainFrame */
+.mainframe {
+    width: 100%;
+}
+
+.mainframe .mf_col {
+    padding: 20px 3.9% 20px 3.9%;
+    vertical-align: baseline;
+}
+
+.mainframe .mf_col_25 {
+    width: 17.2%;
+}
+
+.mainframe .mf_col_50 {
+    width: 42.2%;
+}
+
+.mainframe .mf_col_75 {
+    width: 67.2%;
+}
+
+.mainframe .mf_col_100 {
+    width: 92.2%;
+}
+
+.mainframe .mf_col_big_right {
+    padding-right: 0;
+    width: 21.1%;
+}
+
+.mainframe .mf_border {
+    border-left: 1px dashed #b7b7b7;
+}
+
+.mainframe .mf_border_top {
+    border-top: 1px dashed #b7b7b7;
+}
+
+.mainframe .mf_border_bottom {
+    border-bottom: 1px dashed #b7b7b7;
+}
+
+.mainframe .mf_first {
+    padding: 20px 3.9% 20px 0;
+    border-left: 0 !important;
+}
+
+/** @section InnerFrame */
+.inner_frame {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+table.border_bottom {
+    border-bottom: 1px dashed #ccc;
+}
+
+.inner_frame td {
+    padding: 0 8% 20px 0 !important;
+    vertical-align: top;
+}
+
+.inner_frame td.if_col_33 {
+    width: 25%;
+}
+
+.inner_frame td.if_col_50 {
+    width: 42%;
+}
+
+/** @section path */
+
+.path {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.path li {
+    float: left;
+    margin-right: 8px;
+    padding: 0 13px 0 2px;
+    font-size: 0.857em;
+    background: url('../images/path.png') right 5px no-repeat;
+    color: #333333;
+}
+
+.path li.cur {
+    padding-right: 0;
+    background: none;
+}
+
+/** @section left menu */
+
+.leftMenu_group p {
+    margin-bottom: 10px;
+    line-height: 1.225em;
+    font-size: 1.07em;
+    font-weight: bold;
+}
+
+.leftMenu_group p a {
+    padding-right: 10px;
+    border-bottom: 0;
+    background-image: url('../images/left_menu_group.png');
+    background-repeat: no-repeat;
+}
+
+.leftMenu .leftMenu_group p a {
+    background-position: right -16px;
+}
+
+.leftMenu .leftMenu_group p a:hover {
+    background-position: right -66px;
+}
+
+.leftMenu .group_hide p a {
+    background-position: right 9px;
+}
+
+.leftMenu .group_hide p a:hover {
+    background-position: right -41px;
+}
+
+.leftMenu_group p a span {
+    color: #000;
+    border-bottom: 1px dashed #000;
+}
+
+.leftMenu_group p a:hover span {
+    color: #EF4426;
+    border-bottom: 1px dashed #EF4426;
+}
+
+.leftMenu .group_hide ul {
+    display: none;
+}
+
+.leftMenu_group ul {
+    margin: 0 0 30px 0;
+}
+
+.leftMenu_group ul ul {
+    display: none;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.leftMenu_group ul li {
+    position: relative;
+    padding: 5px 6px 5px 22px;
+    line-height: 1.3em;
+    font-size: 1.071em;
+}
+
+.leftMenu_group ul li li {
+    font-size: 1em;
+}
+
+.leftMenu_group ul li.cur {
+    padding: 0 0 0 13px;
+}
+
+.leftMenu_group ul li.cur span {
+    padding: 5px 9px;
+    background: #ffd90c;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.leftMenu_group ul li ins {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 11px;
+    width: 9px;
+    height: 9px;
+    background: url('../images/left_menu.png') -25px 0 no-repeat;
+    cursor: pointer;
+}
+
+.leftMenu_group ul li.show ins {
+    background: url('../images/left_menu.png') 0 -25px no-repeat;
+}
+
+.leftMenu_group ul li.show ul {
+    display: block;
+}

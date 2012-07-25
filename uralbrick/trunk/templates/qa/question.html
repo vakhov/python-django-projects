@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block site %}
+<body>
+
+<ul class="illustrations">
+    <li>
+        <img src="{{ STATIC_URL }}Front/Common/Images/Illustrations/1.jpg" alt="" />
+    </li>
+</ul>
+
+<div class="site widthFixed">
+    {% include "generic/crumbs.html" %}
+    <div class="container">
+        <h1>Вопрос-ответ</h1>
+        <div class="qa_tags">
+            <span class="name colored_bgColor">{{ question.date_publication }}, {{ question.author }}</span>
+            <span class="title">Метки</span>
+            <span class="list">
+                {% for tag in question.tag.all %}
+                    <a href="{{ current_section.path }}/tag/{{ tag.slug }}/">{{ tag.name }} {% if not forloop.last %},{% endif %}</a>
+                {% endfor %}
+            </span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h3 class="colored_border">Вопрос</h3>
+                {{ question.question }}
+            <h3 class="colored_border">Ответ</h3>
+                {{ question.answer }}
+            <p><b>С уважением, {{ question.moderator }}, {{ question.position }}</b></p>
+            <!-- <h3 class="colored_border">Похожие вопросы</h3>
+            <ul>
+                <li><a href="#">Как выбрать керамогранит?</a></li>
+                <li><a href="#">Как укладывать линолем?</a></li>
+                <li><a href="#">Почему нельзя класть ламинат на линолеум?</a></li>
+            </ul> -->
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

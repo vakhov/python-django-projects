@@ -1,0 +1,43 @@
+#adminblock,
+#adminblock * {
+    cursor: pointer;
+}
+
+#adminblock {
+    position: absolute;
+    z-index: 1550;
+    display: none;
+    background-color: #234;
+    opacity: 0.7;
+}
+
+#adminbutton {
+    position: absolute;
+    z-index: 2000;
+    display: none;
+    height: 40px;
+}
+
+#adminbutton div {
+    float: left;
+    height: 40px;
+    width: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.7;
+    display: none;
+}
+
+#adminbutton #aph-button-go {
+    background-color: #ccc;
+    background-image: url(/static/images/aphaline/legacy/go.png);
+}
+#adminbutton #aph-button-edit {
+    background-color: #dfdfdf;
+    background-image: url(/static/images/aphaline/legacy/edit.png);
+}
+#adminbutton #aph-button-delete {
+    background-color: #111;
+    background-image: url(/static/images/aphaline/legacy/delete.png);
+}

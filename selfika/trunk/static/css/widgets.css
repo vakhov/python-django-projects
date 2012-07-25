@@ -1,0 +1,91 @@
+/* Grids */
+
+.widget.grid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.widget.grid td {
+    vertical-align: top;
+    margin: 0;
+    padding: 0 2.5% 0 0;
+}
+
+.widget.grid td:last-child {
+	padding: 0;
+}
+
+.grid__width_25 {
+    width: 25%;
+}
+.grid__width_33 {
+    width: 33%;
+}
+.grid__width_50 {
+    width: 50%;
+}
+.grid__width_66 {
+    width: 66%;
+}
+.grid__width_75 {
+    width: 75%;
+}
+.grid__width_100 {
+    width: 100%;
+}
+
+/* Text */
+.widget.text.cite {
+	padding: 1.5em;
+	background: #f0f0f0;
+	font-style: italic;
+}
+.widget.text.remark {
+    padding-left: 1.5em;
+    border-left: 3px solid #ccc;
+}
+
+
+/* CharsTable */
+.chars_table {
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: inherit;
+}
+
+.chars_table th {
+    padding-right: 50px;
+    text-align: left;
+    font-weight: normal;
+    background: url('/static/images/chars_td.gif') left 15px repeat-x;
+}
+
+.chars_table th span {
+    padding-right: 3px;
+    background: #fff;
+}
+
+.chars_table th, .chars_table td {
+    padding-bottom: 5px;
+    vertical-align: top;
+    line-height: 21px;
+}
+
+.chars_table td {
+    padding-left: 3px;
+    width: 36%;
+}
+
+/* HR */
+hr {
+	border: 0;
+	border-top: 1px solid #bbb;
+	margin: 1em 0;
+}
+
+/* IMG */
+
+.widget.img {
+	text-align: center;
+}

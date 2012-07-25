@@ -1,0 +1,61 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage LandingPage
+ */
+
+.landingPage {
+    padding-left: 25%;
+    min-height: 600px;
+}
+
+.ie-lt7 .landingPage {
+    height: 600px;
+}
+
+.landingButton {
+    position: relative;
+    margin-bottom: 45px;
+    height: 84px;
+    background: url('../images/landing_button.png') repeat-x;
+}
+
+.landingButton .def {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    margin-left: -26px;
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    line-height: 50px;
+    background: url('../images/landing_def.png') no-repeat;
+}
+
+.landingButton .buy_now, .landingButton .learn_more {
+    position: absolute;
+    left: 50%;
+    top: 28px;
+    font-family: Tahoma;
+    font-size: 1.714em;
+}
+
+.landingButton a {
+    text-shadow: 0 1px 0 #fff;
+    border-width: 0 0 2px 0;
+    border-bottom-style: dotted;
+}
+
+.landingButton a:hover {
+    color: #000;
+    border-color: #000;
+}
+
+.landingButton .buy_now {
+    margin-left: -215px;
+    width: 165px;
+}
+
+.landingButton .learn_more {
+    margin-left: 50px;
+    width: 170px;
+}

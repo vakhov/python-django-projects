@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/jquery.jstree.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jstree/_lib/jquery.hotkeys.js"></script>
+{% endblock %}
+
+{% block site %}
+
+{% if user.is_staff and user == document.owner %}
+<div id="structure">
+    {% include "tree.html" %}
+</div>
+{% else %}
+<div id="index">
+    {% load vars %}
+    {% assign tree document.get_parts_tree %}
+    {% include "tree_user.html" %}
+</div>
+{% endif %}
+
+<div id="document">
+    {% block document %}
+        {{ part }}
+    {% endblock %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "articles/article_layout.html" %}
+
+{% block article_content %}
+
+    <h1>{{ article.caption }}</h1>
+
+    {% load zones %}
+    {% render_zone article.zone %}
+
+    <ul class="path">
+        <li><a href="/" hashed_link>Главная</a></li>
+        <li><a href="/articles/" hashed_link>Статьи</a></li>
+        <li><a href="/articles/{{ section.name }}/" hashed_link>{{ section.caption }}</a></li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+﻿/**
+ * @package MarioCss
+ * @subpackage CommonStyles
+ */
+
+.clear {
+	clear: both;
+}
+
+.inlineBlock {
+	display: inline-block;
+}
+
+/**
+ * @section Contexts
+ */
+
+.context_novis {
+	overflow: hidden;
+	position: relative;
+}
+
+.context_nopos {
+	display: table-cell;
+}
+
+.context_vis:after {
+	clear: both;
+	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+	display: block;
+	font-size: xx-large;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.context_pseudo:after, .context_pseudo:before {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+/** @section ieOnly */
+
+.ie-lt7 .inlineBlock {
+	display: inline;
+	zoom: 1;
+}
+
+.ie-lt8 .context_novis, .ie-lt8 .context_nopos, .ie-lt8 .context_pseudo {
+	zoom: 1;
+}
+
+.ie-lt9 .ie-layout {
+	zoom: 1;
+}

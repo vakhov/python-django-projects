@@ -1,0 +1,92 @@
+.clear {
+	clear: both;
+}
+
+/** @section PagerList */
+.pager_list {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.pager_list li {
+    background: none !important;
+    padding: 0 !important;
+    margin: 5px 5px 0 0 !important;
+    float: left;
+    border: 1px solid #ddd;
+}
+.pager_list li a,
+.pager_list li strong {
+    display: inline-block;
+    padding: 3px 9px;
+    /*text-decoration: none;*/
+}
+
+.pager_list .cur {
+    background: #ddd !important;
+}
+
+/** @section CharsTable */
+.chars_table {
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.chars_table th {
+    padding-right: 30px;
+    text-align: left;
+    font-weight: normal;
+    background: url('/static/img/chars_td.gif') left 15px repeat-x;
+}
+
+.chars_table th span {
+    padding-right: 3px;
+    background: #fff;
+}
+
+.chars_table th, .chars_table td {
+    padding-bottom: 5px;
+    vertical-align: top;
+    line-height: 21px;
+}
+
+.chars_table td {
+    padding-left: 3px;
+    width: 30%;
+}
+
+.just_image {
+     margin-bottom: 10px;
+}
+
+#text_submenu {
+	margin: 0 !important;
+	padding: 5px 10px !important;
+	background: #f0f0f0;
+}
+#text_submenu li {
+	display: inline-block;
+	padding: 5px 10px !important;
+	background: none !important;
+}
+
+/* img {
+	display:block; margin:0 auto;
+}
+ */
+ 
+.crumbs {
+	display: block;
+	padding-bottom: 10px;
+	font-size: 82%;
+}
+
+.adder_link {
+	display: inline-block;
+	padding: 5px 10px 5px 25px;
+	margin: 3px;
+	background: url(/static/images/aphaline/legacy/add.png) 0 50% no-repeat;
+	background-position: 3px;
+	border: 1px solid #ccc;
+}
+

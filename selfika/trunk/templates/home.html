@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block site %}
+
+<header>
+    Добро пожаловать, {{ user }}
+    (<a href="/logout/" class="exit">выйти</a>)
+</header>
+
+<div id="home" class="padded">
+    
+    {% if documents %}
+    <h2>Ваши пособия:</h2>
+    <div class="document_list">
+        {% for document in documents %}
+        <a class="document_item" href="/document/{{ document.id }}/">{{ document.caption }}</a>
+        {% endfor %}
+        <div class="clear"></div>
+    </div>
+    
+    {% else %}
+    <h2>Вы пока не создали пособий</h2>
+    {% endif %}
+    
+    <div class="create_document">
+        <a href="#" id="create_document">Создать пособие</a>
+    </div>
+    
+    <script>
+        $('#create_document').click(function() {
+        	var name = prompt('Введите название пособия');
+        	if (name) {
+        		$.get('/api/documents/create/', { caption: name }, function(data) {
+        			window.location.reload();
+        		});
+        	}
+        });
+    </script>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,332 @@
+{% extends 'layout.html' %}
+
+{% block site %}
+{% load zones %}
+<body>
+
+<ul class="illustrations">
+    <li id="illustration_1">
+        {% if catalog.big_blurry_picture %}
+        <img src="{{ catalog.big_blurry_picture.url }}" alt=""/>
+        {% else %}
+        <img src="{{ MEDIA_URL }}{{ background }}" alt=""/>
+        {% endif %}
+        <ins></ins>
+    </li>
+</ul>
+
+<div class="site widthFixed">
+	{% include "generic/crumbs.html" %}
+    <div class="container content">
+        {% render_zone catalog.zone_title %}
+
+        <div class="filter_list context_novis">
+            <!-- <span class="filter_list_item">
+                <a href="#" class="colored_bgColor color_filter_link">
+                    Выбрать цвет
+                    <ins></ins>
+                </a>
+            </span>
+            <span class="filter_list_item">
+                <a href="#" class="colored_bgColor price_filter_link">
+                    Цена плитки
+                    <ins></ins>
+                </a>
+            </span>
+            <span class="filter_list_item">
+                <a href="#" class="colored_bgColor purpose_filter_link">
+                    Для чего плитка?
+                    <ins></ins>
+                </a>
+            </span> -->
+            <span class="filter_list_item filter_list_item__redirect">
+                <a href="#" class="colored_bgColor">
+                    Узнать больше
+                    <ins></ins>
+                </a>
+            </span>
+            <!-- <span class="filter_list_item"><a href="#">Сбросить поиск</a></span> -->
+        </div>
+    </div>
+    
+    <!-- <div class="color_filter filter_container container container__black">
+        <div class="context_novis">
+            <div class="color_filter_item color_filter_item__black" style="background-color: #660000;">
+                <a href="#" name="color_12" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_23" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black" style="background-color: #660000;">
+                <a href="#" name="color_14" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_25" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black" style="background-color: #660000;">
+                <a href="#" name="color_16" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_27" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black" style="background-color: #660000;">
+                <a href="#" name="color_18" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_29" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black filter_disable" style="background-color: #660000;">
+                <a href="#" name="color_10" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_22" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black" style="background-color: #660000;">
+                <a href="#" name="color_1234" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_4352" value="yellow"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__black filter_disable" style="background-color: #660000;">
+                <a href="#" name="color_5461" value="red"></a>
+            </div>
+            <div class="color_filter_item color_filter_item__white" style="background-color: #ffcc00;">
+                <a href="#" name="color_4562" value="yellow"></a>
+            </div>
+        </div>
+        <div class="showMore colored_bgColor">
+            <a href="#"><span class="virtualLink">Показать еще <ins></ins></span></a>
+        </div>
+    </div>
+
+    <div class="price_filter filter_container container container__black">
+        <div class="rangeInput">
+            <div class="rangeInput_line"></div>
+            <div class="rangeInput_left">300 P</div>
+            <div class="rangeInput_right">25000 P</div>
+            <input type="hidden" class="min" value="1400" rel="300" />
+            <input type="hidden" class="max" value="15600" rel="25000" />
+        </div>
+        <div class="showMore colored_bgColor">
+            <a href="#"><span class="virtualLink">Показать еще <ins></ins></span></a>
+        </div>
+    </div>
+    
+    <div class="purpose_filter filter_container container container__black">
+        <ul class="checkbox_filter context_novis">
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Для ванной комнаты</span>
+                    <input type="hidden" name="vannq" value="true"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox filter_disable">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Напольная</span>
+                    <input type="hidden" name="floorq" value="false"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Для ванной комнаты</span>
+                    <input type="hidden" name="vann2" value="true"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Напольная</span>
+                    <input type="hidden" name="floor2" value="false"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox filter_disable">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Для ванной комнаты</span>
+                    <input type="hidden" name="vann234" value="true"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Напольная</span>
+                    <input type="hidden" name="floor234" value="false"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Для ванной комнаты</span>
+                    <input type="hidden" name="vann65" value="true"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Напольная</span>
+                    <input type="hidden" name="floor2" value="false"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Для ванной комнаты</span>
+                    <input type="hidden" name="vann45" value="true"/>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="inlineBlock pseudoCheckbox">
+                    <ins class="colored_bgColor"></ins>
+                    <span class="inlineBlock">Напольная</span>
+                    <input type="hidden" name="floor6" value="false"/>
+                </a>
+            </li>
+        </ul>
+        <div class="showMore colored_bgColor">
+            <a href="#"><span class="virtualLink">Показать еще <ins></ins></span></a>
+        </div>
+    </div> -->
+    
+    {% if products %}
+	    <div class="container">
+		        <div class="grid context_vis">
+		        {% for product in products %}
+			            <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+			                <dl class="catalogItem">
+			                    <dd class="photo">
+			                    	{% if set %}
+			                    		<a href="{{ product.get_url }}/"><img src="{{ product.picture.all.0.get_image.1 }}" alt="" /></a>
+			                    	{% else %}
+			                        	<a href="{{ product.get_url }}"><img src="{{ product.picture.all.0.get_image.1 }}" alt="" /></a>
+			                    	{% endif %}
+						<ins class="colored_border"></ins>
+			                    </dd>
+			                    {% if product.name %}
+				                    <dt>
+				                    	{% if set %}
+					                    	<a href="{{ current_section }}{{ catalog.slug }}/set-{{ product.slug }}/">{{ product.name }}</a>
+				                    	{% else %}
+					                        <a href="{{ product.get_url }}">{{ product.name }}</a>
+				                    	{% endif %}
+				                    </dt>
+				                {% endif %}
+				                {% if product.price %}
+				                    <dd class="price">
+				                        <span>{{ product.price }} <em>Р<i>&nbsp;</i></em>&nbsp;{% if product.unit %}/&nbsp;{{ product.get_unit|safe }}{% endif %}</span>
+				                    </dd>
+				                {% endif %}
+				                {% if product.desc_short %}
+			                    	<dd class="desc">{{ product.desc_short }}</dd>
+			                    {% endif %}
+			                </dl>
+			            </div>
+		            {% endfor %}
+		        </div>
+ 	        <div class="showMore colored_bgColor">
+	            <a href="#"><span class="virtualLink">Показать еще</span></a>
+	        </div>
+	    </div>
+    {% endif %}
+    
+    {% if catalog.zone_medium_one.widget_set.all or aphaline_edit_mode %}
+	    <div class="container content">
+			{% render_zone catalog.zone_medium_one %}
+		</div>
+	{% endif %}
+    
+    {% if catalog.zone_medium_two.widget_set.all or aphaline_edit_mode %}
+	    <div class="container content">
+	    	{% render_zone catalog.zone_medium_two %}
+	    </div>
+	{% endif %}
+    
+    {% if types_a %}
+    <div class="container content">
+    	{% if catalog.type_a_name %}
+    		<h2>{{ catalog.type_a_name }}</h2>
+    	{% else %}
+    		<h2>Типы</h2>
+    	{% endif %}
+        <div class="grid context_vis">
+        {% for type in types_a %}
+            <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+                <dl class="catalogList_item">
+                    <dd class="photo"><a href="{{ current_section }}{{ catalog.slug }}/{{ type.slug }}/">
+                        {% if type.medium_thumb %}
+			    <img src="{{ type.medium_thumb.url }}" alt="" />
+			    <ins class="colored_border"></ins>
+                        {% endif %}
+                    </a></dd>
+                    <dt><a href="{{ current_section }}{{ catalog.slug }}/{{ type.slug }}/">
+                        {{ type.name }}
+                    </a></dt>
+                    <dd class="desc">
+                        {{ type.description }}
+                    </dd>
+                </dl>
+            </div>                
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if types_b %}
+    <div class="container content">
+    	{% if catalog.type_b_name %}
+    		<h2>{{ catalog.type_b_name }}</h2>
+    	{% else %}
+    		<h2>Типы</h2>
+    	{% endif %}
+        <div class="grid context_vis">
+        {% for type in types_b %}
+            <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+                <dl class="catalogList_item">
+                    <dd class="photo"><a href="{{ current_section }}{{ catalog.slug }}/{{ type.slug }}/">
+                        {% if type.medium_thumb %}
+			    <img src="{{ type.medium_thumb.url }}" alt="" />
+			    <ins class="colored_border"></ins>
+                        {% endif %}
+                    </a></dd>
+                    <dt><a href="{{ current_section }}{{ type.slug }}/{{ catalog.slug }}/">
+                        {{ type.name }}
+                    </a></dt>
+                    <dd class="desc">
+                        {{ type.description }}
+                    </dd>
+                </dl>
+            </div>                
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if manufacturers %}
+    <div class="container content">
+        <h2>Производители</h2>
+        <div class="grid context_vis">
+        {% for m in manufacturers %}
+            <div class="grid__width_33 {% if forloop.counter0 != 0 and not forloop.counter0|divisibleby:'3' %}grid__margin{% endif %}">
+                <dl class="catalogList_item">
+                    <dd class="photo"><a href="{{ current_section }}{{ catalog.slug }}/{{ m.slug }}/">
+                        {% if m.medium_thumb %}
+			    <img src="{{ m.medium_thumb.url }}" alt="" />
+			    <ins class="colored_border"></ins>
+                        {% endif %}
+                    </a></dd>
+                    <dt><a href="{{ current_section }}{{ m.slug }}/{{ catalog.slug }}/">
+                        {{ m.name }}
+                    </a></dt>
+                    <dd class="desc">
+                        {{ m.description }}
+                    </dd>
+                </dl>
+            </div>                
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

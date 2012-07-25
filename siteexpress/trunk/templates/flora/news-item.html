@@ -1,0 +1,23 @@
+{% extends "flora/layout.html" %}
+{% block site %}
+{% load zones %}
+
+	{% include "flora/common/index_link.html" %}
+	
+    <div id="news_position">
+        <h3 class="date">{{ news.date|date:"d M Y" }}</h3>
+        <h1>{{ news.caption|safe }}</h1>
+        <div class="desc">
+            <p>
+                {{ news.text|safe }}
+            </p>
+        </div>
+        
+	    {% render_zone news.zone %}
+        <br />
+        <p>
+            <a class="back" href="/news/">Вернуться к списку новостей</a>
+        </p>
+    </div>
+
+{% endblock %}
